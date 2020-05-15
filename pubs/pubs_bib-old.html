@@ -1,0 +1,317 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+<head>
+<title>Publications</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="generator" content="bibtex2html">
+<!--<link rel=stylesheet type="text/css" href="../css/desktop.css">-->
+</head>
+
+<body>
+<h1>pubs.bib</h1><a name="amirmoh-skalka-plas16"></a><pre>
+@inproceedings{<a href="pubs.html#amirmoh-skalka-plas16">amirmoh-skalka-plas16</a>,
+  author = {Sepehr Amir-Mohammadian and Christian Skalka},
+  title = {In-Depth Enforcement of Dynamic Integrity Taint Analysis},
+  booktitle = {Programming Languages and Analysis for Security ({PLAS})},
+  year = 2016,
+  month = <a href="#october">october</a>,
+  pdf = {<a href="http://www1.pacific.edu/~samirmoh/pubs/plas16.pdf ">http://www1.pacific.edu/~samirmoh/pubs/plas16.pdf </a>},
+  abstract = {Dynamic taint analysis can be used as a defense against 
+    		low-integrity data in applications with untrusted user interfaces.  
+    		An important example is defense against XSS and injection attacks 
+    		in programs with web interfaces. Data sanitization is commonly used 
+    		in this context,  and can be treated as a precondition for endorsement 
+    		in a dynamic integrity taint analysis.  However, sanitization is often 
+    		incomplete in practice.  We develop a model of dynamic integrity taint 
+    		analysis for Java that addresses imperfect sanitization with an in-depth 
+    		approach.  To avoid false positives, results of sanitization are endorsed 
+    		for access control (aka prospective security), but are tracked and logged 
+    		for auditing and accountability (aka retrospective security). We show how 
+    		this heterogeneous prospective/retrospective mechanism can be specified 
+    		as a uniform policy, separate from code.  We then use this policy to 
+    		establish correctness conditions for a program rewriting algorithm that 
+    		instruments code for the analysis.  The rewriting itself is a model of 
+    		existing, efficient Java taint analysis tools.}
+}
+</pre>
+
+<a name="amirmoh-chong-skalka-post16"></a><pre>
+@inproceedings{<a href="pubs.html#amirmoh-chong-skalka-post16">amirmoh-chong-skalka-post16</a>,
+  author = {Sepehr Amir-Mohammadian and Stephen Chong and Christian Skalka},
+  title = {Correct Audit Logging: Theory and Practice},
+  booktitle = {Principles of Security and Trust ({POST})},
+  year = 2016,
+  month = <a href="#april">april</a>,
+  pdf = {<a href="http://www1.pacific.edu/~samirmoh/pubs/post16.pdf ">http://www1.pacific.edu/~samirmoh/pubs/post16.pdf </a>},
+  abstract = {Retrospective security has become increasingly important to the
+    		 theory and practice of cyber security, with auditing a crucial component
+    		 of it. However, in systems where auditing is used, programs are 
+    		 typically instrumented to generate audit logs using manual, ad-hoc 
+    		 strategies. This is a potential source of error even if log analysis 
+    		 techniques are formal, since the relation of the log itself to program 
+    		 execution is unclear. This paper focuses on provably correct program 
+    		 rewriting algorithms for instrumenting formal logging specifications. 
+    		 Correctness guarantees that the execution of an instrumented program 
+    		 produces sound and complete audit logs, properties defined by an 
+    		 information containment relation between logs and the program's logging 
+    		 semantics. We also propose a program rewriting approach to 
+    		 instrumentation for audit log generation, in a manner that guarantees 
+    		 correct log generation even for untrusted programs. As a case study, we 
+    		 develop such a tool for OpenMRS, a popular medical records management 
+    		 system, and consider instrumentation of break the glass policies.}
+}
+</pre>
+
+<a name="amirmoh-chong-skalka-law15"></a><pre>
+@inproceedings{<a href="pubs.html#amirmoh-chong-skalka-law15">amirmoh-chong-skalka-law15</a>,
+  author = {Sepehr Amir-Mohammadian and Stephen Chong and Christian Skalka},
+  title = {Foundations for auditing assurance},
+  booktitle = {Layered Assurance Workshop (LAW)},
+  year = 2015,
+  month = <a href="#december">december</a>,
+  pdf = {<a href="http://www1.pacific.edu/~samirmoh/pubs/law15.pdf ">http://www1.pacific.edu/~samirmoh/pubs/law15.pdf </a>},
+  abstract = {Retrospective security is an important element of layered 
+    security systems. Auditing is central to the theory and practice of 
+    retrospective security, however, in systems where auditing is used, 
+    programs are typically instrumented to generate audit logs using manual, 
+    ad-hoc strategies. This is a potential source of error even if log auditing
+    techniques are formal, since the relation of the log itself to program 
+    execution is unclear.  This paper focuses on provably correct program 
+    rewriting algorithms for instrumenting formal logging specifications. 
+    Correctness guarantees that execution of an instrumented program produces 
+    sound and complete audit logs,  properties defined by an information 
+    containment relation between logs and the program's logging semantics. As 
+    an application example, we consider auditing for break the glass policies, 
+    wherein authorization is replaced by auditing in emergency conditions.}
+}
+</pre>
+
+<a name="amirmoh-fallah-clss13"></a><pre>
+@article{<a href="pubs.html#amirmoh-fallah-clss13">amirmoh-fallah-clss13</a>,
+  author = {Sepehr Amir-Mohammadian and Mehran S. Fallah},
+  title = {Noninterference in a predicative polymorphic calculus for access control},
+  journal = {Computer Languages, Systems and Structures},
+  year = 2013,
+  month = <a href="#october">october</a>,
+  volume = 39,
+  number = 3,
+  pages = {109-120},
+  issn = {1477-8424},
+  pdf = {<a href="http://www1.pacific.edu/~samirmoh/pubs/clss13.pdf ">http://www1.pacific.edu/~samirmoh/pubs/clss13.pdf </a>},
+  abstract = {Polymorphic programming languages have been adapted for 
+    		constructing distributed access control systems, where a program represents
+	    a proof of eligibility according to a given policy.  As a security 
+    		requirement, it is typically stated that the programs of such languages 
+	    should satisfy noninterference. However, this property has not been defined 
+    		and proven semantically.  In this paper, we first propose a semantics based 
+	    on Henkin models for a predicative polymorphic access control language 
+    		based on lambda-calculus. A formal semantic definition of noninterference 
+	    is then proposed through logical relations.  We prove a type soundness 
+    		theorem which states that any well-typed program of our language meets the
+	    noninterference property defined in this paper.  In this way, it is 
+    		guaranteed that access requests from an entity do not interfere with those 
+	    from unrelated or more trusted entities.}
+}
+</pre>
+
+<a name="amirmoh-chong-skalka-tr15"></a><pre>
+@techreport{<a href="pubs.html#amirmoh-chong-skalka-tr15">amirmoh-chong-skalka-tr15</a>,
+  author = {Sepehr Amir-Mohammadian and Stephen Chong and Christian Skalka},
+  title = {The theory and practice of correct audit logging},
+  institution = {University of Vermont},
+  year = 2015,
+  month = <a href="#october">october</a>,
+  pdf = {<a href="http://www1.pacific.edu/~samirmoh/pubs/TR_Audit.pdf">http://www1.pacific.edu/~samirmoh/pubs/TR_Audit.pdf</a>},
+  abstract = {Auditing has become increasingly important to the theory and 
+	    practice of cyber security. However, in systems where auditing is used, 
+	    programs are typically instrumented to generate audit logs using manual,
+	    ad-hoc strategies. This is a potential source of error even if log  
+	    auditing techniques are formal, since the relation of the log itself to 
+	    program execution is unclear. This work focuses on provably correct 
+	    program rewriting algorithms for instrumenting formal logging 
+	    specifications.  Correctness guarantees that the execution of an 
+	    instrumented program produces sound and complete audit logs, properties 
+	    defined by an information containment relation between logs and the 
+	    program's logging semantics.  Logging semantics is sufficiently general, 
+	    so that the guarantees extend to various approaches of audit logging. As a
+	    case study, we demonstrate the incorporation of the proposed techniques 
+	    and features in healthcare informatics. In particular, we consider 
+	    auditing for break the glass policies, wherein authorization is replaced 
+	    by auditing in emergency conditions.}
+}
+</pre>
+
+<a name="amirmoh-phd-thesis"></a><pre>
+@phdthesis{<a href="pubs.html#amirmoh-phd-thesis">amirmoh-phd-thesis</a>,
+  author = {Sepehr Amir-Mohammadian},
+  title = {A Formal Approach to Combining Prospective and Retrospective Security},
+  school = {The University of Vermont},
+  year = {2017},
+  month = jul,
+  pdf = {<a href="http://www1.pacific.edu/~samirmoh/pubs/phd-thesis.pdf">http://www1.pacific.edu/~samirmoh/pubs/phd-thesis.pdf</a>},
+  abstract = {The major goal of this dissertation is to enhance software security by 
+		provably correct enforcement of in-depth policies. In-depth security 
+		policies allude to heterogeneous specification of security strategies 
+		that are required to be followed \textit{before} and \textit{after} 
+		sensitive operations. Prospective security is the enforcement of 
+		security, or detection of security violations before the execution of 
+		sensitive operations, e.g., in authorization, authentication and 
+		information flow. Retrospective security refers to security checks 
+		after the execution of sensitive operations, which is accomplished 
+		through accountability and deterrence. Retrospective security frameworks 
+		are built upon \emph{auditing} in order to provide sufficient evidence 
+		to hold users accountable for their actions and potentially support 
+		other remediation actions. Correctness and efficiency of audit logs play 
+		significant roles in reaching the accountability goals that are required 
+		by retrospective, and consequently, in-depth security policies. This 
+		dissertation addresses correct audit logging in a formal framework.
+
+		Leveraging retrospective controls beside the existing prospective 
+		measures enhances security in numerous applications. This dissertation 
+		focuses on two major application spaces for in-depth enforcement. The 
+		first is to enhance prospective security through surveillance and 
+		accountability. For example, authorization mechanisms could be improved 
+		by guaranteed retrospective checks in environments where there is a 
+		high cost of access denial, e.g., healthcare systems. The second 
+		application space is the amelioration of potentially flawed prospective 
+		measures through retrospective checks. For instance, erroneous 
+		implementations of input sanitization methods expose vulnerabilities in 
+		taint analysis tools that enforce direct flow of data integrity policies. 
+		In this regard, we propose an in-depth enforcement framework to mitigate 
+		such problems. We also propose a general semantic notion of explicit flow 
+		of information integrity in a high-level language with sanitization. 
+
+		This dissertation studies the ways by which prospective and retrospective 
+		security could be enforced uniformly in a provably correct manner to handle 
+		security challenges in legacy systems. Provable correctness of our results 
+		relies on the formal Programming Languages-based approach that we have 
+		taken in order to provide software security assurance. Moreover, this 
+		dissertation includes the implementation of such in-depth enforcement 
+		mechanisms for a medical records web application.}
+}
+</pre>
+
+<a name="kari-chen-amirmoh-vivek-icnc19"></a><pre>
+@inproceedings{<a href="pubs.html#kari-chen-amirmoh-vivek-icnc19">kari-chen-amirmoh-vivek-icnc19</a>,
+  author = {Chadi Kari and
+               Sixia Chen and
+               Sepehr Amir{-}Mohammadian and
+               Vivek K. Pallipuram},
+  title = {Data Migration in Large Scale Heterogeneous Storage Systems with Nodes
+               to Spare},
+  booktitle = {International Conference on Computing, Networking and Communications,
+               {ICNC} 2019, Honolulu, HI, USA, February 18-21, 2019},
+  publisher = {{IEEE}},
+  year = {2019},
+  month = {February},
+  pdf = {<a href="http://www1.pacific.edu/~samirmoh/pubs/icnc19.pdf">http://www1.pacific.edu/~samirmoh/pubs/icnc19.pdf</a>},
+  abstract = {In large scale storage systems such as data centers,  the layout of data 
+		on storage disks needs to be frequently reconfigured  for load 
+		balancing purposes or in the event of system failure/upgrades. 
+		This reconfiguration event, referred to as \textit{data migration}, 
+		must be completed efficiently as the system tends to perform sub-optimally 
+		during such process. The data-migration problem has been studied extensively 
+		in the literature with efficient algorithms presented for  homogeneous 
+		(all storage disks have similar capabilities)  and heterogeneous 
+		(storage disks can have different capabilities) cases. 
+
+		In this paper, we investigate adding \textit{data forwarding} to existing 
+		algorithms for the heterogeneous data migration problem. In data forwarding, 
+		we introduce additional storage nodes (called bypass nodes) during the 
+		migration process. Our simulations show that  adding as few as 2 bypass 
+		nodes with limited capabilities can improve the performance by up to 15\% 
+		and adding more bypass nodes with heterogeneous capabilities can improve 
+		the migration performance by 25\%. We then present a novel algorithm that 
+		makes intrinsic use of bypass nodes and show that the algorithm can always 
+		achieve an optimal migration schedule while adding no more than 
+		$ \alpha \times n/3$ bypass nodes where $n$ is the numbers of disks and 
+		$\alpha$ is a term defined to reflect the heterogeneity factor of disks.}
+}
+</pre>
+
+<a name="skalka-amirmoh-clark-jcs20"></a><pre>
+@article{<a href="pubs.html#skalka-amirmoh-clark-jcs20">skalka-amirmoh-clark-jcs20</a>,
+  author = {Christian Skalka and
+		Sepehr Amir{-}Mohammadian and
+		Samuel Clark},
+  title = {Maybe tainted data: {T}heory and a case study},
+  journal = {Journal of {C}omputer {S}ecurity},
+  year = 2020,
+  month = {April},
+  volume = 28,
+  number = 3,
+  pages = {295-335},
+  doi = {10.3233/JCS-191342},
+  pdf = {<a href="http://www1.pacific.edu/~samirmoh/pubs/jcs20.pdf ">http://www1.pacific.edu/~samirmoh/pubs/jcs20.pdf </a>},
+  abstract = {Dynamic taint analysis is often used as a defense against 
+		low-integrity data in applications with untrusted user interfaces. 
+		An important example is defense against XSS and injection attacks 
+		in programs with web interfaces. Data sanitization is commonly used 
+		in this context, and can be treated as a precondition for endorsement 
+		in a dynamic integrity taint analysis. However, sanitization is often 
+		incomplete in practice. We develop a model of dynamic integrity taint 
+		analysis for Java that addresses imperfect sanitization with an in-depth 
+		approach. To avoid false positives, results of sanitization are endorsed 
+		for access control (aka prospective security), but are tracked and logged 
+		for auditing and accountability (aka retrospective security). We show how 
+		this heterogeneous prospective/retrospective mechanism can be specified 
+		as a uniform policy, separate from code. We then use this policy to 
+		establish correctness conditions for a program rewriting algorithm that 
+		instruments code for the analysis. These conditions synergize our previous 
+		work on the semantics of audit logging with explicit integrity which is an 
+		analogue of noninterference for taint analysis. A technical contribution of 
+		our work is the extension of explicit integrity to a high-level functional 
+		language setting with structured data, vs. previous systems that only address 
+		low level languages with unstructured data. Our approach considers endorsement 
+		which is crucial to address sanitization. An implementation of our rewriting 
+		algorithm is presented that hardens the OpenMRS medical records software system 
+		with in-depth taint analysis, along with an empirical evaluation of the overhead 
+		imposed by instrumentation. Our results show that this instrumentation is 
+		practical.}
+}
+</pre>
+
+<a name="skalka-amirmoh-clark-tr19"></a><pre>
+@techreport{<a href="pubs.html#skalka-amirmoh-clark-tr19">skalka-amirmoh-clark-tr19</a>,
+  author = {Christian Skalka and
+		Sepehr Amir{-}Mohammadian and
+		Samuel Clark},
+  title = {Technical report: {M}aybetainted data, theory and a case study},
+  institution = {University of Vermont and University of the Pacific},
+  year = 2019,
+  month = {July},
+  pdf = {<a href="http://www1.pacific.edu/~samirmoh/pubs/TR_Taint.pdf">http://www1.pacific.edu/~samirmoh/pubs/TR_Taint.pdf</a>},
+  abstract = {Dynamic taint analysis is often used as a defense against 
+		low-integrity data in applications with untrusted user interfaces. 
+		An important example is defense against XSS and injection attacks 
+		in programs with web interfaces. Data sanitization is commonly used 
+		in this context, and can be treated as a precondition for endorsement 
+		in a dynamic integrity taint analysis. However, sanitization is often 
+		incomplete in practice. We develop a model of dynamic integrity taint 
+		analysis for Java that addresses imperfect sanitization with an in-depth 
+		approach. To avoid false positives, results of sanitization are endorsed 
+		for access control (aka prospective security), but are tracked and logged 
+		for auditing and accountability (aka retrospective security). We show how 
+		this heterogeneous prospective/retrospective mechanism can be specified 
+		as a uniform policy, separate from code. We then use this policy to 
+		establish correctness conditions for a program rewriting algorithm that 
+		instruments code for the analysis. These conditions synergize our previous 
+		work on the semantics of audit logging with explicit integrity which is an 
+		analogue of noninterference for taint analysis. A technical contribution of 
+		our work is the extension of explicit integrity to a high-level functional 
+		language setting with structured data, vs. previous systems that only address 
+		low level languages with unstructured data. Our approach considers endorsement 
+		which is crucial to address sanitization. An implementation of our rewriting 
+		algorithm is presented that hardens the OpenMRS medical records software system 
+		with in-depth taint analysis, along with an empirical evaluation of the overhead 
+		imposed by instrumentation. Our results show that this instrumentation is 
+		practical.}
+}
+</pre>
+
+<hr><p><em>This file was generated by
+<a href="http://www.lri.fr/~filliatr/bibtex2html/">bibtex2html</a> 1.98.</em></p>
+</body>
+</html>

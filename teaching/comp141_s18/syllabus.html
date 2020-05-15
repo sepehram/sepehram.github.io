@@ -1,0 +1,632 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><title>COMP 141 Spring 2018 Syllabus</title>
+<link rel="StyleSheet" href="../../css/desktop.css" type="text/css">
+<link rel="stylesheet" type="text/css" href="./css/phone.css" media="(max-width: 764px)">
+<!--<style type="text/css">
+:root #content > #right > .dose > .dosesingle,
+:root #content > #center > .dose > .dosesingle
+{ display: none !important; }</style> -->
+</head>
+<body>
+<center>
+<h1>COMP 141: Programming Languages</h1>
+</center>
+<hr size="1">
+
+<div align="center"> <a href="#Description">Course Description</a> | <a href="#Admin">Administration</a> | <a href="#Objectives">Learning Objectives</a> | <a href="#Materials">Course Material and Schedule</a> | <a href="#Grading">Grading and Attendance Policy</a> | <a href="#ExamSched">Exams</a> | <a href="#Homework">Assignment Guidelines</a> | <a href="#AcademicHonesty">Academic Honesty</a> | <a href="#Disabilities">Accomodation for Students with Disabilities</a> | <a href="#Nondiscrimination">Nondiscrimination Policy</a>      
+</div><br>
+
+
+
+<a name="Description"></a>
+<h2 align="left">Course Description</h2>
+<p class="firstpara" align="justify">
+Topics in evaluation, design, and development of programming languages. Topics include type systems, variables and scope, functions, parameter passing, data hiding and abstractions, recursion, memory allocation, grammars and parsing, compilers architecture, programming paradigms, and comparison of programming languages and environments.
+</p>
+
+<p class="firstpara" align="justify">
+<b><i>Prerequisites:</i></b> Completion of Fundamental Skills and COMP 053 with a "C-" or better.  <!--Note that these
+are <i>recommendations</i> and may be waived at instructor's discretion. -->
+<br>
+<i>When enrolling in this course, you should be relatively proficient in using some object‐oriented programming languages such as C++, 
+Java or Python. In addition to being a competent programmer, you should have a working understanding of the 
+following specific topics:
+<div class="box" align="justify">
+<ul><ul>
+<li>Pointers and Dynamic Memory Allocation</li>
+<li>Inheritance, Polymorphism, and Templates</li>
+<li>Fundamental Data Structures including vectors, lists, stacks, queues, and trees </li>
+</ul></ul>
+</div>
+</i>
+</p>
+
+<p class="firstpara" align="justify">
+<b><i>Website:</i></b> <a href="./syllabus.html">Syllabus</a>, <a href="http://canvas.pacific.edu">Canvas LMS</a>
+</p>
+
+<p class="firstpara" align="justify">
+<b><i>Credits:</i></b> 4 units
+</p>
+
+<p class="firstpara" align="justify">
+<b><i>Course Catalog:</i></b> <a href="http://catalog.pacific.edu/search/?P=COMP%20141">http://catalog.pacific.edu/search/?P=COMP%20141</a>
+</p>
+
+
+
+
+<font ="+0"="">
+<br><br>
+
+</font>
+
+
+
+<hr size="1">
+<h2 align="left"><a name="Admin">Administration</a></h2>
+<p class="firstpara" align="justify">
+
+<b>Instructor:</b> <a href="http://www1.pacific.edu/~samirmoh">
+Sepehr Amir-Mohammadian</a>
+<br>
+<b>Email:</b>  [at] (samirmohammadian) ([dot] (pacific) (edu))
+<br>
+<b>Lecture:</b> TR 08:00AM - 09:45AM, Anderson Hall 107
+<br>
+<!--<b>Lab:</b> M 3:30PM-6:30PM, CTC 214
+<br>-->
+<b>Office hours:</b>  TR 1:00PM - 3:00PM, CTC 118
+<br>
+<i>Students need to request alternate meeting times outside of scheduled office hours through email.</i>
+<br>
+<br>
+<b>Teaching Assistant:</b> 
+<br>
+<b>Email:</b> <!--[at] () ([dot] (pacific) (edu))-->
+
+
+<font ="+0"="">
+<br><br>
+
+</font>
+
+
+
+<hr size="1">
+<h2 align="left"><a name="Objectives"></a></h2>
+<h2 align="left">Learning Objectives</h2>
+<p class="firstpara" align="justify">
+This course contributes to the following learning outcomes of the computer science program: 
+<div class="box" align="justify">
+<ul><ul> 
+<li> An ability to design computing systems of varying complexity, to evaluate the designs in terms of specified requirements, and to understand the design tradeoffs. </li>
+<li> An ability to develop computing systems of varying complexity in accordance with specified designs and to evaluate the systems in terms of specified requirements. </li>
+<li> An ability to apply elements of mathematics, computer science theory, development methodologies and other foundational knowledge as appropriate in the development of computing applications. </li>
+<li> An ability to select and effectively use appropriate tools and techniques to support all stages of application development. </li>
+<li> An ability to apply good communication skills in a variety of media. </li>
+</ul></ul>
+</div>
+
+<p class="firstpara" align="justify">
+After taking this course, you should be able to:
+<div class="box" align="justify">
+<ul><ul>
+<li>Use multiple programming languages to write simple programs.</li>
+<li>Identify the features that programming languages have in common and the ways that they differ, particularly between the four major programming paradigms.</li>
+<li>Recognize features from known languages when learning a new programming language.</li>
+<li>Describe how the features provided by programming languages are implemented by compilers and interpreters. Consider efficiency and readability in the design choices made while writing code.</li>
+<li>Assess appropriateness of a language for a specific project.</li>
+<li>Conduct research and report on technical information.</li>
+</ul></ul>
+</div>
+</p>
+
+<p class="firstpara" align="justify">
+<b>University of the Pacific Core Competencies:</b> This course contributes to attainment of the following University of the Pacific core competencies: 
+<div class="box" align="justify">
+<ul><ul>
+<li> Critical Thinking </li>
+<li> Information Literacy </li>
+<li> Oral Communication </li>
+<li> Written Communication </li>
+</ul></ul>
+</div>
+</p>
+
+
+
+
+<font ="+0"="">
+<br><br>
+
+</font>
+
+
+
+
+</p><hr size="1"><a name="Materials"></a>
+<h2 align="left">Course Material and Schedule</h2> 
+<p class="firstpara" align="justify">
+We will use the
+textbook <u><i>Programming Languages: Principles and Practice (3rd  Edition) </i></u> by Kenneth C. Louden and Kenneth A. Lambert.  <!--Purchase
+of the textbook provides access to a
+<a href="https://www.pearsonhighered.com/program/Kurose-Computer-Networking-A-Top-Down-Approach-7th-Edition/PGM1101673.html">companion
+website</a> containing all course materials, including powerpoint
+slides, programming assignment descriptions and templates, and other
+resources such as Applets that illustrate core concepts. -->
+<i><b>Purchase of this textbook is mandatory and other texts, including earlier editions of this textbook, will not be supported.</b></i>
+Other course material including the slides, assignments, supplementary material, etc. will be provided through <a href="http://canvas.pacific.edu">Canvas LMS</a>.
+</p>
+
+
+<p class="firstpara" align="justify"> The course schedule is as follows: 
+<table cellspacing="0" border="0">
+	<colgroup width="62"></colgroup>
+	<colgroup width="45"></colgroup>
+	<colgroup width="135"></colgroup>
+	<colgroup width="137"></colgroup>
+	<colgroup span="2" width="135"></colgroup>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="61" align="left" valign=top bgcolor="#FFFFFF" sdnum="1033;0;@"><b><font face="Calibri">Week</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=top bgcolor="#FFFFFF" sdnum="1033;0;@"><b><font face="Calibri">Day </font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=top bgcolor="#FFFFFF" sdnum="1033;0;@"><b><font face="Calibri">Topic</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=top bgcolor="#FFFFFF" sdnum="1033;0;@"><b><font face="Calibri">Homework assignment deadlines</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=top bgcolor="#FFFFFF" sdnum="1033;0;@"><b><font face="Calibri">Project deadlines</font></b></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=top bgcolor="#FFFFFF" sdnum="1033;0;@"><b><font face="Calibri">Technical paper deadlines</font></b></td>
+	</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 height="71" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;@"><font face="Calibri">W1</font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=top sdval="1" sdnum="1033;">1</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top sdnum="1033;0;@">Intro</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=6 align="center" valign=middle sdnum="1033;0;@">HW1: intro, syntax</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;@"><br></td>
+	</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=top sdval="2" sdnum="1033;">2</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top sdnum="1033;0;@">Intro</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top bgcolor="#FFFFFF"><br></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;@"><br></td>
+	</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 height="55" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;@"><font face="Calibri">W2</font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=top sdval="3" sdnum="1033;">3</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top sdnum="1033;0;@">Syntax</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="center" valign=middle sdnum="1033;0;@">P1: Scanner</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;@"><br></td>
+	</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=top sdval="4" sdnum="1033;">4</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top sdnum="1033;0;@">Syntax</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;@"><br></td>
+	</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 height="64" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;@"><font face="Calibri">W3</font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=top sdval="5" sdnum="1033;">5</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top sdnum="1033;0;@">Functional programming</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;@"><br></td>
+	</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=top sdval="6" sdnum="1033;">6</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top sdnum="1033;0;@">Functional programming</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;@"><br></td>
+	</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 height="71" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;@"><font face="Calibri">W4</font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=top sdval="7" sdnum="1033;">7</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top sdnum="1033;0;@">Intro to Parser Project</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="center" valign=middle sdnum="1033;0;@">HW2: Functional programming, semantics</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;@"><br></td>
+	</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=top sdval="8" sdnum="1033;">8</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top sdnum="1033;0;@">Basic Semantics</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=13 align="center" valign=middle sdnum="1033;0;@">P2: Parser</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdnum="1033;0;@"><br></td>
+	</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 height="59" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;@"><font face="Calibri">W5</font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=top sdval="9" sdnum="1033;">9</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top sdnum="1033;0;@">Basic Semantics</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=6 align="center" valign=middle sdnum="1033;0;@">Paper Proposal</td>
+	</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=top sdval="10" sdnum="1033;">10</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top sdnum="1033;0;@">Functional programming</td>
+		</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 height="59" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;@"><font face="Calibri">W6</font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=top sdval="11" sdnum="1033;">11</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top sdnum="1033;0;@">Functional programming</td>
+		</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=top sdval="12" sdnum="1033;">12</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top sdnum="1033;0;@">Data types</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=4 align="center" valign=middle sdnum="1033;0;@">HW3: Functional programming, data <br>types</td>
+		</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 height="55" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;@"><font face="Calibri">W7</font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=top sdval="13" sdnum="1033;">13</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top sdnum="1033;0;@">Data types</td>
+		</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=top sdval="14" sdnum="1033;">14</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top sdnum="1033;0;@">Logic programming</td>
+		</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 height="71" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;@"><font face="Calibri">W8</font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=top sdval="15" sdnum="1033;">15</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top sdnum="1033;0;@">Midterm review</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=7 align="center" valign=middle sdnum="1033;0;@">Paper Outline</td>
+	</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=top sdval="16" sdnum="1033;">16</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top sdnum="1033;0;@">Midterm Exam (W1-7)</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=6 align="center" valign=middle sdnum="1033;0;@">HW4: Logic programming</td>
+		</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 height="55" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;@"><font face="Calibri">W9</font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=top sdval="17" sdnum="1033;">17</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top sdnum="1033;0;@">Spring break</td>
+		</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=top sdval="18" sdnum="1033;">18</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top sdnum="1033;0;@">Spring break</td>
+		</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 height="71" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;@"><font face="Calibri">W10</font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=top sdval="19" sdnum="1033;">19</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top sdnum="1033;0;@">Logic programming</td>
+		</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=top sdval="20" sdnum="1033;">20</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top sdnum="1033;0;@">Control</td>
+		</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 height="87" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;@"><font face="Calibri">W11</font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=top sdval="21" sdnum="1033;">21</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top sdnum="1033;0;@">Control</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=10 align="center" valign=middle sdnum="1033;0;@"><font face="Calibri">P3: Interpreter</font></td>
+		</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=top sdval="22" sdnum="1033;">22</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top sdnum="1033;0;@">Control</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=3 align="center" valign=middle sdnum="1033;0;@"><font face="Calibri">HW5: Control</font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=5 align="center" valign=middle sdnum="1033;0;@">Paper Draft</td>
+	</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 height="55" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;@"><font face="Calibri">W12</font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=top sdval="23" sdnum="1033;">23</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top sdnum="1033;0;@">OOP</td>
+		</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=top sdval="24" sdnum="1033;">24</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top sdnum="1033;0;@">OOP</td>
+		</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 height="55" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;@"><font face="Calibri">W13</font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=top sdval="25" sdnum="1033;">25</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top sdnum="1033;0;@">ADTs</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=4 align="center" valign=middle sdnum="1033;0;@"><font face="Calibri">HW6: OOP, ADTs</font></td>
+		</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=top sdval="26" sdnum="1033;">26</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top sdnum="1033;0;@">ADTs</td>
+		</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 height="55" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;@"><font face="Calibri">W14</font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=top sdval="27" sdnum="1033;">27</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top sdnum="1033;0;@">Presentations</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=4 align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;@"><font face="Calibri">Final Paper</font></td>
+	</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=top sdval="28" sdnum="1033;">28</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top sdnum="1033;0;@">Presentations</td>
+		</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 height="57" align="center" valign=middle bgcolor="#FFFFFF" sdnum="1033;0;@"><font face="Calibri">W15</font></td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=top sdval="29" sdnum="1033;">29</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top sdnum="1033;0;@">Presentations</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top><br></td>
+		</tr>
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=top sdval="30" sdnum="1033;">30</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top sdnum="1033;0;@">Final exam review</td>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=middle bgcolor="#FFFFFF"><font face="Calibri"><br></font></td>
+		</tr>
+</table>
+
+
+</p>
+
+<font ="+0"="">
+<br><br>
+
+</font>
+
+
+
+<hr size="1">
+<a name="Grading"></a><h2 align="left">Grading and Attendance Policy</h2>
+<p class="firstpara" align="justify">
+Grades for the course are assigned on the scale below:
+
+ <table style="width:100%">
+  <tr>
+    <th>A</th>
+    <th>A-</th>
+    <th>B+</th>
+    <th>B</th>
+    <th>B-</th>
+    <th>C+</th>
+    <th>C</th>
+    <th>C-</th>
+    <th>D+</th>
+    <th>D</th>
+    <th>F</th>
+  </tr>
+  <tr>
+    <td align="center">[93,100]</td>
+    <td align="center">[90,93)</td>
+    <td align="center">[87,90)</td>
+    <td align="center">[83,87)</td>
+    <td align="center">[80,83)</td>
+    <td align="center">[77,80)</td>
+    <td align="center">[73,77)</td>
+    <td align="center">[70,73)</td>
+    <td align="center">[67,70)</td>
+    <td align="center">[60,67)</td>
+    <td align="center">[0,60)</td>
+  </tr>
+</table> 
+
+</p>
+
+
+<p class="firstpara" align="justify">
+Final grades will be assigned based on several performance 
+factors.  These factors and their quantitative contribution to 
+the final grade are as follows:
+
+<div class="box" align="justify">
+<ul><ul>
+<li>In-class activities: 20% </li>
+<li>Homework assignments: 20%</li>
+<li>Course projects: 20%</li>
+<li>Technical paper and presentation: 20%</li>
+<li>Midterm exam: 10%</li>
+<li>Final exam: 10%</li>
+</ul></ul>
+</div>
+
+</p>
+
+
+<p class="firstpara" align="justify">
+<b><i>Attendance:</i></b> 
+Class attendance and participation is necessary and expected. There will be numerous activities in class, and these activities cannot be made up outside of class.  Participation requires that you are properly prepared for classroom discussions and activities, and have completed all reading assignments before the relevant class. <b><i>Note that more than three unexcused absences will result in a 10% reduction of the final grade.</i></b>
+
+The only acceptable excuses for missing a class, an assignment due date, or an 
+exam are serious illness, family emergency or important professional, academic or athletic activities. Illness or 
+family emergency may require documentation. Excuses for professional, academic or athletic activities must be 
+approved by the instructor in advance.  
+
+Students missing a class are responsible for making up the material discussed in that class on their own. 
+Students are responsible for being aware of any announcements made during their absence. 
+
+<!--Class attendance is not mandatory, however, regular class attendance is strongly encouraged.  Students who miss class meetings are responsible for keeping up with the class.  The course website and companion Canvas site will be used to assist in instruction. You are responsible for keeping up with lab/homework assignments, lecture notes, announcements, and other materials that may be posted on the course website or sent via email (at your email address posted in Canvas).--><!--Attendance will be checked. <b><i>More 
+than three unexcused attendances will result in a 10% reduction of the final grade. </i></b>-->
+</p>
+
+
+<font ="+0"="">
+<br><br>
+
+</font>
+
+
+<hr 4="">
+
+<font ="+1"=""><a name="ExamSched"></a>
+</font><h2 align="left"><font ="+1"="">Exams</font></h2>
+<p class="firstpara" align="justify">
+Two exams will be conducted during the semester, a midterm and a final. The schedule will be announced in class and content and format will be
+discussed prior to the exams. <i><u>Make up exams will only be scheduled in emergency situations.</u></i></p>
+<font ="+0"=""><font size="-0">
+</font>
+</font>
+<br>
+<br>
+
+<hr 4="">
+
+<font ="+1"=""><a name="Homework"></a>
+</font><h2 align="left"><font ="+1"="">Assignment Guidelines</font></h2>
+<p class="firstpara" align="justify">
+<i><b>Release and Submission:</b></i> Homework assignments, course project descriptions, and technical paper requirements will be released on the course Canvas page with a
+clearly indicated due date.  Solutions may be submitted electronically
+via Canvas, or in class on pencil-and-paper when appropriate.
+Submissions are accepted until 11:59PM on the due date.
+</p>
+<p class="firstpara" align="justify">
+<i><b>Late policy:</b></i> Deliverables will be accepted up 
+to <b><i>three weekdays</i></b> late, with a <i><b>10% per day penalty</i></b>. 
+<br><i><u> All assignments will be considered individual efforts  
+unless otherwise specified, and 
+will be treated as such under <a href="#AcademicHonesty">the Academic Honesty Policy</a></u></i>.
+</p>
+
+<font ="+0"=""><font size="-0">
+</font>
+</font>
+<br>
+<br>
+
+
+<hr 4="">
+<font ="+1"="">
+</font><p><font ="+1"=""><a name="AcademicHonesty">
+</a></font></p><h2 align="left"><font ="+1"="">Academic Honesty</font></h2>
+<!-- OLD!
+<p class="firstpara" align="justify">
+We rigorously enforce the University's policy and procedures as stated in the <a href="http://www.pacific.edu/Documents/student-life/judicialaffairs/Tiger%20Lore%20Code%20of%20Conduct%202016-17.pdf">Honor Code</a>.
+ At the first suspicion of violation of this code, the case will be 
+immediately forwarded to the  Office of Student Conduct and Community Standards.<br>
+<div class="box" align="justify">
+<ul><ul>
+<li>All work is to be an individual effort by default. Group assignments will be explicitly stated as being so.</li>
+<li>Although true research into course topics is encouraged, the course 
+textbook and class notes are the only sanctioned sources of information 
+for homework and exam solutions. <i>In particular, solution sets 
+obtained via unsanctioned means-- from friends, from online, or from 
+taking the course previously-- are <b>not sanctioned</b> and any discovered use of them will be considered a violation of academic integrity</i>.</li>
+<li>The instructor is available for outside help, during office hours,
+by email, and by appointment. </li>
+<li>It is your responsibility to protect your own work. </li>
+<li><i><u>All work that is suspected to violate the Honor Code will be referred directly to the Office of Student Conduct and Community Standards.</u></i></li>
+<li>We recommend that you read University's <a href="http://www.pacific.edu/Documents/student-life/judicialaffairs/Tiger%20Lore%20Code%20of%20Conduct%202016-17.pdf">Honor Code</a>.</li>
+</ul></ul>
+</div>
+
+
+</p>
+-->
+<p class="firstpara" align="justify">
+The Honor Code at the University of the Pacific calls upon each student to exhibit a high degree of maturity, responsibility, and personal integrity. Students are expected to:</p>
+<div class="box" align="justify">
+<ul><ul>
+<li>Act honestly in all matters</li>
+<li>Actively encourage academic integrity</li>
+<li>Discourage any form of cheating or dishonesty by others</li>
+<li>Inform the instructor and appropriate university administrator if she or he has a reasonable and good faith belief and substantial evidence that a violation of the Academic Honesty Policy has occurred.</li>
+</ul></ul>
+</div>
+<p class="firstpara" align="justify">
+Violations will be referred to and investigated by the Office of Student Conduct and Community Standards. If a student is found responsible, it will be documented as part of her or his permanent academic record. A student may receive a range of penalties, including failure of an assignment, failure of the course, suspension, or dismissal from the University. The Academic Honesty Policy is located in Tiger Lore and <a href="http://www.pacific.edu/Campus-Life/Safety-and-Conduct/Student-Conduct/Tiger-Lore-Student-Handbook-.html">online</a>.
+</p>
+
+<p class="firstpara" align="justify">
+<b><i>Course-specific Honor Code Policy: </i></b>Engineering is generally a cooperative endeavor and collaborative learning can be a valuable experience for all involved. However, proper assessment (i.e., grading) requires that work be done by individuals. To balance these two requirements, the following policy will apply:</p>
+
+<div class="box" align="justify">
+<ul><ul>
+<li>Collaborative work on course assignments is encouraged. This includes working together on planning solution strategies and helping each other to debug programs.</li>
+<li><i><u>Collaboration must stop short of someone else writing your assignment.</u></i> You may not directly copy the work of another student. You also may not copy the work of another student, and then modify it so that it does not look the same as the original author's work. It is your responsibility to ensure that the work you submit is an honest representation of your own understanding of the material.</li>
+</ul></ul>
+</div>
+
+<p class="firstpara" align="justify">
+Marginal cases will be resolved by oral examination of the student(s) involved. If they each understand the material in the assignment, it will be considered honest collaboration. If they do not, then it will be considered academic dishonesty.
+<p>
+
+<p class="firstpara" align="justify">
+In many cases, it may be possible to identify reusable source code from textbooks, web sites or other resources that can help you with assignments.  You are permitted to use such references provided that:
+<p>
+
+<div class="box" align="justify">
+<ul><ul>
+<li>The amount of code reused does not exceed 25% of the total assignment length, and</li>
+<li><i><u>In the source code comments, you clearly identify any code that you did not write,</u></i> state where it came from, and to what extent you modified it. </li>
+</ul></ul>
+</div>
+
+<p class="firstpara" align="justify">
+You are responsible for understanding the theory behind all algorithms or source code used, regardless of their source.</li>
+<p>
+
+
+
+
+<hr 4="">
+<font ="+1"="">
+</font><p><font ="+1"=""><a name="Disabilities">
+</a></font></p><h2 align="left"><font ="+1"="">Accommodations for Students with Disabilities</font></h2>
+
+<p class="firstpara" align="justify">
+If you are a student with a disability who requires accommodations, please contact the Director of the Office of Services for Students with Disabilities (SSD) for information on how to obtain an Accommodations Request Letter.
+</p>
+
+<p class="firstpara" align="justify">
+3-Step Accommodation Process:
+
+<div class="box" align="justify">
+<ul><ol>
+<li>Student meets with the SSD Director and provides documentation and completes registration forms.</li>
+<li>Student requests accommodation(s) each semester by completing the Request for Accommodations Form.</li>
+<li>Student arranges to meet with his/her professors to discuss the accommodation(s) and to sign the Accommodation Request Letter.</li>
+</ol></ul>
+</div>
+</p>
+
+
+<p class="firstpara" align="justify">
+<i><u>To ensure timeliness of services, it is preferable that you obtain the accommodation letter(s) from the Office of SSD during the first week of class.</u></i> After the instructor receives the accommodation letter, please schedule a meeting with the instructor during office hours or some other mutually convenient time to arrange the accommodation(s).
+</p>
+
+<p class="firstpara" align="justify">
+The Office of Services for Students with Disabilities is located in the McCaffrey Center, Rm. 137. 
+</p>
+
+
+
+
+
+<hr 4="">
+<font ="+1"="">
+</font><p><font ="+1"=""><a name="Nondiscrimination">
+</a></font></p><h2 align="left"><font ="+1"="">Nondiscrimination Policy</font></h2>
+<p class="firstpara" align="justify">
+The University of the Pacific does not discriminate in the administration of any of its educational programs, admissions, scholarships, loans, athletics, or other University activities or programs on the basis of race, color, national and ethnic origin, handicap, sexual orientation or preference, sex or age.</p>
+
+
+
+
+<hr 4="">
+<font ="+1"="">
+</font><p><font ="+1"=""></font></p><h2 align="left"><font ="+1"=""></font></h2>
+<i><b>The instructor reserves the right to change these policies and guidelines at any 
+time, and students agree to abide by the most recent version of this syllabus.</b></i>
+
+
+
+
+<font ="+0"=""><font size="-0">
+</font>
+</font>
+<br>
+<br>
+
+
+
+
+
+
+<font ="+1"="">
+<hr 4="">
+<font ="+1"=""><a href="#top">Back to top</a>
+</font>
+
+<script type="text/javascript">
+   var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+   document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./ga.js" type="text/javascript"></script><script src="./ga.htm" type="text/javascript"></script>
+<script type="text/javascript">
+   try {
+       var pageTracker = _gat._getTracker("UA-10898955-1");
+       pageTracker._trackPageview();
+   } catch(err) {}
+</script>
+
+</font><script type="text/javascript">
+   var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+   document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+   try {
+       var pageTracker = _gat._getTracker("UA-10898955-1");
+       pageTracker._trackPageview();
+   } catch(err) {}
+</script>
+
+</body></html>

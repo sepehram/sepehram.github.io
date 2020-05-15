@@ -1,0 +1,6 @@
+1. run:
+sep@ubuntu:~/homepage/public_html_2/pubs$ ~/Downloads/bibtex2html-1.98/bibtex2html -css ../css/desktop.css -t Publications -d -r pubs.bib 
+
+2. comment css line in pubs_bib.html
+
+
