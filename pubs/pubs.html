@@ -6,7 +6,7 @@
 <title>Publications</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta name="generator" content="bibtex2html">
-<link rel=stylesheet type="text/css" href="desktop.css">
+<link rel=stylesheet type="text/css" href="../css/desktop.css">
 </head>
 
 <body>
@@ -14,48 +14,40 @@
 <!-- This document was automatically generated with bibtex2html 1.98
      (see http://www.lri.fr/~filliatr/bibtex2html/),
      with the following command:
-     /usr/bin/bibtex2html -css desktop.css -t Publications -d -r pubs.bib  -->
+     /usr/bin/bibtex2html -css ../css/desktop.css -t Publications -d -r pubs.bib  -->
 
 <h1>Publications</h1>
 <table>
 
 <tr valign="top">
 <td align="right" class="bibtexnumber">
-[<a name="skalka-amirmoh-clark-jcs20">1</a>]
+[<a name="amirmoh-kari-lsfa20">1</a>]
 </td>
 <td class="bibtexitem">
-Christian Skalka, Sepehr Amir-Mohammadian, and Samuel Clark.
- Maybe tainted data: Theory and a case study.
- <em>Journal of Computer Security</em>, 28(3):295--335, April 2020.
-[&nbsp;<a href="pubs_bib.html#skalka-amirmoh-clark-jcs20">bib</a>&nbsp;| 
-<a href="http://dx.doi.org/10.3233/JCS-191342">DOI</a>&nbsp;| 
-<a href="https://sepehram.github.io/pubs/jcs20.pdf">.pdf</a>&nbsp;]
+Sepehr Amir-Mohammadian and Chadi Kari.
+ Correct audit logging in concurrent systems.
+ <em>Electronic Notes in Theoretical Computer Science</em>, August 2020.
+ Accepted for publication as part of Proceedings of 15th International
+  Workshop on Logical and Semantic Frameworks, with Applications (LSFA).
+[&nbsp;<a href="pubs_bib.html#amirmoh-kari-lsfa20">bib</a>&nbsp;| 
+<a href="https://sepehram.github.io/pubs/lsfa20.pdf">.pdf</a>&nbsp;]
 <blockquote>
-Dynamic taint analysis is often used as a defense against 
-		low-integrity data in applications with untrusted user interfaces. 
-		An important example is defense against XSS and injection attacks 
-		in programs with web interfaces. Data sanitization is commonly used 
-		in this context, and can be treated as a precondition for endorsement 
-		in a dynamic integrity taint analysis. However, sanitization is often 
-		incomplete in practice. We develop a model of dynamic integrity taint 
-		analysis for Java that addresses imperfect sanitization with an in-depth 
-		approach. To avoid false positives, results of sanitization are endorsed 
-		for access control (aka prospective security), but are tracked and logged 
-		for auditing and accountability (aka retrospective security). We show how 
-		this heterogeneous prospective/retrospective mechanism can be specified 
-		as a uniform policy, separate from code. We then use this policy to 
-		establish correctness conditions for a program rewriting algorithm that 
-		instruments code for the analysis. These conditions synergize our previous 
-		work on the semantics of audit logging with explicit integrity which is an 
-		analogue of noninterference for taint analysis. A technical contribution of 
-		our work is the extension of explicit integrity to a high-level functional 
-		language setting with structured data, vs. previous systems that only address 
-		low level languages with unstructured data. Our approach considers endorsement 
-		which is crucial to address sanitization. An implementation of our rewriting 
-		algorithm is presented that hardens the OpenMRS medical records software system 
-		with in-depth taint analysis, along with an empirical evaluation of the overhead 
-		imposed by instrumentation. Our results show that this instrumentation is 
-		practical.
+Audit logging provides post-facto analysis of runtime behavior for 
+		different purposes, including error detection, amelioration of system 
+		operations, and the establishment of security in depth. This necessitates 
+		some level of assurance on the quality of the generated audit logs, i.e., 
+		how well the audit log represents the events transpired during the execution. 
+		Information-algebraic techniques have been proposed to formally specify this 
+		relation and provide a framework to study correct audit log generation in a 
+		provable fashion. However, previous work fall short on how to guarantee this 
+		property of audit logging in concurrent environments. In this paper, we study 
+		an implementation model in a concurrent environment. We propose an algorithm 
+		that instruments a concurrent system according to a formal  specification of 
+		audit logging requirements, so that any instrumented concurrent system 
+		guarantees correct audit log generation. As an application, we consider systems 
+		with microservices architecture, where logging an event by a microservice is 
+		conditioned on the occurrence of a collection of events that take place in 
+		other microservices of the system.
 </blockquote>
 <p>
 </td>
@@ -64,14 +56,15 @@ Dynamic taint analysis is often used as a defense against
 
 <tr valign="top">
 <td align="right" class="bibtexnumber">
-[<a name="skalka-amirmoh-clark-tr19">2</a>]
+[<a name="skalka-amirmoh-clark-jcs20">2</a>]
 </td>
 <td class="bibtexitem">
 Christian Skalka, Sepehr Amir-Mohammadian, and Samuel Clark.
- Technical report: Maybetainted data, theory and a case study.
- Technical report, University of Vermont, July 2019.
-[&nbsp;<a href="pubs_bib.html#skalka-amirmoh-clark-tr19">bib</a>&nbsp;| 
-<a href="https://sepehram.github.io/pubs/tr19.pdf">.pdf</a>&nbsp;]
+ Maybe tainted data: Theory and a case study.
+ <em>Journal of Computer Security</em>, 28(3):295--335, April 2020.
+[&nbsp;<a href="pubs_bib.html#skalka-amirmoh-clark-jcs20">bib</a>&nbsp;| 
+<a href="http://dx.doi.org/10.3233/JCS-191342">DOI</a>&nbsp;| 
+<a href="https://sepehram.github.io/pubs/jcs20.pdf">.pdf</a>&nbsp;]
 <blockquote>
 Dynamic taint analysis is often used as a defense against 
 		low-integrity data in applications with untrusted user interfaces. 

@@ -250,6 +250,42 @@
 		practical.},
 }
 
+@techreport{skalka-amirmoh-clark-tr19,
+    author = {Christian Skalka and
+		Sepehr Amir{-}Mohammadian and
+		Samuel Clark},
+    title = {Technical report: {M}aybetainted data, theory and a case study},
+    institution = {University of Vermont},
+    year = 2019,
+    month = {July},
+    pdf = {https://sepehram.github.io/pubs/tr19.pdf},
+    abstract = {Dynamic taint analysis is often used as a defense against 
+		low-integrity data in applications with untrusted user interfaces. 
+		An important example is defense against XSS and injection attacks 
+		in programs with web interfaces. Data sanitization is commonly used 
+		in this context, and can be treated as a precondition for endorsement 
+		in a dynamic integrity taint analysis. However, sanitization is often 
+		incomplete in practice. We develop a model of dynamic integrity taint 
+		analysis for Java that addresses imperfect sanitization with an in-depth 
+		approach. To avoid false positives, results of sanitization are endorsed 
+		for access control (aka prospective security), but are tracked and logged 
+		for auditing and accountability (aka retrospective security). We show how 
+		this heterogeneous prospective/retrospective mechanism can be specified 
+		as a uniform policy, separate from code. We then use this policy to 
+		establish correctness conditions for a program rewriting algorithm that 
+		instruments code for the analysis. These conditions synergize our previous 
+		work on the semantics of audit logging with explicit integrity which is an 
+		analogue of noninterference for taint analysis. A technical contribution of 
+		our work is the extension of explicit integrity to a high-level functional 
+		language setting with structured data, vs. previous systems that only address 
+		low level languages with unstructured data. Our approach considers endorsement 
+		which is crucial to address sanitization. An implementation of our rewriting 
+		algorithm is presented that hardens the OpenMRS medical records software system 
+		with in-depth taint analysis, along with an empirical evaluation of the overhead 
+		imposed by instrumentation. Our results show that this instrumentation is 
+		practical.},
+} 
+
 @article{amirmoh-kari-lsfa20,
 	title={Correct audit logging in concurrent systems},
 	author={Sepehr Amir-Mohammadian and Chadi Kari},
