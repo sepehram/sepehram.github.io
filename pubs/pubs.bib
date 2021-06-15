@@ -352,3 +352,23 @@
 		enables different microservices of that application to concurrently generate audit logs.}
 }
 
+@techreport{amirmoh-tr21,
+    author = {Sepehr Amir-Mohammadian},
+    title = {Correct audit logging in concurrent systems with negative triggers},
+    institution = {University of the Pacific},
+    year = 2021,
+    month = {June},
+    pdf = {https://sepehram.github.io/pubs/tr21.pdf},
+    abstract = {In previous work, we had proposed the semantics of correct audit logging in concurrent 
+		systems using information algebra, and then had proposed an implementation model in 
+		$\pi$-calculus that instruments programs to generate correct audit logs according to 
+		the proposed semantic framework. The proposed instrumentation algorithm receives audit 
+		logging requirements specified in Horn clause logic that specify a collection of events 
+		(positive triggers) as preconditions to log.  In this work, we extend the formal 
+		specification of audit logging requirements with negative triggers (along with positive 
+		ones) to boost the expressivity of the audit logging policies, i.e., a collection of 
+		events that should not happen as precondition to log. This way, our language of audit 
+		logging requirement specifications go beyond Horn clauses. We show that the original 
+		instrumentation algorithm (from \cite{lsfa20}) is potent enough to emit programs that 
+		generate correct audit logs at runtime.},
+} 
