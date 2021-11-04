@@ -260,7 +260,8 @@
 	pages = {115-141},
 	doi = {10.1016/j.entcs.2020.08.007},
 	publisher={Elsevier},
-	note= {Part of Special Issue: Proceedings of LSFA 2020, the 15th International Workshop on Logical and Semantic Frameworks, with Applications},
+	note= {Part of Special Issue: Proceedings of LSFA 2020, the 15th International Workshop on 
+		Logical and Semantic Frameworks, with Applications},
 	pdf = {https://sepehram.github.io/pubs/lsfa20.pdf},
 	abstract = {Audit logging provides post-facto analysis of runtime behavior for 
 		different purposes, including error detection, amelioration of system 
@@ -375,4 +376,28 @@
 		logging requirement specifications goes beyond Horn clauses. We show that the original 
 		instrumentation algorithm is potent enough to emit programs that 
 		generate correct audit logs at runtime.},
+}
+
+
+@inproceedings{salehi-noroozi-amirmoh-securware21,
+  author    = {Khayyam Salehi and Ali A. Noroozi and Sepehr Amir{-}Mohammadian},
+  title     = {Quantifying information leakage of probabilistic programs using the {PRISM} model checker},
+  booktitle = {To appear in the Proceedings of the 15th International Conference on Emerging Security 
+		Information, Systems and Technologies (SECURWARE 2021)},
+  year      = {2021},
+  month	    = {November},
+  pdf       = {https://sepehram.github.io/pubs/securware21.pdf},
+  abstract  = {Information leakage is the flow of information from secret inputs of a program to its public 
+		outputs. One effective approach to identify information leakage and potentially preserve 
+		the confidentiality of a program is to quantify the flow of information that is associated 
+		with the execution of that program, and check whether this value meets predefined thresholds. 
+		For example, the program may be considered insecure, if this quantified value is higher than 
+		the threshold. In this paper, an automated method is proposed to compute the information leakage 
+		of probabilistic programs. We use Markov chains to model these programs, and reduce the problem 
+		of measuring the information leakage to the problem of computing the joint probabilities of 
+		secrets and public outputs. The proposed method traverses the Markov chain to find the secret 
+		inputs and the public outputs and subsequently, calculate the joint probabilities. The method has 
+		been implemented into a tool called PRISM-Leak, which uses the PRISM model checker to build the 
+		Markov chain of input programs. The applicability of the proposed method is highlighted by 
+		analyzing a probabilistic protocol and quantifying its leakage.}
 } 
