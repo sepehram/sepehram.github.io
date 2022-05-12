@@ -402,3 +402,28 @@
 		Markov chain of input programs. The applicability of the proposed method is highlighted by 
 		analyzing a probabilistic protocol and quantifying its leakage.}
 } 
+
+@inproceedings{ahn-amirmoh-stpsa22,
+  author    = {Nicolas Ahn and Sepehr Amir{-}Mohammadian},
+  title     = {Instrumenting microservices for concurrent audit logging: Beyond Horn clauses},
+  booktitle = {To appear in the Proceedings of the 16th IEEE International Workshop on Security, 
+		Trust & Privacy for Software Applications (STPSA 2022), as part of the 46th Annual 
+		IEEE Computers, Software, and Applications Conference (COMPSAC 2022)},
+  year      = {2022},
+  month	    = {June},
+  pdf       = {https://sepehram.github.io/pubs/stpsa22.pdf},
+  abstract  = {Instrumenting legacy code is an effective approach to enforce security policies. 
+		Formal correctness of this approach in the realm of audit logging relies on semantic 
+		frameworks that leverage information algebra to model and compare the information 
+		content of the generated audit logs and the program at runtime.  Previous work has 
+		demonstrated the applicability of instrumentation techniques in the enforcement of 
+		audit logging policies for systems with microservices architecture. However, the 
+		specified policies suffer from the limited expressivity power as they are confined to 
+		Horn clauses being directly used in logic programming engines. In this paper, we explore 
+		audit logging specifications that go beyond Horn clauses in certain aspects, and the ways 
+		in which these specifications are automatically enforced in microservices. In particular, 
+		we explore an instrumentation tool that rewrites Java-based microservices according to a 
+		JSON specification of audit logging requirements, where these logging requirements are not 
+		limited to Horn clauses. The rewritten set of microservices are then automatically enabled 
+		to generate audit logs that are shown to be formally correct.}
+}
