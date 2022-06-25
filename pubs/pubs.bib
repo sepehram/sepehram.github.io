@@ -404,13 +404,15 @@
 } 
 
 @inproceedings{ahn-amirmoh-stpsa22,
-  author    = {Nicolas Ahn and Sepehr Amir{-}Mohammadian},
+  author    = {Nicolas D. Ahn and Sepehr Amir{-}Mohammadian},
   title     = {Instrumenting microservices for concurrent audit logging: Beyond Horn clauses},
-  booktitle = {To appear in the Proceedings of the 16th IEEE International Workshop on Security, 
+  booktitle = {Proceedings of the 16th IEEE International Workshop on Security, 
 		Trust & Privacy for Software Applications (STPSA 2022), as part of the 46th Annual 
 		IEEE Computers, Software, and Applications Conference (COMPSAC 2022)},
   year      = {2022},
   month	    = {June},
+  pages	    = {1762--1767},
+  doi       = {10.1109/COMPSAC54236.2022.00280},  
   pdf       = {https://sepehram.github.io/pubs/stpsa22.pdf},
   abstract  = {Instrumenting legacy code is an effective approach to enforce security policies. 
 		Formal correctness of this approach in the realm of audit logging relies on semantic 
@@ -427,3 +429,25 @@
 		limited to Horn clauses. The rewritten set of microservices are then automatically enabled 
 		to generate audit logs that are shown to be formally correct.}
 }
+
+@inproceedings{salehi-noroozi-amirmoh-mohagheghi-qest22,
+  author    = {Khayyam Salehi and Ali A. Noroozi and Sepehr Amir{-}Mohammadian and Mohammadsadegh Mohagheghi},
+  title     = {An Automated Quantitative Information Flow Analysis for Concurrent Programs},
+  booktitle = {To appear in the Proceedings of the 19th International Conference on Quantitative Evaluation of SysTems (QEST 2022)},
+  year      = {2022},
+  month	    = {September},
+  pdf       = {https://sepehram.github.io/pubs/qest22.pdf},
+  abstract  = {Quantitative information flow is a rigorous approach for evaluating the security of a system. 
+		It is used to quantify the amount of secret information leaked to the public outputs. In this 
+		paper, we propose an automated approach for quantitative information flow analysis of concurrent 
+		programs that are running under the control of a probabilistic scheduler. Markovian processes 
+		are used to model the behavior of these programs. To this end, we assume that the attacker is 
+		capable of observing the internal behavior of the program and propose an equivalence relation, 
+		back-bisimulation, to capture the attacker's view of the program behavior. Two partition refinement 
+		algorithms are developed to construct the back-bisimulation quotient of the program model and then 
+		a quantification method is proposed for computing the information leakage using the quotient. We 
+		have implemented our proposed approach as a leakage quantification tool, called PRISM-Leak. It is 
+		built on the probabilistic model checker PRISM. Finally, two protocols, dining cryptographers and 
+		single preference voting, are analyzed as case studies to show applicability and scalability of the 
+		proposed approach compared to other available tools.}
+} 
