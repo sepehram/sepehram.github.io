@@ -1,0 +1,493 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><title>COMP 173 Spring 2024 Syllabus</title>
+<link rel="StyleSheet" href="../../css/desktop.css" type="text/css">
+<link rel="stylesheet" type="text/css" href="./css/phone.css" media="(max-width: 764px)">
+<!--<style type="text/css">
+:root #content > #right > .dose > .dosesingle,
+:root #content > #center > .dose > .dosesingle
+{ display: none !important; }</style> -->
+</head>
+<body>
+<center>
+<h1>COMP 173: Operating Systems (Spring 24)</h1>
+</center>
+<hr size="1">
+
+<div align="center"> <a href="#Description">Course Description</a> | <a href="#Admin">Administration</a> | <a href="#Objectives">Learning Objectives</a> | <a href="#Materials">Course Material</a> | <a href="#Grading">Grading and Attendance Policy</a> | <a href="#ExamSched">Exams</a> | <a href="#Homework">Assignment Guidelines</a> | <a href="#AcademicHonesty">Academic Honesty</a> | <a href="#Disabilities">Accomodation for Students with Disabilities</a> | <a href="#Nondiscrimination">Nondiscrimination Policy</a>      
+</div><br>
+
+
+
+<a name="Description"></a>
+<h2 align="left">Course Description</h2>
+<p class="firstpara" align="justify">
+Students are introduced to the fundamental concepts of modern operating systems. Topics include an overview of the computer hardware that supports the operating system, process management, threads, and CPU scheduling. Students also study process synchronization that uses primitive and high-level languages, virtual memory management, file systems, system protection, and distributed systems. 
+</p>
+
+<p class="firstpara" align="justify">
+<b><i>Prerequisites:</i></b> Completion of all Fundamental Skills; COMP 053; COMP 175 or ECPE 170 with a "C-" or better or permission of instructor.<!--Note that these
+are <i>recommendations</i> and may be waived at instructor's discretion. -->
+<br>
+<i>When enrolling in this course, you should already understand the basics of binary numbers, digital electronics, and serial and parallel digital communications. Further, you should be comfortable programming in a high-level language such as C, C++, Python, or Java and understand the basics of loops, arrays, structures, pointers, and function calls.</i>
+</p>
+
+<p class="firstpara" align="justify">
+<b><i>Website:</i></b> <a href="./syllabus.html">Syllabus</a>, <a href="http://canvas.pacific.edu">Canvas LMS</a>
+</p>
+
+<p class="firstpara" align="justify">
+<b><i>Credits:</i></b> 4 units
+</p>
+
+<p class="firstpara" align="justify">
+<b><i>Course Catalog:</i></b> <a href="http://catalog.pacific.edu/search/?P=COMP%20173">http://catalog.pacific.edu/search/?P=COMP%20173</a>
+</p>
+
+
+<p class="firstpara" align="justify">
+<b><i>Semester:</i></b> Spring 2024
+</p>
+
+
+
+
+<font ="+0"="">
+<br><br>
+
+</font>
+
+
+
+<hr size="1">
+<h2 align="left"><a name="Admin">Administration</a></h2>
+<p class="firstpara" align="justify">
+
+<b>Instructor:</b> <a href="https://sepehram.github.io/">
+Sepehr Amir-Mohammadian</a>
+<br>
+<b>Email:</b> <img src="https://sepehram.github.io/email.png"
+width="250"/><br>
+<b>Lecture:</b> MW 15:30-16:45, CTC 144 <br/>
+
+<br>
+<b>Office hours:</b>  MW 14:00-15:15, CTC 122
+<br>
+<i>Students need to request alternate meeting times outside of scheduled office hours through email.</i>
+<br>
+<br>
+<b>Teaching Assistant:</b> John Lam
+<br>
+<b>Email:</b> j_lam31@u.pacific.edu
+ <br>
+ <b>TA office hours: </b>
+
+
+<font ="+0"="">
+<br><br>
+
+</font>
+
+
+
+<hr size="1">
+<h2 align="left"><a name="Objectives"></a></h2>
+<h2 align="left">Learning Objectives</h2>
+<p class="firstpara" align="justify">
+The vision for this course is: <i>What do I, as a computer scientist, need to understand about the fundamental concepts of modern operating systems and what are the the strategies that the operating systems implement to manage computer hardware resources in an effective way?</i>
+</p>
+
+<p class="firstpara" align="justify">
+You will have many different opportunities to gain this knowledge through:
+<div class="box" align="justify">
+<ul><ul>
+<li>Reading assignments </li>
+<li>Homework assignments</li>
+<li>Labs</li>
+<li>Course projects</li>
+<!--<li>Student presentations</li>-->
+<li>Class lectures and discussions</li>
+</ul></ul>
+</div>
+
+
+<p class="firstpara" align="justify">
+After taking this course, you should be able to:
+<div class="box" align="justify">
+<ul><ul>
+<li>Describe and comparing modern operating system architectures.</li>
+<li>Understand basic concepts of processes and threads</li>
+<li>Write simulators to demonstrate your understanding of essential process management techniques, including process creation and termination, inter-process communication and synchronization, CPU scheduling, multithreaded programming, and deadlock handling.</li>
+<li>Describe how various memory management schemes, such as paging and segmentation, work and write simulators to demonstrate your understanding of these schemes.</li>
+<li>Understand the function of file systems, describe the interfaces to file systems, and discuss file-system design tradeoffs.</li>
+</ul></ul>
+</div>
+</p>
+
+
+<p class="firstpara" align="justify">
+<b>University of the Pacific Core Competencies:</b> This course reflects the following university-wide <a href="https://catalog.pacific.edu/sanfrancisco/corecompetencies/">core competenceies</a> in the undergraduate program:
+<div class="box" align="justify">
+<ul><ul>
+<li>Critical Thinking</li>
+<li>Information Literacy</li>
+<li>Quantitative Reasoning</li>
+</ul></ul>
+</div>
+</p>
+
+
+<p class="firstpara" align="justify">
+<b>Outcomes for COMP program:</b> The assessment plan for this course comprises the following outcomes <a href="https://catalog.pacific.edu/stocktongeneral/schoolofengineeringandcomputerscience/computerscience/#objective">identified</a> by ABET:
+<div class="box" align="justify">
+<ul><ul>
+<li>Outcome 1: "Analyze a complex computing problem and to apply principles of computing and other relevant disciplines to identify solutions."</li>
+<li>Outcome 2: "Design, implement, and evaluate a computing-based solution to meet a given set of computing requirements in the context of the program’s discipline."</li>
+<li>Outcome 5: "Function effectively as a member or leader of a team engaged in activities appropriate to the program's discipline."</li>
+<li>Outcome 6: "Apply computer science theory and software development fundamentals to produce computing-based solutions."</li>
+</ul></ul>
+</div>
+</p>
+
+
+<p class="firstpara" align="justify">
+<b>Collection of Work for Assessment:</b> Student work may be retained to assess how course learning objectives are being met and for accreditation purposes.
+</p>
+
+
+
+
+<font ="+0"="">
+<br><br>
+
+</font>
+
+
+
+
+</p><hr size="1"><a name="Materials"></a>
+<h2 align="left">Course Material</h2> 
+<p class="firstpara" align="justify">
+We will use the following zyBook along with additional resources that are referred through the semester. In order to use the zyBook follow these steps:
+<div class="box" align="justify">
+<ul><ol>
+<li>Sign in or create an account at <a href="https://learn.zybooks.com">learn.zybooks.com</a>.</li>
+<li>Enter zyBook code: <b><u>PACIFICCOMP173AmirMohammadianSpring2024</u></b>.</li>
+<li>Subscribe.  Note that a subscription is <b>$64</b>. Students may begin subscribing on Jan 02, 2024 and the cutoff to subscribe is Apr 24, 2024. Subscriptions will last until May 22, 2024. </li>
+</ol></ul>
+</div>
+
+The zyBook is based on the following textbook:
+<div class="box" align="justify">
+<ul><ul>
+<li><u><i>Operating System Concepts</u></i>, 10th edition, by Abraham Silberschatz, Peter Baer Galvin, and Greg Gagne.
+</ul></ul>
+</div>
+</p>
+
+<p class="firstpara" align="justify">The slides, assignments, supplementary material, etc. will be provided through <a href="http://canvas.pacific.edu">Canvas LMS</a>.</p>
+
+<p class="firstpara" align="justify">Major topics that will be covered in the course are:
+<div class="box" align="justify">
+<ul><ul>
+<li>OS architectures: Windows, Linux, Mac OS, Parallel and Distributed Computing</li>
+<li>Process Management: Concepts, Threads, Scheduling, Interprocess Communication, Synchronization, and Deadlocks.</li>
+<li>Memory Management: Basics, Paging, Segmentation</li>
+<li>File System: Directories, Access Methods, Free Space Tracking, File Allocation, and
+Mounting.</li>
+</ul></ul>
+</div>
+
+</p>
+
+<font ="+0"="">
+<br><br>
+
+</font>
+
+
+
+<hr size="1">
+<a name="Grading"></a><h2 align="left">Grading and Attendance Policy</h2>
+<p class="firstpara" align="justify">
+Grades for the course are assigned on the scale below:
+
+ <table style="width:100%">
+  <tr>
+    <th>A</th>
+    <th>A-</th>
+    <th>B+</th>
+    <th>B</th>
+    <th>B-</th>
+    <th>C+</th>
+    <th>C</th>
+    <th>C-</th>
+    <th>D+</th>
+    <th>D</th>
+    <th>F</th>
+  </tr>
+  <tr>
+    <td align="center">[93,100]</td>
+    <td align="center">[90,93)</td>
+    <td align="center">[87,90)</td>
+    <td align="center">[83,87)</td>
+    <td align="center">[80,83)</td>
+    <td align="center">[77,80)</td>
+    <td align="center">[73,77)</td>
+    <td align="center">[70,73)</td>
+    <td align="center">[67,70)</td>
+    <td align="center">[60,67)</td>
+    <td align="center">[0,60)</td>
+  </tr>
+</table> 
+
+</p>
+
+
+<p class="firstpara" align="justify">
+Final grades will be assigned based on several performance 
+factors.  These factors and their quantitative contribution to 
+the final grade are as follows:
+
+<div class="box" align="justify">
+<ul><ul>
+<!--<li>Attendance: 5%</li>-->
+<li>Reading assignments: 20%</li>
+<li>Homework assignments: 30%</li>
+<li>Course projects: 25%</li>
+<li>Labs: 25%</li>
+<!--<li>Presentations: 10%</li>-->
+</ul></ul>
+</div>
+
+</p>
+
+
+<p class="firstpara" align="justify">
+<b><i>Attendance:</i></b> 
+Class attendance and participation is highly recommended. There will be numerous labs in class, and doing the labs in the class boosts the quality of learning.  Participation requires that you are properly prepared for classroom discussions and activities, and have completed all reading assignments before the relevant class. <!--<b><i>Note that more than three unexcused absences will result in a 10% reduction of the final grade.</i></b> -->
+
+<!--
+You will only be allowed <i><u>three excused or unexcused class misses</u></i> during the semester. The only acceptable excuses for missing a class, an assignment due date, or an
+exam are serious illness, family emergency or important professional, academic or athletic activities. Illness or
+family emergency may require documentation. Excuses for professional, academic or athletic activities must be
+approved by the instructor in advance.
+
+Students missing a class are responsible for making up the material discussed in that class on their own.
+Students are responsible for being aware of any announcements made during their absence.
+-->
+</p>
+
+
+<font ="+0"="">
+<br><br>
+
+</font>
+
+<!--
+<hr 4="">
+<font ="+1"=""><a name="ExamSched"></a>
+</font><h2 align="left"><font ="+1"="">Exams</font></h2>
+<p class="firstpara" align="justify">
+Two exams
+will be conducted during the semester, a midterm and a final.  The
+schedule will be announced in class and content and format will be
+discussed prior to the exams.
+<i><u>Make up exams will only be scheduled in emergency situations.</u></i></p>
+<font ="+0"=""><font size="-0">
+</font>
+</font>
+<br>
+<br>
+-->
+
+<hr 4="">
+
+<font ="+1"=""><a name="Homework"></a>
+</font><h2 align="left"><font ="+1"="">Assignment Guidelines</font></h2>
+<p class="firstpara" align="justify">
+<i><b>Release and Submission</b></i>
+<div class="box" align="justify">
+<ul><ul>
+<li><b>Reading Assignments</b>: Reading assignments will be released on the course Canvas page at most one or two days before each lecture session. Students must study the referred material before each class session, and accomplish all of the requested participation and challenge activities. zyBook traces your activities and numerically reports how much you have progressed in reading the (sub)sections precisely by date/time. Those evaluations will be used as your grades for reading assignments, considering the due dates which are based on PST. Each lecture session accompanies a reading assignment, which must be done until that day. There will be no due date extensions on reading assignments. Reading assignments are considered as individual efforts.</li>
+<li><b>Labs</b>: Labs will be released on the course Canvas page for each lecture session. The goal is to accomplish all class activities and submit in Canvas until Friday of that week. Late submissions <u>will not</u> be accepted.</u> Lab assignments are considered to be group-based.</li>
+<li><b>Homework Assignments</b>: Homework assignments will be released on the course Canvas page with a clearly indicated due date. Timely submissions are accepted until 11:59PM on the due date. Homework assignments are considered as individual efforts.</li>
+<li><b>Course Projects</b>: Course projects will be released on the course Canvas page with a clearly indicated due date.  Timely submissions are accepted until 11:59PM on the due date. These assignments are considered to be group-based.</li>
+<!--<li><b>Presentations</b>: At the end of the semester, students will have a presentation on a selected topic. This assignment is considered to be group-based.</li> -->
+</ul></ul>
+</div>
+</p>
+
+<p class="firstpara" align="justify">
+<i><b>Solutions:</b></i> Solutions to homework assignments and labs will be submitted via Canvas.
+</p>
+
+<p class="firstpara" align="justify">
+<i><b>Late submission policy:</b></i> Deliverables for homework assignments and course projects will be accepted up 
+to <b><i>three weekdays</i></b> late, with a <i><b>5% per day penalty</i></b>. 
+<br><i><u> All assignments will be considered individual efforts  
+unless otherwise specified, and 
+will be treated as such under <a href="#AcademicHonesty">the Academic Honesty Policy</a></u></i>.
+</p>
+
+<font ="+0"=""><font size="-0">
+</font>
+</font>
+<br>
+<br>
+
+
+<hr 4="">
+<font ="+1"="">
+</font><p><font ="+1"=""><a name="AcademicHonesty">
+</a></font></p><h2 align="left"><font ="+1"="">Academic Honesty</font></h2>
+
+<p class="firstpara" align="justify">
+The Honor Code at the University of the Pacific calls upon each student to
+exhibit a high degree of maturity, responsibility, and personal integrity.
+Students are expected to:</p>
+<div class="box" align="justify">
+<ul><ul>
+<li>Act honestly in all matters</li>
+<li>Actively encourage academic integrity</li>
+<li>Discourage any form of cheating or dishonesty by others</li>
+<li>Inform the instructor and appropriate university administrator if she
+or he has a reasonable and good faith belief and substantial evidence that
+a violation of the Academic Honesty Policy has occurred.</li>
+</ul></ul>
+</div>
+<p class="firstpara" align="justify">
+Violations will be referred to and investigated by the Office of Student
+Conduct and Community Standards. If a student is found responsible, it
+will be documented as part of her or his permanent academic record. A
+student may receive a range of penalties, including failure of an
+assignment, failure of the course, suspension, or dismissal from the
+University. The Academic Honesty Policy is located in Tiger Lore and <a
+href="http://www.pacific.edu/Campus-Life/Safety-and-Conduct/Student-Conduct/Tiger-Lore-Student-Handbook-.html">online</a>.
+</p>
+
+<p class="firstpara" align="justify">
+<b><i>Course-specific Honor Code Policy: </i></b>Engineering is generally a cooperative endeavor and collaborative learning can be a valuable experience for all involved. However, proper assessment (i.e., grading) requires that work be done by individuals. To balance these two requirements, the following policy will apply:</p>
+
+<div class="box" align="justify">
+<ul><ul>
+<li>Collaborative work on course assignments is encouraged. This includes working together on planning solution strategies and helping each other to debug programs.</li>
+<li><i><u>Collaboration must stop short of someone else writing your assignment.</u></i> You may not directly copy the work of another student. You also may not copy the work of another student, and then modify it so that it does not look the same as the original author's work. It is your responsibility to ensure that the work you submit is an honest representation of your own understanding of the material.</li>
+</ul></ul>
+</div>
+
+<p class="firstpara" align="justify">
+Marginal cases will be resolved by oral examination of the student(s) involved. If they each understand the material in the assignment, it will be considered honest collaboration. If they do not, then it will be considered academic dishonesty.
+<p>
+
+<p class="firstpara" align="justify">
+In many cases, it may be possible to identify reusable source code from textbooks, web sites or other resources that can help you with assignments.  You are permitted to use such references provided that:
+<p>
+
+<div class="box" align="justify">
+<ul><ul>
+<li>The amount of code reused does not exceed 25% of the total assignment length, and</li>
+<li><i><u>In the source code comments, you clearly identify any code that you did not write,</u></i> state where it came from, and to what extent you modified it. </li>
+</ul></ul>
+</div>
+
+<p class="firstpara" align="justify">
+You are responsible for understanding the theory behind all algorithms or source code used, regardless of their source.</li>
+<p>
+
+
+
+
+<hr 4="">
+<font ="+1"="">
+</font><p><font ="+1"=""><a name="Disabilities">
+</a></font></p><h2 align="left"><font ="+1"="">Accommodations for Students with Disabilities</font></h2>
+
+<p class="firstpara" align="justify">
+<div class="box" align="justify">
+<ul><ol>
+<li>Students who have not previously registered for accommodations can
+request services by visiting <a
+href="https://www.pacific.edu/student-life/student-services/services-for-students-with-disabilities">pacific.edu/disabilities</a>
+and selecting <a
+href="https://augusta.accessiblelearning.com/Pacific/ApplicationStudent.aspx">New
+Students Apply Here</a>. Once registered, students will be asked to
+provide documentation of their disability, and meet with the accommodation
+specialists to determine reasonable accommodations.</li>
+<li>Students who have previously been approved for services with SSD can
+request accommodation(s) letters each semester by selecting the <a
+href="https://augusta.accessiblelearning.com/Pacific/">Returning Students
+Login Here</a> link located on <a
+href="https://www.pacific.edu/student-life/student-services/services-for-students-with-disabilities">pacific.edu/disabilities</a></li>
+</ol></ul>
+</div>
+</p>
+
+<p class="firstpara" align="justify">
+The Office of Services for Students with Disabilities is located in the
+McCaffrey Center, Second Floor. Phone: 209-946-3221. Email: <a
+href="mailto:ssd@pacific.edu">ssd@pacific.edu</a>. Online: <a
+href="https://www.pacific.edu/student-life/student-services/services-for-students-with-disabilities">pacific.edu/disabilities</a>
+</p>
+
+
+
+
+
+<hr 4="">
+<font ="+1"="">
+</font><p><font ="+1"=""><a name="Nondiscrimination">
+</a></font></p><h2 align="left"><font ="+1"="">Nondiscrimination Policy</font></h2>
+<p class="firstpara" align="justify">
+The University of the Pacific does not discriminate in the administration of any of its educational programs, admissions, scholarships, loans, athletics, or other University activities or programs on the basis of race, color, national and ethnic origin, handicap, sexual orientation or preference, sex or age.</p>
+
+
+
+
+<hr 4="">
+<font ="+1"="">
+</font><p><font ="+1"=""></font></p><h2 align="left"><font ="+1"=""></font></h2>
+<i><b>The instructor reserves the right to change these policies and guidelines at any 
+time, and students agree to abide by the most recent version of this syllabus.</b></i>
+
+
+
+
+<font ="+0"=""><font size="-0">
+</font>
+</font>
+<br>
+<br>
+
+
+
+
+
+
+<font ="+1"="">
+<hr 4="">
+<font ="+1"=""><a href="#top">Back to top</a>
+</font>
+
+<script type="text/javascript">
+   var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+   document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./ga.js" type="text/javascript"></script><script src="./ga.htm" type="text/javascript"></script>
+<script type="text/javascript">
+   try {
+       var pageTracker = _gat._getTracker("UA-10898955-1");
+       pageTracker._trackPageview();
+   } catch(err) {}
+</script>
+
+</font><script type="text/javascript">
+   var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+   document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+   try {
+       var pageTracker = _gat._getTracker("UA-10898955-1");
+       pageTracker._trackPageview();
+   } catch(err) {}
+</script>
+
+</body></html>
