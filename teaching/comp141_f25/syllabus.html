@@ -1,796 +1,541 @@
-<html><head>
-<meta http-equiv="content-type" content="text/html; 
-charset=UTF-8"><title>COMP 141 Fall 2025 Syllabus</title>
-<link rel="StyleSheet" href="../../css/desktop.css" type="text/css">
-<link rel="stylesheet" type="text/css" href="./css/phone.css" 
-media="(max-width: 764px)">
-<!--<style type="text/css">
-:root #content > #right > .dose > .dosesingle,
-:root #content > #center > .dose > .dosesingle
-{ display: none !important; }</style> -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>COMP 141 — Programming Languages (Fall 2025) • Syllabus</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Syllabus for COMP 141: Programming Languages (Fall 2025), University of the Pacific." />
+  <!-- Reuse your shared green theme -->
+  <link rel="stylesheet" href="/css/theme-green.css" />
+
+  <!-- Page-specific tweaks for legacy markup -->
+  <style>
+    :root {
+      --bg: #0b0f0c;             /* very dark green background */
+      --panel: #101a13;          /* dark green panel */
+      --text: #e5e7eb;
+      --muted: #9aa3af;
+      --brand: #198754;          /* Bootstrap green (dark, saturated) */
+      --accent: #28a745;         /* medium green */
+      --ring: rgba(40, 167, 69, 0.35); /* green highlight */
+      --card: #111827;
+      --border: #1f2937;
+    }
+    
+    @media (prefers-color-scheme: light) {
+      :root {
+      --bg: #f8fafc;
+      --panel: #ffffff;
+      --text: #0b1220;
+      --muted: #475569;
+      --brand: #198754;
+      --accent: #28a745;
+      --ring: rgba(40, 167, 69, 0.25);
+      --card: #ffffff;
+      --border: #e5e7eb;
+      }
+    }
+      *, *::before, *::after { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+        color: var(--text);
+        background: radial-gradient(1200px 800px at 80% -10%, rgba(40,167,69,0.08), transparent),
+          radial-gradient(1000px 600px at 0% 0%, rgba(72,187,120,0.1), transparent),
+          var(--bg);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      a { color: var(--brand); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      .container { max-width: 1100px; padding: 0 1.2rem; margin: 0 auto; }
+      .chip { display:inline-block; padding:.125rem .5rem; border:1px solid var(--border); border-radius:999px; font-size:.85rem; color:var(--muted); }
+    
+      /* Header / Nav */
+      header {
+        position: sticky; top: 0; z-index: 50; backdrop-filter: blur(8px);
+        background: color-mix(in oklab, var(--bg) 80%, transparent);
+        border-bottom: 1px solid var(--border);
+      }
+      .nav { display:flex; align-items:center; justify-content:space-between; height:64px; }
+      .nav a.brand { display:flex; gap:.6rem; align-items:center; font-weight:700; color:var(--text); }
+      .nav .links { display:flex; gap:1rem; align-items:center; }
+      .nav .links a { color:var(--muted); font-weight:600; padding:.4rem .6rem; border-radius:8px; }
+      .nav .links a:focus, .nav .links a:hover { color:var(--text); background:var(--panel); outline: 2px solid var(--ring); outline-offset:2px; }
+    
+      /* Hero */
+      .hero { display:grid; gap:2rem; grid-template-columns: 1fr; padding:4rem 0 2rem; align-items:center; }
+      .hero .portrait { width:140px; height:140px; border-radius:50%; object-fit:cover; border:3px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+      .hero h1 { font-size: clamp(1.8rem, 2.8vw + 1rem, 3rem); margin:0 0 .25rem; }
+      .hero h2 { font-size:1.1rem; font-weight:600; color:var(--muted); margin:.1rem 0 1rem; }
+      .hero .actions { display:flex; gap:.8rem; flex-wrap: wrap; }
+      .btn { display:inline-flex; align-items:center; gap:.5rem; padding:.6rem .9rem; border-radius:10px; border:1px solid var(--border); background: var(--panel); color:var(--text); font-weight:700; }
+      .btn:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0,0,0,.15); text-decoration:none; }
+      .btn.primary { background: linear-gradient(180deg, var(--brand), var(--accent)); color:#001019; border:0; }
+    
+      /* Sections */
+      section { padding: 2.5rem 0; }
+      section h3 { font-size:1.4rem; margin:0 0 1rem; }
+      .grid { display:grid; gap:1rem; }
+      .grid.cols-2 { grid-template-columns: 1fr; }
+      .grid.cols-3 { grid-template-columns: 1fr; }
+      @media (min-width: 820px) {
+        .hero { grid-template-columns: 1fr 2fr; }
+        .grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+      }
+      .card { background: var(--card); border:1px solid var(--border); border-radius:16px; padding:1rem; box-shadow: 0 6px 18px rgba(0,0,0,.08); }
+      .card h4 { margin:.4rem 0 .2rem; }
+      .card p { margin:.25rem 0 0; color:var(--muted); }
+      .meta { font-size:.9rem; color:var(--muted); }
+    
+      /* Publications */
+      .pub { display:grid; gap:.25rem; border-left: 2px solid var(--border); padding-left:.8rem; }
+      .pub .title { font-weight:700; }
+      .pub .venue { color: var(--muted); font-size:.95rem; }
+      .pub .tags { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.3rem; }
+    
+      /* Footer */
+      footer { padding:2rem 0; color:var(--muted); border-top:1px solid var(--border); margin-top:2rem; }
+    
+      /* Skip link for a11y */
+      .skip { position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden; }
+      .skip:focus { position:static; width:auto; height:auto; padding:.4rem; background:var(--panel); border:1px solid var(--border); border-radius:8px; }
+
+      .grade-table {
+        border-collapse: collapse; /* so borders don't double up */
+        margin: 0 auto; /* center the table */
+      }
+
+      .grade-table th,
+      .grade-table td {
+        border: 2px solid var(--brand); /* use your theme's CSS color variable */
+        padding: 15px; /* replaces cellpadding */
+        text-align: center;
+      }
+
+      .grade-table th {
+        background-color: var(--panel);
+        color: var(--text);
+      }
+      </style>
+
 </head>
 <body>
-<center>
-<h1>COMP 141: Programming Languages (Fall 25)</h1>
-</center>
-<hr size="1">
-
-<div align="center"> <a href="#Description">Course Description</a> | <a 
-href="#Admin">Administration</a> | <a href="#Objectives">Learning 
-Objectives</a> | <a href="#Materials">Course Material and Schedule</a> | 
-<a href="#Grading">Grading and Attendance Policy</a> | <a 
-href="#ExamSched">Exams</a> | <a href="#Homework">Assignment 
-Guidelines</a> | <a href="#AcademicHonesty">Academic Honesty</a> | <a href="#Disabilities">Accomodation
-for Students with Disabilities</a> | <a 
-href="#Nondiscrimination">Nondiscrimination Policy</a>
-</div><br>
-
-
-
-<a name="Description"></a>
-<h2 align="left">Course Description</h2>
-<p class="firstpara" align="justify">
-Topics in evaluation, design, and development of programming languages. 
-Topics include type systems, variables and scope, functions, parameter 
-passing, data hiding and abstractions, recursion, memory allocation, 
-grammars and parsing, compilers architecture, programming paradigms, and 
-comparison of programming languages and environments.
-</p>
-
-<p class="firstpara" align="justify">
-<b><i>Prerequisites:</i></b> Completion of Fundamental Skills and COMP 053 
-with a "C-" or better.  <!--Note that these
-are <i>recommendations</i> and may be waived at instructor's discretion. 
--->
-<br>
-<i>When enrolling in this course, you should be relatively proficient in 
-using at least the following object‐oriented programming languages:  C++ 
-and Java. It is recommended to use C++, Java or Python for course 
-projects.  In addition to being a competent programmer, you should have a 
-working understanding of the following specific topics:
-<div class="box" align="justify">
-<ul><ul>
-<li>Pointers and Dynamic Memory Allocation</li>
-<li>Inheritance, Polymorphism, and Templates</li>
-<li>Fundamental Data Structures including vectors, lists, stacks, queues, 
-and trees </li>
-</ul></ul>
-</div>
-</i>
-</p>
-
-<p class="firstpara" align="justify">
-<b><i>Website:</i></b> <a href="./syllabus.html">Syllabus</a>, <a 
-href="http://canvas.pacific.edu">Canvas LMS</a>
-</p>
-
-<p class="firstpara" align="justify">
-<b><i>Credits:</i></b> 4 units
-</p>
-
-<p class="firstpara" align="justify">
-<b><i>Course Catalog:</i></b> <a 
-href="https://catalog.pacific.edu/search/?search=comp+141&caturl=%2F">https://catalog.pacific.edu/search/?search=comp+141&caturl=%2F</a>
-</p>
-
-
-
-
-<font ="+0"="">
-<br><br>
-
-</font>
-
-
-
-<hr size="1">
-<h2 align="left"><a name="Admin">Administration</a></h2>
-<p class="firstpara" align="justify">
-
-<b>Instructor:</b> <a href="https://sepehram.github.io">
-Sepehr Amir-Mohammadian</a>
-<br>
-<b>Email:</b>  <img src="https://sepehram.github.io/email.png" 
-width="250"/>
-<br>
-<b>Class time/location:</b> <br/>
-MWF 11:00 - 12:15, Chambers 114 <br/>
-<br>
-
-<b>Office hours:</b>  MW 14:00 - 15:15 Chambers 122 <br/>
-                      
-<!--<br>
-<i>WebEx links are provided in Canvas.</i>
-<br>
-<i>Students need to request alternate meeting times outside of scheduled 
-office hours through email.</i>-->
-<br>
-<br>
-<b>Teaching Assistant:</b> Ramis Hasanli
-<br>
-<b>Email:</b> rhasanli@pacific.edu
- <br>
- <!--<b>Office hours:</b> -->
-
-
-<font ="+0"="">
-<br><br>
-
-</font>
-
-
-
-<hr size="1">
-<h2 align="left"><a name="Objectives"></a></h2>
-<h2 align="left">Learning Objectives</h2>
-<p class="firstpara" align="justify">
-The vision for this course is: <i>What do I, as a computer scientist, need 
-to understand about the fundamental concepts in programming languages and 
-what are the different features by which I can realize whether a given 
-programming language is appropriate in a given project?</i>
-</p>
-<p class="firstpara" align="justify">
-There are two main themes in this course:
-<div class="box" align="justify">
-<ul><ul>
-<li>The internal structure of programming languages, and how we can deploy (~50%)
-them</li>
-<li>Different paradigms of programming (beyond object-oriented) (~50%)</li>
-</ul></ul>
-</div>
-</p>
-
-<p class="firstpara" align="justify">
-You will have many different opportunities to gain this knowledge through:
-<div class="box" align="justify">
-<ul><ul>
-<li>Labs</li>
-<li>Course projects</li>
-<!--<li>Homework assignments</li>-->
-<!--<li>Technical paper</li>-->
-<!--<li>Student presentations</li>-->
-<li>Getting exposed to new languages</li>
-<li>Class discussions, quizzes, and reading/watching assignments</li>
-</ul></ul>
-</div>
-</p>
-
-<p class="firstpara" align="justify">
-After taking this course, you should be able to:
-<div class="box" align="justify">
-<ul><ul>
-<li>Use multiple programming languages to write simple programs.</li>
-<li>Identify the features that programming languages have in common and 
-the ways that they differ, particularly between the four major programming 
-paradigms.</li>
-<li>Recognize features from known languages when learning a new 
-programming language.</li>
-<li>Describe how the features provided by programming languages are 
-implemented by compilers and interpreters. Consider efficiency and 
-readability in the design choices made while writing code.</li>
-<li>Assess appropriateness of a language for a specific project.</li>
-<!--<li>Conduct research and report on technical information.</li>-->
-</ul></ul>
-</div>
-</p>
-
-<p class="firstpara" align="justify">
-<b>University of the Pacific Core Competencies:</b> This course reflects 
-the following university-wide <a 
-href="https://catalog.pacific.edu/sanfrancisco/corecompetencies/">core 
-competenceies</a> in the undergraduate program:
-<div class="box" align="justify">
-<ul><ul>
-<li>Critical Thinking</li>
-<li>Information Literacy</li>
-<!--<li>Oral Communication</li>
-<li>Written Communication</li>-->
-</ul></ul>
-</div>
-</p>
-
-<p class="firstpara" align="justify">
-<b>Outcomes for COMP program:</b> The assessment plan for this course 
-comprises the following outcomes <a 
-href="http://catalog.pacific.edu/stocktongeneral/schoolofengineeringandcomputerscience/computerscience/#objective">identified</a> 
-by ABET:
-<div class="box" align="justify">
-<ul><ul>
-<li>Outcome 1: "Analyze a complex computing problem and to apply 
-principles of computing and other relevant disciplines to identify 
-solutions."</li>
-<li>Outcome 2: "Design, implement, and evaluate a computing-based solution 
-to meet a given set of computing requirements in the context of the 
-program’s discipline."</li>
-<!--<li>Outcome 3: "Communicate effectively in a variety of professional
-contexts."</li>-->
-<li>Outcome 6: "Apply computer science theory and software development
-fundamentals to produce computing-based solutions."</li>
-</ul></ul>
-</div>
-</p>
-
-<p class="firstpara" align="justify">
-<b>Collection of Work for Assessment:</b> Student work may be retained to 
-assess how course learning objectives are being met and for accreditation 
-purposes.
-</p>
-
-
-<font ="+0"="">
-<br><br>
-
-</font>
-
-
-
-</p><hr size="1"><a name="Materials"></a>
-<h2 align="left">Course Material</h2>
-<p class="firstpara" align="justify">
-We will use the following textbooks along with additional resources that 
-are referred through the semester.
-<div class="box" align="justify">
-<ul><ul>
-<li><u><i>Programming Languages: Principles and Practice (3rd  Edition) 
-</i></u> by Kenneth C. Louden and Kenneth A. Lambert.</li>
-<li><u><a 
-href="https://learnyouahaskell.github.io"><i>Learn You a Haskell for Great Good! </i></u> by Miran Lipovaca, 
-available freely available online</a>, licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">
-Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported 
-License</a>.</li>
-</ul></ul>
-</div>
-</p>
-
-<p class="firstpara" align="justify">The slides, assignments, 
-supplementary material, etc. will be provided through <a 
-href="http://canvas.pacific.edu">Canvas LMS</a>.</p>
-
-
-<p class="firstpara" align="justify">Major topics that will be covered in 
-the course are:
-<div class="box" align="justify">
-<ul><ul>
-<li>Programming language syntax</li>
-<li>Programming language sematics</li>
-<li>Different paradigms of programming, focusing on functional programming and logic programming</li>
-<li>Data types</li>
-<li>Procedures and environments</li>
-</ul></ul>
-</div>
-
-<font ="+0"="">
-<br><br>
-
-</font>
-
-
-
-<hr size="1">
-<a name="Grading"></a><h2 align="left">Grading and Attendance Policy</h2>
-<p class="firstpara" align="justify">
-Grades for the course are assigned on the scale below:
-
- <table style="width:100%">
-  <tr>
-    <th>A</th>
-    <th>A-</th>
-    <th>B+</th>
-    <th>B</th>
-    <th>B-</th>
-    <th>C+</th>
-    <th>C</th>
-    <th>C-</th>
-    <th>D+</th>
-    <th>D</th>
-    <th>F</th>
-  </tr>
-  <tr>
-    <td align="center">[93,100]</td>
-    <td align="center">[90,93)</td>
-    <td align="center">[87,90)</td>
-    <td align="center">[83,87)</td>
-    <td align="center">[80,83)</td>
-    <td align="center">[77,80)</td>
-    <td align="center">[73,77)</td>
-    <td align="center">[70,73)</td>
-    <td align="center">[67,70)</td>
-    <td align="center">[60,67)</td>
-    <td align="center">[0,60)</td>
-  </tr>
-</table>
-
-</p>
-
-
-<p class="firstpara" align="justify">
-Final grades will be assigned based on several performance
-factors.  These factors and their quantitative contribution to
-the final grade are as follows:
-
-<div class="box" align="justify">
-<ul><ul>
-<li>Reading/Watching assignments: 0%</li>
-<!--<li>Attendance: 5%</li>-->
-<li>Quizzes: 10%</li>
-<li>Labs: 30% </li>
-<li>Course projects: 35%</li>
-<li>Class activites: 10%</li>
-<li>Programming Language Day assignment: 5%</li>
-<li>Midterm exam: 5%</li>
-<li>Final exam: 5%</li>
-<li>Extra point assignments: 4%</li>
-</ul></ul>
-</div>
-
-</p>
-
-
-<p class="firstpara" align="justify">
-<b><i>Attendance:</i></b>
-<div class="box" align="justify">
-<ul><ul>
-<li>Given the active learning format of this course, attendance and active participation are mandatory. Each class session includes a Class Activity assignment 
-worth 10% of the course grade. Absence from a session will result in a zero for that day's activity, with no make-up opportunities. </li>
-
-<li>Students are expected to arrive prepared, having completed all required work (including the assigned reading and quiz for that session) before class begins. 
-Failure to do so may impact both participation and overall performance. </li>
-
-<li>You will only be allowed <i><u>three excused or unexcused class
-misses</u></i> during the semester. Excuses for professional, 
-academic or athletic activities must be
-approved by the instructor in advance. </li>
-
-<li> Students missing a class are responsible for making up the material 
-studied in that class on their own.
-Students are responsible for being aware of any announcements made during 
-their absence. </li>
-</ul></ul>
-</div>
-</p>
-
-
-<font ="+0"="">
-<br><br>
-
-</font>
-
-
-<hr 4="">
-
-<font ="+1"=""><a name="ExamSched"></a>
-</font><h2 align="left"><font ="+1"="">Exams</font></h2>
-<p class="firstpara" align="justify">
-Two exams will be conducted during the semester, a midterm and a final. 
-The schedule will be announced in class and content and format will be 
-discussed prior to the exams. <i><u>Make up exams will only be scheduled 
-in emergency situations.</u></i></p>
-<font ="+0"=""><font size="-0">
-</font>
-</font>
-<br>
-<br>
-
-<hr 4="">
-
-<font ="+1"=""><a name="Homework"></a>
-</font><h2 align="left"><font ="+1"="">Assignment Guidelines</font></h2>
-<p class="firstpara" align="justify">
-<i><b>Release and Submission</b></i>
-<div class="box" align="justify">
-<ul><ul>
-<li><b>Reading/Watching Assignments</b>: These assignments will be released on
-the course Canvas page at most one or two days before each lecture 
-session. Students must study/watch the referred material before
-each class session. <u>There are not any submissions for reading/watching
-assignments, however it is highly recommended to follow these assignments 
-before each lecture session in order to be prepared for classroom 
-activities.</u> Reading/Watching assignments are considered as <b>individual</b> efforts.</li>
-<li><b>Quizzes</b>: Each session comes with a brief quizz (5-10 minutes) that reflects on the material 
-   covered in the reading/watching assignment associated with that class session. Quizzes are published and automatically 
-   graded in Canvas. They are due at the beginning of each class session. Quizzes are considered as <b>individual</b> efforts.</li>
-<li><b>Labs</b>: Labs will be released on the course Canvas page at latest at the beginning of each lecture session. 
-  Submissions after 11:59PM of the same day <u>will not</u> be accepted.</u> 
-  The due date for labs might be postponed, if considered necessary during the semester. 
-  Lab assignments are considered to be <b>group-based</b>. Group sizes cannot exceed 2 students, defined at the beginning of the semester.
-  The goal is to accomplish all labs and submit in Canvas until the end of that day. 
-  </li>
-<li>
-  <b>Class Activities</b>: These activities involve participation during in-class collaborative exercises. 
-  The aim is to actively engage in discussions, problem-solving, or any assigned tasks alongside peers during each session. 
-  The grade for this category will be subjective, based on the level of engagement and contribution demonstrated by each student during the class. 
-  Class activities serve as a more meaningful measure of attendance. Class activities are considered to be <b>group-based</b>. These groups will
-  be created in ad-hoc manner each session, and their size may vary from session to session.
-</li>
-
-<li><b>Course Projects</b>: These assignments will be released on the course Canvas page
-with a clearly indicated due date. Timely submissions are accepted until 
-11:59PM on the due date. Projects are <b>group-based</b>. Group sizes cannot exceed 2 students, defined at the beginning of the semester.
-</li>
-
-<li>
-  <b>Programming Languages Day Assignment</b>: 
-  This assignment involves teaching a new programming language during a full class session. Each group (3-4 students, formed during the first week 
-  of the semester) will prepare and deliver content covering the language's features, use cases, and a live demonstration, ensuring all members 
-  actively contribute to both preparation and delivery. Detailed requirements and grading criteria will be provided in advance. This assignment 
-  is considered <b>group-based</b>.
-</li>
-
-</ul></ul>
-</div>
-</p>
-
-<p class="firstpara" align="center">
-   <table>
-      <thead>
-        <tr>
-          <th>Assignment Type</th>
-          <th>Score (%)</th>
-          <th>Group Sizes</th>
-          <th>Due Times</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Reading/Watching Assignments</td>
-          <td>0%</td>
-          <td>Individual</td>
-          <td>Before each class session (no submission required)</td>
-        </tr>
-        <tr>
-          <td>Quizzes</td>
-          <td>10%</td>
-          <td>Individual</td>
-          <td>Due at the beginning of each class session</td>
-        </tr>
-        <tr>
-          <td>Labs</td>
-          <td>30%</td>
-          <td>Up to 2 students</td>
-          <td>11:59 PM on the day of release (unless extended)</td>
-        </tr>
-        <tr>
-          <td>Class Activities</td>
-          <td>10%</td>
-          <td>Varies per session (ad-hoc groups)</td>
-          <td>During class session</td>
-        </tr>
-        <tr>
-          <td>Course Projects</td>
-          <td>35%</td>
-          <td>Up to 2 students</td>
-          <td>11:59 PM on the due date</td>
-        </tr>
-        <tr>
-          <td>PL Day Assignment</td>
-          <td>5%</td>
-          <td>3-4 students</td>
-          <td>On scheduled presentation day</td>
-        </tr>
-        <tr>
-          <td>Midterm Exam</td>
-          <td>5%</td>
-          <td>Individual</td>
-          <td>On scheduled exam date</td>
-        </tr>
-        <tr>
-          <td>Final Exam</td>
-          <td>5%</td>
-          <td>Individual</td>
-          <td>On scheduled exam date</td>
-        </tr>
-        <tr>
-          <td>Extra Point Assignments</td>
-          <td>4%</td>
-          <td>Individual</td>
-          <td>11:59 PM on the due date</td>
-        </tr>
-      </tbody>
-    </table>
-</p>
-
-<p class="firstpara" align="justify">
-<i><b>Solutions:</b></i> Solutions to <!--homework assignments, -->quizzes, sample exam questions, and midterm exam may be submitted
-electronically via Canvas, or in class on pencil-and-paper when 
-appropriate.
-</p>
-
-<p class="firstpara" align="justify">
-<i><b>Late submission policy:</b></i> Deliverables for <!--homework 
-assignments and -->course projects will be
-accepted up
-to <b><i>three days</i></b> late, with a <i><b>5% per day penalty</i></b>.
-<br><i><u> All assignments will be considered individual efforts unless 
-otherwise specified, and
-will be treated as such under <a href="#AcademicHonesty">the Academic 
-Honesty Policy</a></u></i>.
-</p>
-
-<font ="+0"=""><font size="-0">
-</font>
-</font>
-<br>
-<br>
-
-
-<hr 4="">
-<font ="+1"="">
-</font><p><font ="+1"=""><a name="AcademicHonesty">
-</a></font></p><h2 align="left"><font ="+1"="">Academic 
-Honesty</font></h2>
-<!-- OLD!
-<p class="firstpara" align="justify">
-We rigorously enforce the University's policy and procedures as stated in 
-the <a 
-href="http://www.pacific.edu/Documents/student-life/judicialaffairs/Tiger%20Lore%20Code%20of%20Conduct%202016-17.pdf">Honor 
-Code</a>.
- At the first suspicion of violation of this code, the case will be
-immediately forwarded to the  Office of Student Conduct and Community 
-Standards.<br>
-<div class="box" align="justify">
-<ul><ul>
-<li>All work is to be an individual effort by default. Group assignments 
-will be explicitly stated as being so.</li>
-<li>Although true research into course topics is encouraged, the course
-textbook and class notes are the only sanctioned sources of information
-for homework and exam solutions. <i>In particular, solution sets
-obtained via unsanctioned means-- from friends, from online, or from
-taking the course previously-- are <b>not sanctioned</b> and any 
-discovered use of them will be considered a violation of academic 
-integrity</i>.</li>
-<li>The instructor is available for outside help, during office hours,
-by email, and by appointment. </li>
-<li>It is your responsibility to protect your own work. </li>
-<li><i><u>All work that is suspected to violate the Honor Code will be 
-referred directly to the Office of Student Conduct and Community 
-Standards.</u></i></li>
-<li>We recommend that you read University's <a 
-href="http://www.pacific.edu/Documents/student-life/judicialaffairs/Tiger%20Lore%20Code%20of%20Conduct%202016-17.pdf">Honor 
-Code</a>.</li>
-</ul></ul>
-</div>
-</p>
--->
-<p class="firstpara" align="justify">
-The Honor Code at the University of the Pacific calls upon each student to 
-exhibit a high degree of maturity, responsibility, and personal integrity. 
-Students are expected to:</p>
-<div class="box" align="justify">
-<ul><ul>
-<li>Act honestly in all matters</li>
-<li>Actively encourage academic integrity</li>
-<li>Discourage any form of cheating or dishonesty by others</li>
-<li>Inform the instructor and appropriate university administrator if she 
-or he has a reasonable and good faith belief and substantial evidence that 
-a violation of the Academic Honesty Policy has occurred.</li>
-</ul></ul>
-</div>
-<p class="firstpara" align="justify">
-Violations will be referred to and investigated by the Office of Student 
-Conduct and Community Standards. If a student is found responsible, it 
-will be documented as part of her or his permanent academic record. A 
-student may receive a range of penalties, including failure of an 
-assignment, failure of the course, suspension, or dismissal from the 
-University. The Academic Honesty Policy is located in Tiger Lore and <a 
-href="http://www.pacific.edu/Campus-Life/Safety-and-Conduct/Student-Conduct/Tiger-Lore-Student-Handbook-.html">online</a>.
-</p>
-
-<p class="firstpara" align="justify">
-<b><i>Course-specific Honor Code Policy: </i></b>Engineering is generally 
-a cooperative endeavor and collaborative learning can be a valuable 
-experience for all involved. However, proper assessment (i.e., grading) 
-requires that work be done by individuals. To balance these two 
-requirements, the following policy will apply:</p>
-
-<div class="box" align="justify">
-<ul><ul>
-<li>Collaborative work on course assignments is encouraged. This includes 
-working together on planning solution strategies and helping each other to 
-debug programs.</li>
-<li><i><u>Collaboration must stop short of someone else writing your 
-assignment.</u></i> You may not directly copy the work of another student. 
-You also may not copy the work of another student, and then modify it so 
-that it does not look the same as the original author's work. It is your 
-responsibility to ensure that the work you submit is an honest 
-representation of your own understanding of the material.</li>
-</ul></ul>
-</div>
-
-<p class="firstpara" align="justify">
-Marginal cases will be resolved by oral examination of the student(s) 
-involved. If they each understand the material in the assignment, it will 
-be considered honest collaboration. If they do not, then it will be 
-considered academic dishonesty.
-<p>
-
-<p class="firstpara" align="justify">
-In many cases, it may be possible to identify reusable source code from 
-textbooks, web sites or other resources that can help you with 
-assignments.  You are permitted to use such references provided that:
-<p>
-
-<div class="box" align="justify">
-<ul><ul>
-<li>The amount of code reused does not exceed 25% of the total assignment 
-length, and</li>
-<li><i><u>In the source code comments, you clearly identify any code that 
-you did not write,</u></i> state where it came from, and to what extent 
-you modified it. </li>
-</ul></ul>
-</div>
-
-<p class="firstpara" align="justify">
-You are responsible for understanding the theory behind all algorithms or 
-source code used, regardless of their source.</li>
-<p>
-
-<!--
-<hr 4="">
-<font ="+1"="">
-</font><p><font ="+1"=""><a name="Covid">
-</a></font></p><h2 align="left"><font ="+1"="">Covid19 
-Pandemic</font></h2>
-
-<p class="firstpara" align="justify">
-</p>
-
-<p class="firstpara" align="justify">
-<div class="box" align="justify">
-<ul><ol>
-<li>Masks are required for everyone when in the classroom. It is your 
-responsibility to have a mask when you arrive for class.</li>
-<li>Eating and drinking are prohibited in the classroom. If you must have 
-something to eat or drink during class, request permission to be excused 
-and go outside to do it.</li>
-<li>Respect each other and respect personal space. Work together to ensure 
-that this classroom is comfortable and safe. While there are no social 
-distancing rules in effect, please allow distance when possible. Be aware 
-of others' needs for personal space and adjust appropriately.</li>
-<li>If you become ill or you are required to quarantine or isolate, stay 
-home, and do not come to class. You should inform the Dean of Students of 
-your status. Her office will inform your instructors that you will need to 
-be away from class. Contact her office at <a 
-href="mailto:deanofstudents@pacific.edu">deanofstudents@pacific.edu</a> or 
-209.946.2365. Moreover, Contact the instructor by email and we can 
-determine how you can continue to participate in the course.</li>
-</ol></ul>
-</div>
-</p>
-<p class="firstpara" align="justify">
-You are also responsible for conducting yourselves according to university 
-rules and policies related to the pandemic. Here are some links for 
-review:
-<div class="box" align="justify">
-<ul><ol>
-<li> <a href="https://www.pacific.edu/covid-19-update">The university's 
-main page for COVID related information</a> </li>
-<li> <a 
-href="https://www.pacific.edu/covid-19-update/students">Requirements for 
-students before coming to campus, including vaccination 
-requirements</a></li>
-<li> <a 
-href="https://www.pacific.edu/sites/default/files/media/inline/Isolation-and-Quaratine-Guidelines.pdf">Guidelines 
-for determining if you need to isolate or quarantine</a></li>
-</ol></ul>
-</div>
-If there are significant changes in pandemic conditions, it may be 
-necessary to change some of the policies or structure of this course. If 
-this becomes necessary, a revised syllabus will be distributed through the 
-course Canvas site. Check the Canvas site regularly for announcements.
-</p> -->
-
-
-<hr 4="">
-<font ="+1"="">
-</font><p><font ="+1"=""><a name="Disabilities">
-</a></font></p><h2 align="left"><font ="+1"="">Accommodations for Students 
-with Disabilities</font></h2>
-
-<p class="firstpara" align="justify">
-If you are a student with a disability who requires accommodations, please 
-visit <a 
-href="https://www.pacific.edu/student-life/student-services/services-for-students-with-disabilities">pacific.edu/disabilities</a> 
-to contact the Office of Services for Students with Disabilities (SSD) for 
-information on how to request accommodations while at Pacific.</p>
-
-<p class="firstpara" align="justify">
-<div class="box" align="justify">
-<ul><ol>
-<li>Students who have not previously registered for accommodations can 
-request services by visiting <a 
-href="https://www.pacific.edu/student-life/student-services/services-for-students-with-disabilities">pacific.edu/disabilities</a> 
-and selecting <a 
-href="https://augusta.accessiblelearning.com/Pacific/ApplicationStudent.aspx">New 
-Students Apply Here</a>. Once registered, students will be asked to 
-provide documentation of their disability, and meet with the accommodation 
-specialists to determine reasonable accommodations.</li>
-<li>Students who have previously been approved for services with SSD can 
-request accommodation(s) letters each semester by selecting the <a 
-href="https://augusta.accessiblelearning.com/Pacific/">Returning Students 
-Login Here</a> link located on <a 
-href="https://www.pacific.edu/student-life/student-services/services-for-students-with-disabilities">pacific.edu/disabilities</a></li>
-</ol></ul>
-</div>
-</p>
-
-<p class="firstpara" align="justify">
-The Office of Services for Students with Disabilities is located in the 
-McCaffrey Center, Second Floor. Phone: 209-946-3221. Email: <a 
-href="mailto:ssd@pacific.edu">ssd@pacific.edu</a>. Online: <a 
-href="https://www.pacific.edu/student-life/student-services/services-for-students-with-disabilities">pacific.edu/disabilities</a>
-</p>
-
-
-
-
-<hr 4="">
-<font ="+1"="">
-</font><p><font ="+1"=""><a name="Nondiscrimination">
-</a></font></p><h2 align="left"><font ="+1"="">Nondiscrimination 
-Policy</font></h2>
-<p class="firstpara" align="justify">
-The University of the Pacific does not discriminate in the administration 
-of any of its educational programs, admissions, scholarships, loans, 
-athletics, or other University activities or programs on the basis of 
-race, color, national and ethnic origin, handicap, sexual orientation or 
-preference, sex or age.</p>
-
-
-
-
-<hr 4="">
-<font ="+1"="">
-</font><p><font ="+1"=""></font></p><h2 align="left"><font 
-="+1"=""></font></h2>
-<i><b>The instructor reserves the right to change these policies and 
-guidelines at any
-time, and students agree to abide by the most recent version of this 
-syllabus.</b></i>
-
-
-
-
-<font ="+0"=""><font size="-0">
-</font>
-</font>
-<br>
-<br>
-
-
-
-
-
-
-<font ="+1"="">
-<hr 4="">
-<font ="+1"=""><a href="#top">Back to top</a>
-</font>
-
-<script type="text/javascript">
-   var gaJsHost = (("https:" == document.location.protocol) ? 
-"https://ssl." : "http://www.");
-   document.write(unescape("%3Cscript src='" + gaJsHost + 
-"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script><script src="./ga.js" type="text/javascript"></script><script 
-src="./ga.htm" type="text/javascript"></script>
-<script type="text/javascript">
-   try {
-       var pageTracker = _gat._getTracker("UA-10898955-1");
-       pageTracker._trackPageview();
-   } catch(err) {}
-</script>
-
-</font><script type="text/javascript">
-   var gaJsHost = (("https:" == document.location.protocol) ? 
-"https://ssl." : "http://www.");
-   document.write(unescape("%3Cscript src='" + gaJsHost + 
-"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script><script src="./ga.js" type="text/javascript"></script>
-<script type="text/javascript">
-   try {
-       var pageTracker = _gat._getTracker("UA-10898955-1");
-       pageTracker._trackPageview();
-   } catch(err) {}
-</script>
-
-</body></html>
+  <!-- Site header to match your theme -->
+  <header>
+    <div class="container nav" role="navigation" aria-label="Primary">
+      <a class="brand" href="../../index.html"><span>Sepehr Amir</span></a>
+      <nav class="links">
+        <a href="../../index.html">Home</a>
+        <a href="../../index.html#research">Research</a>
+        <a href="../../pubs/pubs.html">Publications</a>
+        <a href="../../index.html#teaching">Teaching</a>
+        <a href="../../index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" id="main">
+    <h1 class="page-title">COMP 141: Programming Languages (Fall 2025)</h1>
+
+    <!-- In-page TOC -->
+    <nav class="toc" aria-label="Syllabus sections" align="center">
+      <a class="btn" href="#Description">Course Description</a>
+      <a class="btn" href="#Admin">Administration</a>
+      <a class="btn" href="#Objectives">Learning Objectives</a>
+      <a class="btn" href="#Materials">Materials</a>
+      <a class="btn" href="#Grading">Grading & Attendance</a>
+      <a class="btn" href="#ExamSched">Exams</a>
+      <br/>
+      <a class="btn" href="#Homework">Assignment Guidelines</a>
+      <a class="btn" href="#AcademicHonesty">Academic Honesty</a>
+      <a class="btn" href="#Disabilities">Disabilities</a>
+      <a class="btn" href="#Nondiscrimination">Nondiscrimination</a>
+    </nav>
+
+    <!-- ===== DESCRIPTION ===== -->
+    <section id="Description" class="card" aria-labelledby="desc-h">
+      <h2 id="desc-h">Course Description</h2>
+      <p class="firstpara" align="justify">
+        Topics in evaluation, design, and development of programming languages. 
+        Topics include type systems, variables and scope, functions, parameter 
+        passing, data hiding and abstractions, recursion, memory allocation, 
+        grammars and parsing, compilers architecture, programming paradigms, and 
+        comparison of programming languages and environments.
+      </p>
+
+      <p class="firstpara" align="justify">
+        <b><i>Prerequisites:</i></b> Completion of Fundamental Skills and COMP 053 
+        with a "C-" or better.
+        <br>
+        <i>When enrolling in this course, you should be relatively proficient in 
+        using at least the following object‑oriented programming languages: C++ 
+        and Java. It is recommended to use C++, Java or Python for course 
+        projects. In addition to being a competent programmer, you should have a 
+        working understanding of the following specific topics:</i>
+      </p>
+      <div class="box" align="justify">
+        <ul>
+          <li><i>Pointers and Dynamic Memory Allocation</i></li>
+          <li><i>Inheritance, Polymorphism, and Templates</i></li>
+          <li><i>Fundamental Data Structures including vectors, lists, stacks, queues, and trees</i></li>
+        </ul>
+      </div>
+
+      <p class="firstpara">
+        <b><i>Website:</i></b> <a href="./syllabus.html">Syllabus</a>, <a href="http://canvas.pacific.edu">Canvas LMS</a>
+      </p>
+      <p class="firstpara"><b><i>Credits:</i></b> 4 units</p>
+      <p class="firstpara">
+        <b><i>Course Catalog:</i></b> 
+        <a href="https://catalog.pacific.edu/search/?search=comp+141&caturl=%2F">
+          https://catalog.pacific.edu/search/?search=comp+141&caturl=%2F
+        </a>
+      </p>
+    </section>
+
+    <!-- ===== ADMIN ===== -->
+    <section id="Admin" class="card" aria-labelledby="admin-h">
+      <h2 id="admin-h">Administration</h2>
+      <p class="firstpara" align="justify">
+        <b>Instructor:</b> <a href="../../index.html">Sepehr Amir-Mohammadian</a><br>
+        <b>Email:</b> <img src="https://sepehram.github.io/email.png" width="250" alt="email address"><br>
+        <b>Class time/location:</b> MWF 11:00 – 12:15, Chambers 114<br><br>
+        <b>Office hours:</b> MW 14:00 – 15:15, Chambers 122<br><br>
+        <b>Teaching Assistant:</b> Ramis Hasanli<br>
+        <b>Email:</b> rhasanli@pacific.edu
+      </p>
+    </section>
+
+    <!-- ===== OBJECTIVES ===== -->
+    <section id="Objectives" class="card" aria-labelledby="obj-h">
+      <h2 id="obj-h">Learning Objectives</h2>
+      <p class="firstpara" align="justify">
+        The vision for this course is: <i>What do I, as a computer scientist, need 
+        to understand about the fundamental concepts in programming languages and 
+        what are the different features by which I can realize whether a given 
+        programming language is appropriate in a given project?</i>
+      </p>
+      <p class="firstpara" align="justify">There are two main themes in this course:</p>
+      <div class="box" align="justify">
+        <ul>
+          <li>The internal structure of programming languages, and how we can deploy them (~50%)</li>
+          <li>Different paradigms of programming (beyond object-oriented) (~50%)</li>
+        </ul>
+      </div>
+
+      <p class="firstpara" align="justify">You will have many different opportunities to gain this knowledge through:</p>
+      <div class="box" align="justify">
+        <ul>
+          <li>Labs</li>
+          <li>Course projects</li>
+          <li>Getting exposed to new languages</li>
+          <li>Class discussions, quizzes, and reading/watching assignments</li>
+        </ul>
+      </div>
+
+      <p class="firstpara" align="justify">After taking this course, you should be able to:</p>
+      <div class="box" align="justify">
+        <ul>
+          <li>Use multiple programming languages to write simple programs.</li>
+          <li>Identify common features across languages and key differences among the four major paradigms.</li>
+          <li>Recognize familiar features when learning a new language.</li>
+          <li>Explain how PL features are implemented by compilers/interpreters; weigh efficiency/readability in design choices.</li>
+          <li>Assess language appropriateness for a specific project.</li>
+        </ul>
+      </div>
+
+      <p class="firstpara" align="justify">
+        <b>University of the Pacific Core Competencies:</b> This course reflects the following university‑wide 
+        <a href="https://catalog.pacific.edu/sanfrancisco/corecompetencies/">core competencies</a>:
+      </p>
+      <div class="box" align="justify">
+        <ul>
+          <li>Critical Thinking</li>
+          <li>Information Literacy</li>
+        </ul>
+      </div>
+
+      <p class="firstpara" align="justify">
+        <b>Outcomes for COMP program:</b> Assessed outcomes per 
+        <a href="http://catalog.pacific.edu/stocktongeneral/schoolofengineeringandcomputerscience/computerscience/#objective">ABET</a>:
+      </p>
+      <div class="box" align="justify">
+        <ul>
+          <li>Outcome 1: Analyze a complex computing problem and to apply principles of computing and other relevant disciplines to identify solutions.</li>
+          <li>Outcome 2: Design, implement, and evaluate a computing-based solution to meet a given set of computing requirements in the context of the program's discipline.</li>
+          <li>Outcome 6: Apply computer science theory and software development fundamentals to produce computing-based solutions.</li>
+        </ul>
+      </div>
+
+      <!--<p class="firstpara" align="justify"><b>Collection of Work for Assessment:</b> Student work may be retained for assessment/accreditation.</p>-->
+    </section>
+
+    <!-- ===== MATERIALS ===== -->
+    <section id="Materials" class="card" aria-labelledby="mat-h">
+      <h2 id="mat-h">Course Material</h2>
+      <p class="firstpara" align="justify">
+        We will use the following textbooks and additional resources throughout the semester:
+      </p>
+      <div class="box" align="justify">
+        <ul>
+          <li><u><i>Programming Languages: Principles and Practice (3rd Edition)</i></u> by Kenneth C. Louden and Kenneth A. Lambert.</li>
+          <li>
+            <u><a href="https://learnyouahaskell.github.io"><i>Learn You a Haskell for Great Good!</i></a></u> by Miran Lipovaca (free online), licensed under 
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY‑NC‑SA 3.0</a>.
+          </li>
+        </ul>
+      </div>
+      <p class="firstpara" align="justify">
+        Slides, assignments, and supplementary material will be posted on <a href="http://canvas.pacific.edu">Canvas</a>.
+      </p>
+
+      <p class="firstpara" align="justify">Major topics include:</p>
+      <div class="box" align="justify">
+        <ul>
+          <li>Programming language syntax</li>
+          <li>Programming language semantics</li>
+          <li>Paradigms: functional and logic programming (beyond OO)</li>
+          <li>Data types</li>
+          <li>Procedures and environments</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== GRADING ===== -->
+    <section id="Grading" class="card grades" aria-labelledby="grading-h">
+      <h2 id="grading-h">Grading and Attendance Policy</h2>
+
+      <p class="firstpara" align="justify">Grades are assigned on the scale below:</p>
+        <table class="grade-table" align="center">
+          <thead>
+            <tr>
+              <th>A</th><th>A-</th><th>B+</th><th>B</th><th>B-</th>
+              <th>C+</th><th>C</th><th>C-</th><th>D+</th><th>D</th><th>F</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="center">[93,100]</td>
+              <td align="center">[90,93)</td>
+              <td align="center">[87,90)</td>
+              <td align="center">[83,87)</td>
+              <td align="center">[80,83)</td>
+              <td align="center">[77,80)</td>
+              <td align="center">[73,77)</td>
+              <td align="center">[70,73)</td>
+              <td align="center">[67,70)</td>
+              <td align="center">[60,67)</td>
+              <td align="center">[0,60)</td>
+            </tr>
+          </tbody>
+        </table>
+
+      <p class="firstpara" align="justify">
+        Final grades are based on:
+      </p>
+      <div class="box" align="justify">
+        <ul>
+          <li>Quizzes: 10%</li>
+          <li>Labs: 30%</li>
+          <li>Course projects: 35%</li>
+          <li>Class activities: 10%</li>
+          <li>Programming Language Day assignment: 5%</li>
+          <li>Midterm exam: 5%</li>
+          <li>Final exam: 5%</li>
+          <li>Extra point assignments: 4%</li>
+        </ul>
+      </div>
+
+      <p class="firstpara" align="justify"><b><i>Attendance:</i></b></p>
+      <div class="box" align="justify">
+        <ul>
+          <li>Given the active learning format of this course, attendance and active participation are mandatory. Each class session includes a Class Activity assignment 
+            worth 10% of the course grade. Absence from a session will result in a zero for that day's activity, with no make-up opportunities. </li>
+            
+            <li>Students are expected to arrive prepared, having completed all required work (including the assigned reading and quiz for that session) before class begins. 
+            Failure to do so may impact both participation and overall performance. </li>
+            
+            <li>You will only be allowed <i><u>three excused or unexcused class
+            misses</u></i> during the semester. Excuses for professional, 
+            academic or athletic activities must be
+            approved by the instructor in advance. </li>
+            
+            <li> Students missing a class are responsible for making up the material 
+            studied in that class on their own.
+            Students are responsible for being aware of any announcements made during 
+            their absence. </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== EXAMS ===== -->
+    <section id="ExamSched" class="card" aria-labelledby="exams-h">
+      <h2 id="exams-h">Exams</h2>
+      <p class="firstpara" align="justify">
+        Two exams will be conducted during the semester, a midterm and a final. 
+        The schedule will be announced in class and content and format will be 
+        discussed prior to the exams. <i><u>Make up exams will only be scheduled 
+        in emergency situations.</u></i>
+      </p>
+    </section>
+
+    <!-- ===== ASSIGNMENT GUIDELINES ===== -->
+    <section id="Homework" class="card" aria-labelledby="assign-h">
+      <h2 id="assign-h">Assignment Guidelines</h2>
+
+      <p class="firstpara" align="justify"><i><b>Release and Submission</b></i></p>
+      <div class="box" align="justify">
+        <ul>
+          <li><b>Reading/Watching Assignments</b>: These assignments will be released on
+            the course Canvas page at most one or two days before each lecture 
+            session. Students must study/watch the referred material before
+            each class session. <u>There are not any submissions for reading/watching
+            assignments, however it is highly recommended to follow these assignments 
+            before each lecture session in order to be prepared for classroom 
+            activities.</u> Reading/Watching assignments are considered as <b>individual</b> efforts.</li>
+            <li><b>Quizzes</b>: Each session comes with a brief quizz (5-10 minutes) that reflects on the material 
+               covered in the reading/watching assignment associated with that class session. Quizzes are published and automatically 
+               graded in Canvas. They are due at the beginning of each class session. Quizzes are considered as <b>individual</b> efforts.</li>
+            <li><b>Labs</b>: Labs will be released on the course Canvas page at latest at the beginning of each lecture session. 
+              Submissions after 11:59PM of the same day <u>will not</u> be accepted.</u> 
+              The due date for labs might be postponed, if considered necessary during the semester. 
+              Lab assignments are considered to be <b>group-based</b>. Group sizes cannot exceed 2 students, defined at the beginning of the semester.
+              The goal is to accomplish all labs and submit in Canvas until the end of that day. 
+              </li>
+            <li>
+              <b>Class Activities</b>: These activities involve participation during in-class collaborative exercises. 
+              The aim is to actively engage in discussions, problem-solving, or any assigned tasks alongside peers during each session. 
+              The grade for this category will be subjective, based on the level of engagement and contribution demonstrated by each student during the class. 
+              Class activities serve as a more meaningful measure of attendance. Class activities are considered to be <b>group-based</b>. These groups will
+              be created in ad-hoc manner each session, and their size may vary from session to session.
+            </li>
+            
+            <li><b>Course Projects</b>: These assignments will be released on the course Canvas page
+            with a clearly indicated due date. Timely submissions are accepted until 
+            11:59PM on the due date. Projects are <b>group-based</b>. Group sizes cannot exceed 2 students, defined at the beginning of the semester.
+            </li>
+            
+            <li>
+              <b>Programming Languages Day Assignment</b>: 
+              This assignment involves teaching a new programming language during a full class session. Each group (3-4 students, formed during the first week 
+              of the semester) will prepare and deliver content covering the language's features, use cases, and a live demonstration, ensuring all members 
+              actively contribute to both preparation and delivery. Detailed requirements and grading criteria will be provided in advance. This assignment 
+              is considered <b>group-based</b>.
+            </li>
+        </ul>
+      </div>
+      <table class="grade-table" align="center">
+          <thead>
+            <tr>
+              <th>Assignment Type</th><th>Score (%)</th><th>Group Sizes</th><th>Due Times</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Reading/Watching</td><td>0%</td><td>Individual</td><td>Before each session (no submission)</td></tr>
+            <tr><td>Quizzes</td><td>10%</td><td>Individual</td><td>Start of session</td></tr>
+            <tr><td>Labs</td><td>30%</td><td>Up to 2</td><td>11:59 PM same day (unless extended)</td></tr>
+            <tr><td>Class Activities</td><td>10%</td><td>Ad‑hoc</td><td>During session</td></tr>
+            <tr><td>Course Projects</td><td>35%</td><td>Up to 2</td><td>11:59 PM on due date</td></tr>
+            <tr><td>PL Day</td><td>5%</td><td>3–4</td><td>Presentation day</td></tr>
+            <tr><td>Midterm</td><td>5%</td><td>Individual</td><td>Scheduled date</td></tr>
+            <tr><td>Final</td><td>5%</td><td>Individual</td><td>Scheduled date</td></tr>
+            <tr><td>Extra Points</td><td>4%</td><td>Individual</td><td>11:59 PM on due date</td></tr>
+          </tbody>
+        </table>
+
+      <p class="firstpara" align="justify">
+        <i><b>Solutions:</b></i> Quiz/sample‑exam/midterm solutions may be submitted via Canvas or on paper when appropriate.
+      </p>
+      <p class="firstpara" align="justify">
+        <i><b>Late policy:</b></i> Course project deliverables accepted up to <b><i>3 days</i></b> late at <i><b>−5% per day penalty</b></i>.
+        <br><i><u>All work is individual unless otherwise specified, and subject to the <a href="#AcademicHonesty">Academic Honesty Policy</a>.</u></i>
+      </p>
+    </section>
+
+    <!-- ===== HONESTY ===== -->
+    <section id="AcademicHonesty" class="card" aria-labelledby="honesty-h">
+      <h2 id="honesty-h">Academic Honesty</h2>
+      <p class="firstpara" align="justify">
+        The Honor Code calls upon each student to exhibit maturity, responsibility, and integrity. Students are expected to:
+      </p>
+      <div class="box" align="justify">
+        <ul>
+          <li>Act honestly in all matters</li>
+          <li>Encourage academic integrity</li>
+          <li>Discourage cheating or dishonesty</li>
+          <li>Inform the instructor/administration with good‑faith evidence of violations</li>
+        </ul>
+      </div>
+      <p class="firstpara" align="justify">
+        Violations are referred to the Office of Student Conduct and Community Standards and may result in penalties up to failure/suspension/dismissal. 
+        See Tiger Lore and <a href="http://www.pacific.edu/Campus-Life/Safety-and-Conduct/Student-Conduct/Tiger-Lore-Student-Handbook-.html">online policy</a>.
+      </p>
+
+      <p class="firstpara" align="justify"><b><i>Course‑specific policy:</i></b></p>
+      <div class="box" align="justify">
+        <ul>
+          <li>Collaboration on planning/strategy/debugging is encouraged.</li>
+          <li><i><u>Do not submit someone else’s work.</u></i> </li>
+        </ul>
+      </div>
+      <p class="firstpara" align="justify">
+        Marginal cases may be resolved via oral examination to assess individual understanding.
+      </p>
+    </section>
+
+    <!-- ===== DISABILITIES ===== -->
+    <section id="Disabilities" class="card" aria-labelledby="disab-h">
+      <h2 id="disab-h">Accommodations for Students with Disabilities</h2>
+      <p class="firstpara" align="justify">
+        If you require accommodations, visit 
+        <a href="https://www.pacific.edu/student-life/student-services/services-for-students-with-disabilities">pacific.edu/disabilities</a> 
+        to contact SSD and request services.
+      </p>
+      <div class="box" align="justify">
+        <ol>
+          <li>New students: apply via <a href="https://augusta.accessiblelearning.com/Pacific/ApplicationStudent.aspx">New Students Apply Here</a>.</li>
+          <li>Returning students: request letters each semester via 
+            <a href="https://augusta.accessiblelearning.com/Pacific/">Returning Students Login Here</a>.
+          </li>
+        </ol>
+      </div>
+      <p class="firstpara" align="justify">
+        SSD: McCaffrey Center (2nd Floor) • 209‑946‑3221 • 
+        <a href="mailto:ssd@pacific.edu">ssd@pacific.edu</a> • 
+        <a href="https://www.pacific.edu/student-life/student-services/services-for-students-with-disabilities">website</a>
+      </p>
+    </section>
+
+    <!-- ===== NONDISCRIMINATION ===== -->
+    <section id="Nondiscrimination" class="card" aria-labelledby="non-h">
+      <h2 id="non-h">Nondiscrimination Policy</h2>
+      <p class="firstpara" align="justify">
+        The University of the Pacific does not discriminate in the administration of its programs/activities based on race, color, national and ethnic origin, 
+        handicap, sexual orientation or preference, sex, or age.
+      </p>
+    </section>
+
+    <section class="card" aria-label="Policy note">
+      <p><i><b>The instructor reserves the right to change these policies and guidelines at any time, and students agree to abide by the most recent version of this syllabus.</b></i></p>
+    </section>
+
+    <p class="meta" align="center"><a href="#top">Back to top</a></p>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="meta">© <span id="y"></span> Sepehr Amir</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('*').forEach(el => el.style.scrollBehavior='auto');
+    }
+  </script>
+</body>
+</html>

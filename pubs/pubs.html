@@ -1,701 +1,828 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-
-<html>
-
+<!doctype html>
+<html lang="en">
 <head>
-<title>Publications</title>
-<link rel=stylesheet type="text/css" href="../css/desktop.css">
+  <meta charset="utf-8" />
+  <title>Publications — Sepehr Amir</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Publications by Sepehr Amir" />
+  <link rel="stylesheet" href="/css/theme-green.css">
+
+  <!-- Page-specific tweaks (keeps bibtex2html content intact) -->
+  <style>
+	:root {
+	  --bg: #0b0f0c;             /* very dark green background */
+	  --panel: #101a13;          /* dark green panel */
+	  --text: #e5e7eb;
+	  --muted: #9aa3af;
+	  --brand: #198754;          /* Bootstrap green (dark, saturated) */
+	  --accent: #28a745;         /* medium green */
+	  --ring: rgba(40, 167, 69, 0.35); /* green highlight */
+	  --card: #111827;
+	  --border: #1f2937;
+	}
+	
+	@media (prefers-color-scheme: light) {
+	  :root {
+		--bg: #f8fafc;
+		--panel: #ffffff;
+		--text: #0b1220;
+		--muted: #475569;
+		--brand: #198754;
+		--accent: #28a745;
+		--ring: rgba(40, 167, 69, 0.25);
+		--card: #ffffff;
+		--border: #e5e7eb;
+	  }
+	}
+		*, *::before, *::after { box-sizing: border-box; }
+		html { scroll-behavior: smooth; }
+		body {
+		  margin: 0;
+		  font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+		  color: var(--text);
+		  background: radial-gradient(1200px 800px at 80% -10%, rgba(40,167,69,0.08), transparent),
+				radial-gradient(1000px 600px at 0% 0%, rgba(72,187,120,0.1), transparent),
+				var(--bg);
+		  -webkit-font-smoothing: antialiased;
+		  -moz-osx-font-smoothing: grayscale;
+		}
+		a { color: var(--brand); text-decoration: none; }
+		a:hover { text-decoration: underline; }
+		.container { max-width: 1100px; padding: 0 1.2rem; margin: 0 auto; }
+		.chip { display:inline-block; padding:.125rem .5rem; border:1px solid var(--border); border-radius:999px; font-size:.85rem; color:var(--muted); }
+	
+		/* Header / Nav */
+		header {
+		  position: sticky; top: 0; z-index: 50; backdrop-filter: blur(8px);
+		  background: color-mix(in oklab, var(--bg) 80%, transparent);
+		  border-bottom: 1px solid var(--border);
+		}
+		.nav { display:flex; align-items:center; justify-content:space-between; height:64px; }
+		.nav a.brand { display:flex; gap:.6rem; align-items:center; font-weight:700; color:var(--text); }
+		.nav .links { display:flex; gap:1rem; align-items:center; }
+		.nav .links a { color:var(--muted); font-weight:600; padding:.4rem .6rem; border-radius:8px; }
+		.nav .links a:focus, .nav .links a:hover { color:var(--text); background:var(--panel); outline: 2px solid var(--ring); outline-offset:2px; }
+	
+		/* Hero */
+		.hero { display:grid; gap:2rem; grid-template-columns: 1fr; padding:4rem 0 2rem; align-items:center; }
+		.hero .portrait { width:140px; height:140px; border-radius:50%; object-fit:cover; border:3px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+		.hero h1 { font-size: clamp(1.8rem, 2.8vw + 1rem, 3rem); margin:0 0 .25rem; }
+		.hero h2 { font-size:1.1rem; font-weight:600; color:var(--muted); margin:.1rem 0 1rem; }
+		.hero .actions { display:flex; gap:.8rem; flex-wrap: wrap; }
+		.btn { display:inline-flex; align-items:center; gap:.5rem; padding:.6rem .9rem; border-radius:10px; border:1px solid var(--border); background: var(--panel); color:var(--text); font-weight:700; }
+		.btn:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0,0,0,.15); text-decoration:none; }
+		.btn.primary { background: linear-gradient(180deg, var(--brand), var(--accent)); color:#001019; border:0; }
+	
+		/* Sections */
+		section { padding: 2.5rem 0; }
+		section h3 { font-size:1.4rem; margin:0 0 1rem; }
+		.grid { display:grid; gap:1rem; }
+		.grid.cols-2 { grid-template-columns: 1fr; }
+		.grid.cols-3 { grid-template-columns: 1fr; }
+		@media (min-width: 820px) {
+		  .hero { grid-template-columns: 1fr 2fr; }
+		  .grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+		  .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+		}
+		.card { background: var(--card); border:1px solid var(--border); border-radius:16px; padding:1rem; box-shadow: 0 6px 18px rgba(0,0,0,.08); }
+		.card h4 { margin:.4rem 0 .2rem; }
+		.card p { margin:.25rem 0 0; color:var(--muted); }
+		.meta { font-size:.9rem; color:var(--muted); }
+	
+		/* Publications */
+		.pub { display:grid; gap:.25rem; border-left: 2px solid var(--border); padding-left:.8rem; }
+		.pub .title { font-weight:700; }
+		.pub .venue { color: var(--muted); font-size:.95rem; }
+		.pub .tags { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.3rem; }
+	
+		/* Footer */
+		footer { padding:2rem 0; color:var(--muted); border-top:1px solid var(--border); margin-top:2rem; }
+	
+		/* Skip link for a11y */
+		.skip { position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden; }
+		.skip:focus { position:static; width:auto; height:auto; padding:.4rem; background:var(--panel); border:1px solid var(--border); border-radius:8px; }
+	  </style>
 </head>
 
 <body>
+  <!-- Simple site header to match the theme -->
+  <header>
+    <div class="container nav" role="navigation" aria-label="Primary">
+      <a class="brand" href="../index.html"><span>Sepehr Amir</span></a>
+      <nav class="links">
+        <a href="../index.html">Home</a>
+        <a href="../index.html#research">Research</a>
+        <a href="../index.html#teaching">Teaching</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<!-- This document was automatically generated with bibtex2html 1.99
-     (see http://www.lri.fr/~filliatr/bibtex2html/),
-     with the following command:
-     bibtex2html -css ../css/desktop.css -t Publications -d -r pubs.bib  -->
+  <main class="container">
+    <h1>Publications</h1>
+    <div class="top-actions">
+      <a class="btn primary" href="pubs_bib.html">BibTeX Index</a>
+      <!--<a class="btn primary" href="https://scholar.google.com/citations?user=">Google Scholar</a>-->
+    </div>
 
-<h1>Publications</h1>
-<table>
+    <!-- BEGIN bibtex2html output (unchanged markup; now styled by CSS above) -->
+    <!-- This document was automatically generated with bibtex2html 1.99 -->
+    <table>
 
-
-<tr valign="top">
-	<td align="right" class="bibtexnumber">
-	[<a name="amirmoh-acdsa25-2">1</a>]
-	</td>
-	<td class="bibtexitem">
-	Sepehr Amir-Mohammadian.
-	Towards quantifying information leakage of timing attacks in cyber-physical systems.
-	In <em>Proceedings of the IEEE International Conference on Artificial Intelligence, Computer, Data 
-		Sciences and Applications (ACDSA), Antalya, T&#252;rkiye</em>, August 2025.
-	[&nbsp;<a href="pubs_bib.html#amirmoh-acdsa25-2">bib</a>&nbsp;| 
-	<a href="https://sepehram.github.io/pubs/acdsa25-2.pdf">.pdf</a>&nbsp;]
-	<blockquote>
-	Timing side-channel attacks exploit variations in execution time to infer confidential information 
-	from a system's behavior. In this paper, we develop a formal framework for analyzing timing side-channel 
-	leakage in cyber-physical systems by modeling their digital twins. We rely on a process-algebraic calculus 
-	for digital twins to express timing-sensitive behaviors and define its semantics using probabilistic Markov 
-	models. This enables rigorous quantification of information leakage based on execution timing variations. 
-	By leveraging entropy-based analysis, we measure an attacker's ability to infer secret states from observable 
-	execution delays.
-	</blockquote>
-	
-	</td>
-</tr>	
-
-<tr valign="top">
-	<td align="right" class="bibtexnumber">
-	[<a name="amirmoh-salehi-zowj-acdsa25-1">2</a>]
-	</td>
-	<td class="bibtexitem">
-	Sepehr Amir-Mohammadian and Khayyam Salehi and Afsoon Yousefi-Zowj.
-	Approximating quantified information leakage in cyber-physical systems through their digital twins.
-	In <em>Proceedings of the IEEE International Conference on Artificial Intelligence, Computer, Data 
-		Sciences and Applications (ACDSA), Antalya, T&#252;rkiye</em>, August 2025.
-	[&nbsp;<a href="pubs_bib.html#amirmoh-salehi-zowj-acdsa25-1">bib</a>&nbsp;| 
-	<a href="https://sepehram.github.io/pubs/acdsa25-1.pdf">.pdf</a>&nbsp;]
-	<blockquote>
-		Quantitative information flow analysis provides a systematic approach to evaluating the security of a 
-		system by measuring the amount of secret information exposed through public outputs. In this paper, we develop 
-		a formal framework for quantifying information leakage in cyber-physical systems by modeling their digital twins. 
-		We define a process-algebraic calculus for digital twins and specify their semantics using Markovian models, 
-		enabling rigorous information flow analysis. Cyber-physical systems operate in an uncountably infinite state 
-		space due to their continuous physical behaviors. In contrast, digital twins---through digitization---evolve 
-		in a finite space, enabling the feasibility of quantitative information flow analysis using Markovian models. 
-		This formulation captures the inherent nondeterminism and probabilistic transitions in cyber-physical systems 
-		arising from evolution uncertainties, sensor measurement errors, and concurrent control logic. Leveraging 
-		back-bisimulation, we systematically compare an attacker's knowledge of system secrets before and after 
-		execution to quantify leakage, relying on Renyi's min-entropy. This approach provides a structured methodology 
-		for assessing confidentiality risks in cyber-physical systems and demonstrates the role of digital twins in 
-		advancing security analysis.
-	</blockquote>
-	
-	</td>
-</tr>
-
-<tr valign="top">
-	<td align="right" class="bibtexnumber">
-	[<a name="nguyen-amirmoh-aiiot25">3</a>]
-	</td>
-	<td class="bibtexitem">
-	Vy Dang Phuong Ngueyn and Sepehr Amir-Mohammadian.
-	Large language models for automated network protocol testing: A survey.
-	In <em>Proceedings of the 6th IEEE Annual World AI IoT Congress (AIIoT), 
-		Seattle Convention Center, USA</em>, May 2025.
-	[&nbsp;<a href="pubs_bib.html#nguyen-amirmoh-aiiot25">bib</a>&nbsp;| 
-	<a href="https://sepehram.github.io/pubs/aiiot25.pdf">.pdf</a>&nbsp;]
-	<blockquote>
-		This paper surveys  state-of-the-art methods leveraging Large Language Models (LLMs) for automated 
-		test case generation in network protocols, with a focus on addressing ambiguities in protocol specifications 
-		and enhancing test coverage. Traditional approaches face challenges in scaling and ensuring thorough compliance. 
-		LLMs, with their natural language understanding capabilities, offer a promising solution by automating the 
-		extraction of specifications from Request for Comments (RFCs) and generating structured models and test cases. 
-		Relevant studies, tools and frameworks are reviewed and analyzed to understand how LLMs are used in this area. 
-		The paper discusses their strengths and limitations, aiming to support further research on LLMs to improve the 
-		reliability and efficiency of network protocol testing.
-	</blockquote>
-	
-	</td>
-</tr>
-	
-
-<tr valign="top">
-<td align="right" class="bibtexnumber">
-[<a name="amirmoh-zowj-didit24">4</a>]
-</td>
-<td class="bibtexitem">
-Sepehr Amir-Mohammadian and Afsoon Yousefi-Zowj.
- An implementation model for correct audit logging in cyber-physical
-  systems.
- In <em>Proceedings of the 1st International Workshop on Distributed
-  Digital Twins (DiDiT 2024), as part of the 19th International Federated
-  Conference on Distributed Computing Techniques (DisCoTec 2024), Groningen,
-  The Netherlands</em>, June 2024.
-[&nbsp;<a href="pubs_bib.html#amirmoh-zowj-didit24">bib</a>&nbsp;| 
-<a href="https://sepehram.github.io/pubs/didit24.pdf">.pdf</a>&nbsp;]
-<blockquote>
-The widespread presence of cyber-physical systems necessitates a reliable assurance mechanism for 
-		audit logging across various discrete and continuous components of these systems. This paper explores 
-		an implementation model for cyber-physical systems. We introduce an algorithm designed to equip such 
-		systems in accordance with a formal specification of audit logging requirements, which provably ensures 
-		the generation of accurate audit logs in any instrumented system. The accuracy of the audit log is studied 
-		within an information-algebraic semantic framework of audit logging.
-</blockquote>
-
-</td>
-</tr>
+      <tr valign="top">
+        <td align="right" class="bibtexnumber">
+          [<a name="amirmoh-acdsa25-2">1</a>]
+        </td>
+        <td class="bibtexitem">
+          Sepehr Amir-Mohammadian.
+          Towards quantifying information leakage of timing attacks in cyber-physical systems.
+          In <em>Proceedings of the IEEE International Conference on Artificial Intelligence, Computer, Data 
+            Sciences and Applications (ACDSA), Antalya, T&#252;rkiye</em>, August 2025.
+          [&nbsp;<a href="pubs_bib.html#amirmoh-acdsa25-2">bib</a>&nbsp;| 
+          <a href="https://sepehram.github.io/pubs/acdsa25-2.pdf">.pdf</a>&nbsp;]
+          <blockquote>
+            Timing side-channel attacks exploit variations in execution time to infer confidential information 
+            from a system's behavior. In this paper, we develop a formal framework for analyzing timing side-channel 
+            leakage in cyber-physical systems by modeling their digital twins.
+          </blockquote>
+        </td>
+      </tr>
 
 
-<tr valign="top">
-<td align="right" class="bibtexnumber">
-[<a name="salehi-noroozi-amirmoh-mohagheghi-qest22">5</a>]
-</td>
-<td class="bibtexitem">
-Khayyam Salehi, Ali&nbsp;A. Noroozi, Sepehr Amir-Mohammadian, and Mohammadsadegh
-  Mohagheghi.
- An automated quantitative information flow analysis for concurrent
-  programs.
- In <em>Proceedings of the 19th International Conference on
-  Quantitative Evaluation of SysTems (QEST 2022)</em>, pages 43--63. Springer
-  International Publishing, September 2022.
-[&nbsp;<a href="pubs_bib.html#salehi-noroozi-amirmoh-mohagheghi-qest22">bib</a>&nbsp;| 
-<a href="https://doi.org/10.1007/978-3-031-16336-4_3">DOI</a>&nbsp;| 
-<a href="https://sepehram.github.io/pubs/qest22.pdf">.pdf</a>&nbsp;]
-<blockquote>
-Quantitative information flow is a rigorous approach for evaluating the security of a system. 
-		It is used to quantify the amount of secret information leaked to the public outputs. In this 
-		paper, we propose an automated approach for quantitative information flow analysis of concurrent 
-		programs that are running under the control of a probabilistic scheduler. Markovian processes 
-		are used to model the behavior of these programs. To this end, we assume that the attacker is 
-		capable of observing the internal behavior of the program and propose an equivalence relation, 
-		back-bisimulation, to capture the attacker's view of the program behavior. Two partition refinement 
-		algorithms are developed to construct the back-bisimulation quotient of the program model and then 
-		a quantification method is proposed for computing the information leakage using the quotient. We 
-		have implemented our proposed approach as a leakage quantification tool, called PRISM-Leak. It is 
-		built on the probabilistic model checker PRISM. Finally, two protocols, dining cryptographers and 
-		single preference voting, are analyzed as case studies to show applicability and scalability of the 
-		proposed approach compared to other available tools.
-</blockquote>
+      <tr valign="top">
+        <td align="right" class="bibtexnumber">
+        [<a name="amirmoh-salehi-zowj-acdsa25-1">2</a>]
+        </td>
+        <td class="bibtexitem">
+        Sepehr Amir-Mohammadian and Khayyam Salehi and Afsoon Yousefi-Zowj.
+        Approximating quantified information leakage in cyber-physical systems through their digital twins.
+        In <em>Proceedings of the IEEE International Conference on Artificial Intelligence, Computer, Data 
+          Sciences and Applications (ACDSA), Antalya, T&#252;rkiye</em>, August 2025.
+        [&nbsp;<a href="pubs_bib.html#amirmoh-salehi-zowj-acdsa25-1">bib</a>&nbsp;| 
+        <a href="https://sepehram.github.io/pubs/acdsa25-1.pdf">.pdf</a>&nbsp;]
+        <blockquote>
+          Quantitative information flow analysis provides a systematic approach to evaluating the security of a 
+          system by measuring the amount of secret information exposed through public outputs. In this paper, we develop 
+          a formal framework for quantifying information leakage in cyber-physical systems by modeling their digital twins. 
+          We define a process-algebraic calculus for digital twins and specify their semantics using Markovian models, 
+          enabling rigorous information flow analysis. Cyber-physical systems operate in an uncountably infinite state 
+          space due to their continuous physical behaviors. In contrast, digital twins---through digitization---evolve 
+          in a finite space, enabling the feasibility of quantitative information flow analysis using Markovian models. 
+          This formulation captures the inherent nondeterminism and probabilistic transitions in cyber-physical systems 
+          arising from evolution uncertainties, sensor measurement errors, and concurrent control logic. Leveraging 
+          back-bisimulation, we systematically compare an attacker's knowledge of system secrets before and after 
+          execution to quantify leakage, relying on Renyi's min-entropy. This approach provides a structured methodology 
+          for assessing confidentiality risks in cyber-physical systems and demonstrates the role of digital twins in 
+          advancing security analysis.
+        </blockquote>
+        
+        </td>
+      </tr>
+      
+      <tr valign="top">
+        <td align="right" class="bibtexnumber">
+        [<a name="nguyen-amirmoh-aiiot25">3</a>]
+        </td>
+        <td class="bibtexitem">
+        Vy Dang Phuong Ngueyn and Sepehr Amir-Mohammadian.
+        Large language models for automated network protocol testing: A survey.
+        In <em>Proceedings of the 6th IEEE Annual World AI IoT Congress (AIIoT), 
+          Seattle Convention Center, USA</em>, May 2025.
+        [&nbsp;<a href="pubs_bib.html#nguyen-amirmoh-aiiot25">bib</a>&nbsp;| 
+        <a href="https://sepehram.github.io/pubs/aiiot25.pdf">.pdf</a>&nbsp;]
+        <blockquote>
+          This paper surveys  state-of-the-art methods leveraging Large Language Models (LLMs) for automated 
+          test case generation in network protocols, with a focus on addressing ambiguities in protocol specifications 
+          and enhancing test coverage. Traditional approaches face challenges in scaling and ensuring thorough compliance. 
+          LLMs, with their natural language understanding capabilities, offer a promising solution by automating the 
+          extraction of specifications from Request for Comments (RFCs) and generating structured models and test cases. 
+          Relevant studies, tools and frameworks are reviewed and analyzed to understand how LLMs are used in this area. 
+          The paper discusses their strengths and limitations, aiming to support further research on LLMs to improve the 
+          reliability and efficiency of network protocol testing.
+        </blockquote>
+        
+        </td>
+      </tr>
+        
+      
+      <tr valign="top">
+      <td align="right" class="bibtexnumber">
+      [<a name="amirmoh-zowj-didit24">4</a>]
+      </td>
+      <td class="bibtexitem">
+      Sepehr Amir-Mohammadian and Afsoon Yousefi-Zowj.
+       An implementation model for correct audit logging in cyber-physical
+        systems.
+       In <em>Proceedings of the 1st International Workshop on Distributed
+        Digital Twins (DiDiT 2024), as part of the 19th International Federated
+        Conference on Distributed Computing Techniques (DisCoTec 2024), Groningen,
+        The Netherlands</em>, June 2024.
+      [&nbsp;<a href="pubs_bib.html#amirmoh-zowj-didit24">bib</a>&nbsp;| 
+      <a href="https://sepehram.github.io/pubs/didit24.pdf">.pdf</a>&nbsp;]
+      <blockquote>
+      The widespread presence of cyber-physical systems necessitates a reliable assurance mechanism for 
+          audit logging across various discrete and continuous components of these systems. This paper explores 
+          an implementation model for cyber-physical systems. We introduce an algorithm designed to equip such 
+          systems in accordance with a formal specification of audit logging requirements, which provably ensures 
+          the generation of accurate audit logs in any instrumented system. The accuracy of the audit log is studied 
+          within an information-algebraic semantic framework of audit logging.
+      </blockquote>
+      
+      </td>
+      </tr>
+      
+      
+      <tr valign="top">
+      <td align="right" class="bibtexnumber">
+      [<a name="salehi-noroozi-amirmoh-mohagheghi-qest22">5</a>]
+      </td>
+      <td class="bibtexitem">
+      Khayyam Salehi, Ali&nbsp;A. Noroozi, Sepehr Amir-Mohammadian, and Mohammadsadegh
+        Mohagheghi.
+       An automated quantitative information flow analysis for concurrent
+        programs.
+       In <em>Proceedings of the 19th International Conference on
+        Quantitative Evaluation of SysTems (QEST 2022)</em>, pages 43--63. Springer
+        International Publishing, September 2022.
+      [&nbsp;<a href="pubs_bib.html#salehi-noroozi-amirmoh-mohagheghi-qest22">bib</a>&nbsp;| 
+      <a href="https://doi.org/10.1007/978-3-031-16336-4_3">DOI</a>&nbsp;| 
+      <a href="https://sepehram.github.io/pubs/qest22.pdf">.pdf</a>&nbsp;]
+      <blockquote>
+      Quantitative information flow is a rigorous approach for evaluating the security of a system. 
+          It is used to quantify the amount of secret information leaked to the public outputs. In this 
+          paper, we propose an automated approach for quantitative information flow analysis of concurrent 
+          programs that are running under the control of a probabilistic scheduler. Markovian processes 
+          are used to model the behavior of these programs. To this end, we assume that the attacker is 
+          capable of observing the internal behavior of the program and propose an equivalence relation, 
+          back-bisimulation, to capture the attacker's view of the program behavior. Two partition refinement 
+          algorithms are developed to construct the back-bisimulation quotient of the program model and then 
+          a quantification method is proposed for computing the information leakage using the quotient. We 
+          have implemented our proposed approach as a leakage quantification tool, called PRISM-Leak. It is 
+          built on the probabilistic model checker PRISM. Finally, two protocols, dining cryptographers and 
+          single preference voting, are analyzed as case studies to show applicability and scalability of the 
+          proposed approach compared to other available tools.
+      </blockquote>
+      
+      </td>
+      </tr>
+      
+      
+      <tr valign="top">
+      <td align="right" class="bibtexnumber">
+      [<a name="ahn-amirmoh-stpsa22">6</a>]
+      </td>
+      <td class="bibtexitem">
+      Nicolas&nbsp;D. Ahn and Sepehr Amir-Mohammadian.
+       Instrumenting microservices for concurrent audit logging: Beyond
+        Horn clauses.
+       In <em>Proceedings of the 16th IEEE International Workshop on
+        Security, Trust & Privacy for Software Applications (STPSA 2022), as part of
+        the 46th Annual IEEE Computers, Software, and Applications Conference
+        (COMPSAC 2022)</em>, pages 1762--1767, June 2022.
+      [&nbsp;<a href="pubs_bib.html#ahn-amirmoh-stpsa22">bib</a>&nbsp;| 
+      <a href="http://dx.doi.org/10.1109/COMPSAC54236.2022.00280">DOI</a>&nbsp;| 
+      <a href="https://sepehram.github.io/pubs/stpsa22.pdf">.pdf</a>&nbsp;]
+      <blockquote>
+      Instrumenting legacy code is an effective approach to enforce security policies. 
+          Formal correctness of this approach in the realm of audit logging relies on semantic 
+          frameworks that leverage information algebra to model and compare the information 
+          content of the generated audit logs and the program at runtime.  Previous work has 
+          demonstrated the applicability of instrumentation techniques in the enforcement of 
+          audit logging policies for systems with microservices architecture. However, the 
+          specified policies suffer from the limited expressivity power as they are confined to 
+          Horn clauses being directly used in logic programming engines. In this paper, we explore 
+          audit logging specifications that go beyond Horn clauses in certain aspects, and the ways 
+          in which these specifications are automatically enforced in microservices. In particular, 
+          we explore an instrumentation tool that rewrites Java-based microservices according to a 
+          JSON specification of audit logging requirements, where these logging requirements are not 
+          limited to Horn clauses. The rewritten set of microservices are then automatically enabled 
+          to generate audit logs that are shown to be formally correct.
+      </blockquote>
+      
+      </td>
+      </tr>
+      
+      
+      <tr valign="top">
+      <td align="right" class="bibtexnumber">
+      [<a name="salehi-noroozi-amirmoh-securware21">7</a>]
+      </td>
+      <td class="bibtexitem">
+      Khayyam Salehi, Ali&nbsp;A. Noroozi, and Sepehr Amir-Mohammadian.
+       Quantifying information leakage of probabilistic programs using the
+        PRISM model checker.
+       In <em>Proceedings of the 15th International Conference on Emerging
+        Security Information, Systems and Technologies (SECURWARE 2021)</em>, pages
+        47--52, November 2021.
+      [&nbsp;<a href="pubs_bib.html#salehi-noroozi-amirmoh-securware21">bib</a>&nbsp;| 
+      <a href="https://sepehram.github.io/pubs/securware21.pdf">.pdf</a>&nbsp;]
+      <blockquote>
+      Information leakage is the flow of information from secret inputs of a program to its public 
+          outputs. One effective approach to identify information leakage and potentially preserve 
+          the confidentiality of a program is to quantify the flow of information that is associated 
+          with the execution of that program, and check whether this value meets predefined thresholds. 
+          For example, the program may be considered insecure, if this quantified value is higher than 
+          the threshold. In this paper, an automated method is proposed to compute the information leakage 
+          of probabilistic programs. We use Markov chains to model these programs, and reduce the problem 
+          of measuring the information leakage to the problem of computing the joint probabilities of 
+          secrets and public outputs. The proposed method traverses the Markov chain to find the secret 
+          inputs and the public outputs and subsequently, calculate the joint probabilities. The method has 
+          been implemented into a tool called PRISM-Leak, which uses the PRISM model checker to build the 
+          Markov chain of input programs. The applicability of the proposed method is highlighted by 
+          analyzing a probabilistic protocol and quantifying its leakage.
+      </blockquote>
+      
+      </td>
+      </tr>
+      
+      
+      <tr valign="top">
+      <td align="right" class="bibtexnumber">
+      [<a name="amirmoh-zowj-stpsa21">8</a>]
+      </td>
+      <td class="bibtexitem">
+      Sepehr Amir-Mohammadian and Afsoon&nbsp;Yousefi Zowj.
+       Towards concurrent audit logging in microservices.
+       In <em>Proceedings of the 15th IEEE International Workshop on
+        Security, Trust & Privacy for Software Applications (STPSA 2021), as part of
+        the 45th Annual IEEE Computers, Software, and Applications Conference
+        (COMPSAC 2021)</em>, pages 1357--1362, July 2021.
+      [&nbsp;<a href="pubs_bib.html#amirmoh-zowj-stpsa21">bib</a>&nbsp;| 
+      <a href="http://dx.doi.org/10.1109/COMPSAC51774.2021.00191">DOI</a>&nbsp;| 
+      <a href="https://sepehram.github.io/pubs/stpsa21.pdf">.pdf</a>&nbsp;]
+      <blockquote>
+      Information-algebraic models have been shown as effective semantic frameworks in the 
+          specification of audit logging requirements. These semantic frameworks underlie 
+          implementation models that formally guarantee correctness of audit logs. Recently, 
+          one such implementation model has been proposed for concurrent systems. In this paper, 
+          we study the deployment of an instrumentation tool based on this implementation model, 
+          aiming at microservices-based applications that are built by Java Spring framework. 
+          This tool instruments these applications according to a given logging specification, 
+          described in JSON. A set of events in one or more microservices may necessitate the 
+          generation of log entries in a specific microservice. Instrumentation of an application 
+          enables different microservices of that application to concurrently generate audit logs.
+      </blockquote>
+      
+      </td>
+      </tr>
+      
+      
+      <tr valign="top">
+      <td align="right" class="bibtexnumber">
+      [<a name="bajpai-amirmoh-itip21">9</a>]
+      </td>
+      <td class="bibtexitem">
+      Akshat Bajpai and Sepehr Amir-Mohammadian.
+       Towards an indoor navigation system using monocular visual SLAM.
+       In <em>Proceedings of IT in Practice (ITiP) Symposium, the 45th
+        Annual IEEE Computers, Software, and Applications Conference (COMPSAC 2021)</em>,
+        pages 520--525, July 2021.
+      [&nbsp;<a href="pubs_bib.html#bajpai-amirmoh-itip21">bib</a>&nbsp;| 
+      <a href="http://dx.doi.org/10.1109/COMPSAC51774.2021.00077">DOI</a>&nbsp;| 
+      <a href="https://sepehram.github.io/pubs/itip21.pdf">.pdf</a>&nbsp;]
+      <blockquote>
+      This paper presents a novel implementation of an augmented reality-aided indoor 
+          navigation system for mobile devices. The proposed system uses the device’s camera 
+          to scan the environment, generate an abstracted 3D map of the indoor environment, 
+          and transfer it to a remote server. The 3D map of the indoor environment is achieved 
+          through a tracking and mapping ARKit module. Once the indoor map is stored in the 
+          server, it can be accessed simultaneously by multiple devices for localization and 
+          navigation. Leveraging Unity assets and the directions retrieved from the server, 
+          the application computes the shortest distance between the source and destination, 
+          and displays AR-based direction markers for navigation assistance. 
+      </blockquote>
+      
+      </td>
+      </tr>
+      
+      
+      <tr valign="top">
+      <td align="right" class="bibtexnumber">
+      [<a name="amirmoh-tr21">10</a>]
+      </td>
+      <td class="bibtexitem">
+      Sepehr Amir-Mohammadian.
+       Correct audit logging in concurrent systems with negative triggers.
+       Technical report, University of the Pacific, June 2021.
+      [&nbsp;<a href="pubs_bib.html#amirmoh-tr21">bib</a>&nbsp;| 
+      <a href="https://sepehram.github.io/pubs/tr21.pdf">.pdf</a>&nbsp;]
+      <blockquote>
+      In previous work, we had proposed the semantics of correct audit logging in concurrent 
+          systems using information algebra, and then had proposed an implementation model in 
+          &pi;-calculus that instruments programs to generate correct audit logs according to 
+          the proposed semantic framework. The proposed instrumentation algorithm receives audit 
+          logging requirements specified in Horn clause logic that specify a collection of events 
+          (positive triggers) as preconditions to log.  In this work, we extend the formal 
+          specification of audit logging requirements with negative triggers (along with positive 
+          ones) to boost the expressivity of the audit logging policies, i.e., a collection of 
+          events that should not happen as precondition to log. This way, our language of audit 
+          logging requirement specifications goes beyond Horn clauses. We show that the original 
+          instrumentation algorithm is potent enough to emit programs that 
+          generate correct audit logs at runtime.
+      </blockquote>
+      
+      </td>
+      </tr>
+      
+      
+      <tr valign="top">
+      <td align="right" class="bibtexnumber">
+      [<a name="amirmoh-cpss21">11</a>]
+      </td>
+      <td class="bibtexitem">
+      Sepehr Amir-Mohammadian.
+       A semantic framework for direct information flows in hybrid-dynamic
+        systems.
+       In <em>Proceedings of the 7th ACM Cyber-Physical System Security
+        Workshop (CPSS 2021)</em>, pages 5--15. Association for Computing Machinery,
+        June 2021.
+      [&nbsp;<a href="pubs_bib.html#amirmoh-cpss21">bib</a>&nbsp;| 
+      <a href="http://dx.doi.org/10.1145/3457339.3457981">DOI</a>&nbsp;| 
+      <a href="https://sepehram.github.io/pubs/cpss21.pdf">.pdf</a>&nbsp;]
+      <blockquote>
+      Hybrid-dynamic models provide an underlying framework to study the 
+            evergrowing cyber-physical systems with an emphasis on the integration 
+          of their discrete computational steps and the associated continuous physical 
+          dynamics. Ubiquity of cyber-physical systems necessitates some level of 
+          assurance about the secure flow of information through different discrete and 
+          continuous components. In recent years, different logical frameworks have 
+          been proposed to analyze indirect information flows in cyber-physical systems. 
+          While these frameworks are used to verify secure flow of information in a 
+          metalevel, they naturally fall short in support of implementing information flow 
+          analyzers that could effectively enforce policies at runtime. This practical 
+          limitation has triggered the implementation of direct information flow analyzers 
+          in different language settings. In this paper, we focus on direct flows of 
+          information confidentiality in hybrid-dynamic environments and propose a 
+          semantic framework through which we can judge about such flows. This 
+          semantic framework can be used to study the correctness of enforced policies 
+          by these analyzers, and in particular taint tracking tools. In this regard, we 
+          specify a dynamic taint tracking policy for hybrid dynamic systems and prove 
+          its soundness based on the proposed semantic framework. As a case study, 
+          we consider the flow of information in a public transportation control system, 
+          and the effectiveness of our enforced policy on this system. 
+      </blockquote>
+      
+      </td>
+      </tr>
+      
+      
+      <tr valign="top">
+      <td align="right" class="bibtexnumber">
+      [<a name="amirmoh-kari-lsfa20">12</a>]
+      </td>
+      <td class="bibtexitem">
+      Sepehr Amir-Mohammadian and Chadi Kari.
+       Correct audit logging in concurrent systems.
+       <em>Electronic Notes in Theoretical Computer Science</em>, 351:115--141,
+        September 2020.
+       Part of Special Issue: Proceedings of LSFA 2020, the 15th
+        International Workshop on Logical and Semantic Frameworks, with Applications.
+      [&nbsp;<a href="pubs_bib.html#amirmoh-kari-lsfa20">bib</a>&nbsp;| 
+      <a href="http://dx.doi.org/10.1016/j.entcs.2020.08.007">DOI</a>&nbsp;| 
+      <a href="https://sepehram.github.io/pubs/lsfa20.pdf">.pdf</a>&nbsp;]
+      <blockquote>
+      Audit logging provides post-facto analysis of runtime behavior for 
+          different purposes, including error detection, amelioration of system 
+          operations, and the establishment of security in depth. This necessitates 
+          some level of assurance on the quality of the generated audit logs, i.e., 
+          how well the audit log represents the events transpired during the execution. 
+          Information-algebraic techniques have been proposed to formally specify this 
+          relation and provide a framework to study correct audit log generation in a 
+          provable fashion. However, previous work fall short on how to guarantee this 
+          property of audit logging in concurrent environments. In this paper, we study 
+          an implementation model in a concurrent environment. We propose an algorithm 
+          that instruments a concurrent system according to a formal  specification of 
+          audit logging requirements, so that any instrumented concurrent system 
+          guarantees correct audit log generation. As an application, we consider systems 
+          with microservices architecture, where logging an event by a microservice is 
+          conditioned on the occurrence of a collection of events that take place in 
+          other microservices of the system.
+      </blockquote>
+      
+      </td>
+      </tr>
+      
+      
+      <tr valign="top">
+      <td align="right" class="bibtexnumber">
+      [<a name="skalka-amirmoh-clark-jcs20">13</a>]
+      </td>
+      <td class="bibtexitem">
+      Christian Skalka, Sepehr Amir-Mohammadian, and Samuel Clark.
+       Maybe tainted data: Theory and a case study.
+       <em>Journal of Computer Security</em>, 28(3):295--335, April 2020.
+      [&nbsp;<a href="pubs_bib.html#skalka-amirmoh-clark-jcs20">bib</a>&nbsp;| 
+      <a href="http://dx.doi.org/10.3233/JCS-191342">DOI</a>&nbsp;| 
+      <a href="https://sepehram.github.io/pubs/jcs20.pdf">.pdf</a>&nbsp;]
+      <blockquote>
+      Dynamic taint analysis is often used as a defense against 
+          low-integrity data in applications with untrusted user interfaces. 
+          An important example is defense against XSS and injection attacks 
+          in programs with web interfaces. Data sanitization is commonly used 
+          in this context, and can be treated as a precondition for endorsement 
+          in a dynamic integrity taint analysis. However, sanitization is often 
+          incomplete in practice. We develop a model of dynamic integrity taint 
+          analysis for Java that addresses imperfect sanitization with an in-depth 
+          approach. To avoid false positives, results of sanitization are endorsed 
+          for access control (aka prospective security), but are tracked and logged 
+          for auditing and accountability (aka retrospective security). We show how 
+          this heterogeneous prospective/retrospective mechanism can be specified 
+          as a uniform policy, separate from code. We then use this policy to 
+          establish correctness conditions for a program rewriting algorithm that 
+          instruments code for the analysis. These conditions synergize our previous 
+          work on the semantics of audit logging with explicit integrity which is an 
+          analogue of noninterference for taint analysis. A technical contribution of 
+          our work is the extension of explicit integrity to a high-level functional 
+          language setting with structured data, vs. previous systems that only address 
+          low level languages with unstructured data. Our approach considers endorsement 
+          which is crucial to address sanitization. An implementation of our rewriting 
+          algorithm is presented that hardens the OpenMRS medical records software system 
+          with in-depth taint analysis, along with an empirical evaluation of the overhead 
+          imposed by instrumentation. Our results show that this instrumentation is 
+          practical.
+      </blockquote>
+      
+      </td>
+      </tr>
+      
+      
+      <tr valign="top">
+      <td align="right" class="bibtexnumber">
+      [<a name="kari-chen-amirmoh-vivek-icnc19">14</a>]
+      </td>
+      <td class="bibtexitem">
+      Chadi Kari, Sixia Chen, Sepehr Amir-Mohammadian, and Vivek&nbsp;K. Pallipuram.
+       Data migration in large scale heterogeneous storage systems with
+        nodes to spare.
+       In <em>International Conference on Computing, Networking and
+        Communications, ICNC 2019, Honolulu, HI, USA, February 18-21, 2019</em>.
+        IEEE, February 2019.
+      [&nbsp;<a href="pubs_bib.html#kari-chen-amirmoh-vivek-icnc19">bib</a>&nbsp;| 
+      <a href="https://sepehram.github.io/pubs/icnc19.pdf">.pdf</a>&nbsp;]
+      <blockquote>
+      In large scale storage systems such as data centers,  the layout of data 
+          on storage disks needs to be frequently reconfigured  for load 
+          balancing purposes or in the event of system failure/upgrades. 
+          This reconfiguration event, referred to as <i>data migration</i>, 
+          must be completed efficiently as the system tends to perform sub-optimally 
+          during such process. The data-migration problem has been studied extensively 
+          in the literature with efficient algorithms presented for  homogeneous 
+          (all storage disks have similar capabilities)  and heterogeneous 
+          (storage disks can have different capabilities) cases. <p>
+          In this paper, we investigate adding <i>data forwarding</i> to existing 
+          algorithms for the heterogeneous data migration problem. In data forwarding, 
+          we introduce additional storage nodes (called bypass nodes) during the 
+          migration process. Our simulations show that  adding as few as 2 bypass 
+          nodes with limited capabilities can improve the performance by up to 15% 
+          and adding more bypass nodes with heterogeneous capabilities can improve 
+          the migration performance by 25%. We then present a novel algorithm that 
+          makes intrinsic use of bypass nodes and show that the algorithm can always 
+          achieve an optimal migration schedule while adding no more than 
+           &alpha;&#215;<em>n</em>/3 bypass nodes where <em>n</em> is the numbers of disks and 
+          &alpha; is a term defined to reflect the heterogeneity factor of disks.
+      </blockquote>
+      
+      </td>
+      </tr>
+      
+      
+      <tr valign="top">
+      <td align="right" class="bibtexnumber">
+      [<a name="amirmoh-phd-thesis">15</a>]
+      </td>
+      <td class="bibtexitem">
+      Sepehr Amir-Mohammadian.
+       <em>A Formal Approach to Combining Prospective and Retrospective
+        Security</em>.
+       PhD thesis, The University of Vermont, July 2017.
+      [&nbsp;<a href="pubs_bib.html#amirmoh-phd-thesis">bib</a>&nbsp;| 
+      <a href="https://sepehram.github.io/pubs/thesis.pdf">.pdf</a>&nbsp;]
+      <blockquote>
+      The major goal of this dissertation is to enhance software security by 
+          provably correct enforcement of in-depth policies. In-depth security 
+          policies allude to heterogeneous specification of security strategies 
+          that are required to be followed <i>before</i> and <i>after</i> 
+          sensitive operations. Prospective security is the enforcement of 
+          security, or detection of security violations before the execution of 
+          sensitive operations, e.g., in authorization, authentication and 
+          information flow. Retrospective security refers to security checks 
+          after the execution of sensitive operations, which is accomplished 
+          through accountability and deterrence. Retrospective security frameworks 
+          are built upon <em>auditing</em> in order to provide sufficient evidence 
+          to hold users accountable for their actions and potentially support 
+          other remediation actions. Correctness and efficiency of audit logs play 
+          significant roles in reaching the accountability goals that are required 
+          by retrospective, and consequently, in-depth security policies. This 
+          dissertation addresses correct audit logging in a formal framework.<p>
+          Leveraging retrospective controls beside the existing prospective 
+          measures enhances security in numerous applications. This dissertation 
+          focuses on two major application spaces for in-depth enforcement. The 
+          first is to enhance prospective security through surveillance and 
+          accountability. For example, authorization mechanisms could be improved 
+          by guaranteed retrospective checks in environments where there is a 
+          high cost of access denial, e.g., healthcare systems. The second 
+          application space is the amelioration of potentially flawed prospective 
+          measures through retrospective checks. For instance, erroneous 
+          implementations of input sanitization methods expose vulnerabilities in 
+          taint analysis tools that enforce direct flow of data integrity policies. 
+          In this regard, we propose an in-depth enforcement framework to mitigate 
+          such problems. We also propose a general semantic notion of explicit flow 
+          of information integrity in a high-level language with sanitization. <p>
+          This dissertation studies the ways by which prospective and retrospective 
+          security could be enforced uniformly in a provably correct manner to handle 
+          security challenges in legacy systems. Provable correctness of our results 
+          relies on the formal Programming Languages-based approach that we have 
+          taken in order to provide software security assurance. Moreover, this 
+          dissertation includes the implementation of such in-depth enforcement 
+          mechanisms for a medical records web application.
+      </blockquote>
+      
+      </td>
+      </tr>
+      
+      
+      <tr valign="top">
+      <td align="right" class="bibtexnumber">
+      [<a name="amirmoh-skalka-plas16">16</a>]
+      </td>
+      <td class="bibtexitem">
+      Sepehr Amir-Mohammadian and Christian Skalka.
+       In-depth enforcement of dynamic integrity taint analysis.
+       In <em>Proceedings of the 2016 ACM Workshop on Programming Languages
+        and Analysis for Security (PLAS)</em>, October 2016.
+      [&nbsp;<a href="pubs_bib.html#amirmoh-skalka-plas16">bib</a>&nbsp;| 
+      <a href="https://sepehram.github.io/pubs/plas16.pdf">.pdf</a>&nbsp;]
+      <blockquote>
+      Dynamic taint analysis can be used as a defense against 
+              low-integrity data in applications with untrusted user interfaces.  
+              An important example is defense against XSS and injection attacks 
+              in programs with web interfaces. Data sanitization is commonly used 
+              in this context,  and can be treated as a precondition for endorsement 
+              in a dynamic integrity taint analysis.  However, sanitization is often 
+              incomplete in practice.  We develop a model of dynamic integrity taint 
+              analysis for Java that addresses imperfect sanitization with an in-depth 
+              approach.  To avoid false positives, results of sanitization are endorsed 
+              for access control (aka prospective security), but are tracked and logged 
+              for auditing and accountability (aka retrospective security). We show how 
+              this heterogeneous prospective/retrospective mechanism can be specified 
+              as a uniform policy, separate from code.  We then use this policy to 
+              establish correctness conditions for a program rewriting algorithm that 
+              instruments code for the analysis.  The rewriting itself is a model of 
+              existing, efficient Java taint analysis tools.
+      </blockquote>
+      
+      </td>
+      </tr>
+      
+      
+      <tr valign="top">
+      <td align="right" class="bibtexnumber">
+      [<a name="amirmoh-chong-skalka-post16">17</a>]
+      </td>
+      <td class="bibtexitem">
+      Sepehr Amir-Mohammadian, Stephen Chong, and Christian Skalka.
+       Correct audit logging: Theory and practice.
+       In <em>International Conference on Principles of Security and Trust
+        (POST)</em>. Springer, April 2016.
+      [&nbsp;<a href="pubs_bib.html#amirmoh-chong-skalka-post16">bib</a>&nbsp;| 
+      <a href="https://sepehram.github.io/pubs/post16.pdf">.pdf</a>&nbsp;]
+      <blockquote>
+      Retrospective security has become increasingly important to the
+               theory and practice of cyber security, with auditing a crucial component
+               of it. However, in systems where auditing is used, programs are 
+               typically instrumented to generate audit logs using manual, ad-hoc 
+               strategies. This is a potential source of error even if log analysis 
+               techniques are formal, since the relation of the log itself to program 
+               execution is unclear. This paper focuses on provably correct program 
+               rewriting algorithms for instrumenting formal logging specifications. 
+               Correctness guarantees that the execution of an instrumented program 
+               produces sound and complete audit logs, properties defined by an 
+               information containment relation between logs and the program's logging 
+               semantics. We also propose a program rewriting approach to 
+               instrumentation for audit log generation, in a manner that guarantees 
+               correct log generation even for untrusted programs. As a case study, we 
+               develop such a tool for OpenMRS, a popular medical records management 
+               system, and consider instrumentation of break the glass policies.
+      </blockquote>
+      
+      </td>
+      </tr>
+      
+      
+      <tr valign="top">
+      <td align="right" class="bibtexnumber">
+      [<a name="amirmoh-chong-skalka-law15">18</a>]
+      </td>
+      <td class="bibtexitem">
+      Sepehr Amir-Mohammadian, Stephen Chong, and Christian Skalka.
+       Foundations for auditing assurance.
+       In <em>Layered Assurance Workshop (LAW)</em>, December 2015.
+      [&nbsp;<a href="pubs_bib.html#amirmoh-chong-skalka-law15">bib</a>&nbsp;| 
+      <a href="https://sepehram.github.io/pubs/law15.pdf">.pdf</a>&nbsp;]
+      <blockquote>
+      Retrospective security is an important element of layered 
+          security systems. Auditing is central to the theory and practice of 
+          retrospective security, however, in systems where auditing is used, 
+          programs are typically instrumented to generate audit logs using manual, 
+          ad-hoc strategies. This is a potential source of error even if log auditing
+          techniques are formal, since the relation of the log itself to program 
+          execution is unclear.  This paper focuses on provably correct program 
+          rewriting algorithms for instrumenting formal logging specifications. 
+          Correctness guarantees that execution of an instrumented program produces 
+          sound and complete audit logs,  properties defined by an information 
+          containment relation between logs and the program's logging semantics. As 
+          an application example, we consider auditing for break the glass policies, 
+          wherein authorization is replaced by auditing in emergency conditions.
+      </blockquote>
+      
+      </td>
+      </tr>
+      
+      
+      <tr valign="top">
+      <td align="right" class="bibtexnumber">
+      [<a name="amirmoh-chong-skalka-tr15">19</a>]
+      </td>
+      <td class="bibtexitem">
+      Sepehr Amir-Mohammadian, Stephen Chong, and Christian Skalka.
+       The theory and practice of correct audit logging.
+       Technical report, University of Vermont, October 2015.
+      [&nbsp;<a href="pubs_bib.html#amirmoh-chong-skalka-tr15">bib</a>&nbsp;| 
+      <a href="https://sepehram.github.io/pubs/tr15.pdf">.pdf</a>&nbsp;]
+      <blockquote>
+      Auditing has become increasingly important to the theory and 
+            practice of cyber security. However, in systems where auditing is used, 
+            programs are typically instrumented to generate audit logs using manual,
+            ad-hoc strategies. This is a potential source of error even if log  
+            auditing techniques are formal, since the relation of the log itself to 
+            program execution is unclear. This work focuses on provably correct 
+            program rewriting algorithms for instrumenting formal logging 
+            specifications.  Correctness guarantees that the execution of an 
+            instrumented program produces sound and complete audit logs, properties 
+            defined by an information containment relation between logs and the 
+            program's logging semantics.  Logging semantics is sufficiently general, 
+            so that the guarantees extend to various approaches of audit logging. As a
+            case study, we demonstrate the incorporation of the proposed techniques 
+            and features in healthcare informatics. In particular, we consider 
+            auditing for break the glass policies, wherein authorization is replaced 
+            by auditing in emergency conditions.
+      </blockquote>
+      
+      </td>
+      </tr>
+      
+      
+      <tr valign="top">
+      <td align="right" class="bibtexnumber">
+      [<a name="amirmoh-fallah-clss13">20</a>]
+      </td>
+      <td class="bibtexitem">
+      Sepehr Amir-Mohammadian and Mehran&nbsp;S. Fallah.
+       Noninterference in a predicative polymorphic calculus for access
+        control.
+       <em>Computer Languages, Systems &amp; Structures</em>, 39(3):109--120,
+        October 2013.
+      [&nbsp;<a href="pubs_bib.html#amirmoh-fallah-clss13">bib</a>&nbsp;| 
+      <a href="https://sepehram.github.io/pubs/clss13.pdf">.pdf</a>&nbsp;]
+      <blockquote>
+      Polymorphic programming languages have been adapted for 
+              constructing distributed access control systems, where a program represents
+            a proof of eligibility according to a given policy.  As a security 
+              requirement, it is typically stated that the programs of such languages 
+            should satisfy noninterference. However, this property has not been defined 
+              and proven semantically.  In this paper, we first propose a semantics based 
+            on Henkin models for a predicative polymorphic access control language 
+              based on lambda-calculus. A formal semantic definition of noninterference 
+            is then proposed through logical relations.  We prove a type soundness 
+              theorem which states that any well-typed program of our language meets the
+            noninterference property defined in this paper.  In this way, it is 
+              guaranteed that access requests from an entity do not interfere with those 
+            from unrelated or more trusted entities.
+      </blockquote>
+      
+      </td>
+      </tr>
+      
 
-</td>
-</tr>
+    </table>
+    <!--
+	<hr>
+    <p class="meta"><em>This file was generated by bibtex2html 1.99.</em></p>
+	-->
+    <!-- END bibtex2html output -->
+  </main>
 
+  <footer>
+    <div class="container">
+      <p class="meta">© <span id="y"></span> Sepehr Amir</p>
+    </div>
+  </footer>
 
-<tr valign="top">
-<td align="right" class="bibtexnumber">
-[<a name="ahn-amirmoh-stpsa22">6</a>]
-</td>
-<td class="bibtexitem">
-Nicolas&nbsp;D. Ahn and Sepehr Amir-Mohammadian.
- Instrumenting microservices for concurrent audit logging: Beyond
-  Horn clauses.
- In <em>Proceedings of the 16th IEEE International Workshop on
-  Security, Trust & Privacy for Software Applications (STPSA 2022), as part of
-  the 46th Annual IEEE Computers, Software, and Applications Conference
-  (COMPSAC 2022)</em>, pages 1762--1767, June 2022.
-[&nbsp;<a href="pubs_bib.html#ahn-amirmoh-stpsa22">bib</a>&nbsp;| 
-<a href="http://dx.doi.org/10.1109/COMPSAC54236.2022.00280">DOI</a>&nbsp;| 
-<a href="https://sepehram.github.io/pubs/stpsa22.pdf">.pdf</a>&nbsp;]
-<blockquote>
-Instrumenting legacy code is an effective approach to enforce security policies. 
-		Formal correctness of this approach in the realm of audit logging relies on semantic 
-		frameworks that leverage information algebra to model and compare the information 
-		content of the generated audit logs and the program at runtime.  Previous work has 
-		demonstrated the applicability of instrumentation techniques in the enforcement of 
-		audit logging policies for systems with microservices architecture. However, the 
-		specified policies suffer from the limited expressivity power as they are confined to 
-		Horn clauses being directly used in logic programming engines. In this paper, we explore 
-		audit logging specifications that go beyond Horn clauses in certain aspects, and the ways 
-		in which these specifications are automatically enforced in microservices. In particular, 
-		we explore an instrumentation tool that rewrites Java-based microservices according to a 
-		JSON specification of audit logging requirements, where these logging requirements are not 
-		limited to Horn clauses. The rewritten set of microservices are then automatically enabled 
-		to generate audit logs that are shown to be formally correct.
-</blockquote>
-
-</td>
-</tr>
-
-
-<tr valign="top">
-<td align="right" class="bibtexnumber">
-[<a name="salehi-noroozi-amirmoh-securware21">7</a>]
-</td>
-<td class="bibtexitem">
-Khayyam Salehi, Ali&nbsp;A. Noroozi, and Sepehr Amir-Mohammadian.
- Quantifying information leakage of probabilistic programs using the
-  PRISM model checker.
- In <em>Proceedings of the 15th International Conference on Emerging
-  Security Information, Systems and Technologies (SECURWARE 2021)</em>, pages
-  47--52, November 2021.
-[&nbsp;<a href="pubs_bib.html#salehi-noroozi-amirmoh-securware21">bib</a>&nbsp;| 
-<a href="https://sepehram.github.io/pubs/securware21.pdf">.pdf</a>&nbsp;]
-<blockquote>
-Information leakage is the flow of information from secret inputs of a program to its public 
-		outputs. One effective approach to identify information leakage and potentially preserve 
-		the confidentiality of a program is to quantify the flow of information that is associated 
-		with the execution of that program, and check whether this value meets predefined thresholds. 
-		For example, the program may be considered insecure, if this quantified value is higher than 
-		the threshold. In this paper, an automated method is proposed to compute the information leakage 
-		of probabilistic programs. We use Markov chains to model these programs, and reduce the problem 
-		of measuring the information leakage to the problem of computing the joint probabilities of 
-		secrets and public outputs. The proposed method traverses the Markov chain to find the secret 
-		inputs and the public outputs and subsequently, calculate the joint probabilities. The method has 
-		been implemented into a tool called PRISM-Leak, which uses the PRISM model checker to build the 
-		Markov chain of input programs. The applicability of the proposed method is highlighted by 
-		analyzing a probabilistic protocol and quantifying its leakage.
-</blockquote>
-
-</td>
-</tr>
-
-
-<tr valign="top">
-<td align="right" class="bibtexnumber">
-[<a name="amirmoh-zowj-stpsa21">8</a>]
-</td>
-<td class="bibtexitem">
-Sepehr Amir-Mohammadian and Afsoon&nbsp;Yousefi Zowj.
- Towards concurrent audit logging in microservices.
- In <em>Proceedings of the 15th IEEE International Workshop on
-  Security, Trust & Privacy for Software Applications (STPSA 2021), as part of
-  the 45th Annual IEEE Computers, Software, and Applications Conference
-  (COMPSAC 2021)</em>, pages 1357--1362, July 2021.
-[&nbsp;<a href="pubs_bib.html#amirmoh-zowj-stpsa21">bib</a>&nbsp;| 
-<a href="http://dx.doi.org/10.1109/COMPSAC51774.2021.00191">DOI</a>&nbsp;| 
-<a href="https://sepehram.github.io/pubs/stpsa21.pdf">.pdf</a>&nbsp;]
-<blockquote>
-Information-algebraic models have been shown as effective semantic frameworks in the 
-		specification of audit logging requirements. These semantic frameworks underlie 
-		implementation models that formally guarantee correctness of audit logs. Recently, 
-		one such implementation model has been proposed for concurrent systems. In this paper, 
-		we study the deployment of an instrumentation tool based on this implementation model, 
-		aiming at microservices-based applications that are built by Java Spring framework. 
-		This tool instruments these applications according to a given logging specification, 
-		described in JSON. A set of events in one or more microservices may necessitate the 
-		generation of log entries in a specific microservice. Instrumentation of an application 
-		enables different microservices of that application to concurrently generate audit logs.
-</blockquote>
-
-</td>
-</tr>
-
-
-<tr valign="top">
-<td align="right" class="bibtexnumber">
-[<a name="bajpai-amirmoh-itip21">9</a>]
-</td>
-<td class="bibtexitem">
-Akshat Bajpai and Sepehr Amir-Mohammadian.
- Towards an indoor navigation system using monocular visual SLAM.
- In <em>Proceedings of IT in Practice (ITiP) Symposium, the 45th
-  Annual IEEE Computers, Software, and Applications Conference (COMPSAC 2021)</em>,
-  pages 520--525, July 2021.
-[&nbsp;<a href="pubs_bib.html#bajpai-amirmoh-itip21">bib</a>&nbsp;| 
-<a href="http://dx.doi.org/10.1109/COMPSAC51774.2021.00077">DOI</a>&nbsp;| 
-<a href="https://sepehram.github.io/pubs/itip21.pdf">.pdf</a>&nbsp;]
-<blockquote>
-This paper presents a novel implementation of an augmented reality-aided indoor 
-		navigation system for mobile devices. The proposed system uses the device’s camera 
-		to scan the environment, generate an abstracted 3D map of the indoor environment, 
-		and transfer it to a remote server. The 3D map of the indoor environment is achieved 
-		through a tracking and mapping ARKit module. Once the indoor map is stored in the 
-		server, it can be accessed simultaneously by multiple devices for localization and 
-		navigation. Leveraging Unity assets and the directions retrieved from the server, 
-		the application computes the shortest distance between the source and destination, 
-		and displays AR-based direction markers for navigation assistance. 
-</blockquote>
-
-</td>
-</tr>
-
-
-<tr valign="top">
-<td align="right" class="bibtexnumber">
-[<a name="amirmoh-tr21">10</a>]
-</td>
-<td class="bibtexitem">
-Sepehr Amir-Mohammadian.
- Correct audit logging in concurrent systems with negative triggers.
- Technical report, University of the Pacific, June 2021.
-[&nbsp;<a href="pubs_bib.html#amirmoh-tr21">bib</a>&nbsp;| 
-<a href="https://sepehram.github.io/pubs/tr21.pdf">.pdf</a>&nbsp;]
-<blockquote>
-In previous work, we had proposed the semantics of correct audit logging in concurrent 
-		systems using information algebra, and then had proposed an implementation model in 
-		&pi;-calculus that instruments programs to generate correct audit logs according to 
-		the proposed semantic framework. The proposed instrumentation algorithm receives audit 
-		logging requirements specified in Horn clause logic that specify a collection of events 
-		(positive triggers) as preconditions to log.  In this work, we extend the formal 
-		specification of audit logging requirements with negative triggers (along with positive 
-		ones) to boost the expressivity of the audit logging policies, i.e., a collection of 
-		events that should not happen as precondition to log. This way, our language of audit 
-		logging requirement specifications goes beyond Horn clauses. We show that the original 
-		instrumentation algorithm is potent enough to emit programs that 
-		generate correct audit logs at runtime.
-</blockquote>
-
-</td>
-</tr>
-
-
-<tr valign="top">
-<td align="right" class="bibtexnumber">
-[<a name="amirmoh-cpss21">11</a>]
-</td>
-<td class="bibtexitem">
-Sepehr Amir-Mohammadian.
- A semantic framework for direct information flows in hybrid-dynamic
-  systems.
- In <em>Proceedings of the 7th ACM Cyber-Physical System Security
-  Workshop (CPSS 2021)</em>, pages 5--15. Association for Computing Machinery,
-  June 2021.
-[&nbsp;<a href="pubs_bib.html#amirmoh-cpss21">bib</a>&nbsp;| 
-<a href="http://dx.doi.org/10.1145/3457339.3457981">DOI</a>&nbsp;| 
-<a href="https://sepehram.github.io/pubs/cpss21.pdf">.pdf</a>&nbsp;]
-<blockquote>
-Hybrid-dynamic models provide an underlying framework to study the 
-  		evergrowing cyber-physical systems with an emphasis on the integration 
-		of their discrete computational steps and the associated continuous physical 
-		dynamics. Ubiquity of cyber-physical systems necessitates some level of 
-		assurance about the secure flow of information through different discrete and 
-		continuous components. In recent years, different logical frameworks have 
-		been proposed to analyze indirect information flows in cyber-physical systems. 
-		While these frameworks are used to verify secure flow of information in a 
-		metalevel, they naturally fall short in support of implementing information flow 
-		analyzers that could effectively enforce policies at runtime. This practical 
-		limitation has triggered the implementation of direct information flow analyzers 
-		in different language settings. In this paper, we focus on direct flows of 
-		information confidentiality in hybrid-dynamic environments and propose a 
-		semantic framework through which we can judge about such flows. This 
-		semantic framework can be used to study the correctness of enforced policies 
-		by these analyzers, and in particular taint tracking tools. In this regard, we 
-		specify a dynamic taint tracking policy for hybrid dynamic systems and prove 
-		its soundness based on the proposed semantic framework. As a case study, 
-		we consider the flow of information in a public transportation control system, 
-		and the effectiveness of our enforced policy on this system. 
-</blockquote>
-
-</td>
-</tr>
-
-
-<tr valign="top">
-<td align="right" class="bibtexnumber">
-[<a name="amirmoh-kari-lsfa20">12</a>]
-</td>
-<td class="bibtexitem">
-Sepehr Amir-Mohammadian and Chadi Kari.
- Correct audit logging in concurrent systems.
- <em>Electronic Notes in Theoretical Computer Science</em>, 351:115--141,
-  September 2020.
- Part of Special Issue: Proceedings of LSFA 2020, the 15th
-  International Workshop on Logical and Semantic Frameworks, with Applications.
-[&nbsp;<a href="pubs_bib.html#amirmoh-kari-lsfa20">bib</a>&nbsp;| 
-<a href="http://dx.doi.org/10.1016/j.entcs.2020.08.007">DOI</a>&nbsp;| 
-<a href="https://sepehram.github.io/pubs/lsfa20.pdf">.pdf</a>&nbsp;]
-<blockquote>
-Audit logging provides post-facto analysis of runtime behavior for 
-		different purposes, including error detection, amelioration of system 
-		operations, and the establishment of security in depth. This necessitates 
-		some level of assurance on the quality of the generated audit logs, i.e., 
-		how well the audit log represents the events transpired during the execution. 
-		Information-algebraic techniques have been proposed to formally specify this 
-		relation and provide a framework to study correct audit log generation in a 
-		provable fashion. However, previous work fall short on how to guarantee this 
-		property of audit logging in concurrent environments. In this paper, we study 
-		an implementation model in a concurrent environment. We propose an algorithm 
-		that instruments a concurrent system according to a formal  specification of 
-		audit logging requirements, so that any instrumented concurrent system 
-		guarantees correct audit log generation. As an application, we consider systems 
-		with microservices architecture, where logging an event by a microservice is 
-		conditioned on the occurrence of a collection of events that take place in 
-		other microservices of the system.
-</blockquote>
-
-</td>
-</tr>
-
-
-<tr valign="top">
-<td align="right" class="bibtexnumber">
-[<a name="skalka-amirmoh-clark-jcs20">13</a>]
-</td>
-<td class="bibtexitem">
-Christian Skalka, Sepehr Amir-Mohammadian, and Samuel Clark.
- Maybe tainted data: Theory and a case study.
- <em>Journal of Computer Security</em>, 28(3):295--335, April 2020.
-[&nbsp;<a href="pubs_bib.html#skalka-amirmoh-clark-jcs20">bib</a>&nbsp;| 
-<a href="http://dx.doi.org/10.3233/JCS-191342">DOI</a>&nbsp;| 
-<a href="https://sepehram.github.io/pubs/jcs20.pdf">.pdf</a>&nbsp;]
-<blockquote>
-Dynamic taint analysis is often used as a defense against 
-		low-integrity data in applications with untrusted user interfaces. 
-		An important example is defense against XSS and injection attacks 
-		in programs with web interfaces. Data sanitization is commonly used 
-		in this context, and can be treated as a precondition for endorsement 
-		in a dynamic integrity taint analysis. However, sanitization is often 
-		incomplete in practice. We develop a model of dynamic integrity taint 
-		analysis for Java that addresses imperfect sanitization with an in-depth 
-		approach. To avoid false positives, results of sanitization are endorsed 
-		for access control (aka prospective security), but are tracked and logged 
-		for auditing and accountability (aka retrospective security). We show how 
-		this heterogeneous prospective/retrospective mechanism can be specified 
-		as a uniform policy, separate from code. We then use this policy to 
-		establish correctness conditions for a program rewriting algorithm that 
-		instruments code for the analysis. These conditions synergize our previous 
-		work on the semantics of audit logging with explicit integrity which is an 
-		analogue of noninterference for taint analysis. A technical contribution of 
-		our work is the extension of explicit integrity to a high-level functional 
-		language setting with structured data, vs. previous systems that only address 
-		low level languages with unstructured data. Our approach considers endorsement 
-		which is crucial to address sanitization. An implementation of our rewriting 
-		algorithm is presented that hardens the OpenMRS medical records software system 
-		with in-depth taint analysis, along with an empirical evaluation of the overhead 
-		imposed by instrumentation. Our results show that this instrumentation is 
-		practical.
-</blockquote>
-
-</td>
-</tr>
-
-
-<tr valign="top">
-<td align="right" class="bibtexnumber">
-[<a name="kari-chen-amirmoh-vivek-icnc19">14</a>]
-</td>
-<td class="bibtexitem">
-Chadi Kari, Sixia Chen, Sepehr Amir-Mohammadian, and Vivek&nbsp;K. Pallipuram.
- Data migration in large scale heterogeneous storage systems with
-  nodes to spare.
- In <em>International Conference on Computing, Networking and
-  Communications, ICNC 2019, Honolulu, HI, USA, February 18-21, 2019</em>.
-  IEEE, February 2019.
-[&nbsp;<a href="pubs_bib.html#kari-chen-amirmoh-vivek-icnc19">bib</a>&nbsp;| 
-<a href="https://sepehram.github.io/pubs/icnc19.pdf">.pdf</a>&nbsp;]
-<blockquote>
-In large scale storage systems such as data centers,  the layout of data 
-		on storage disks needs to be frequently reconfigured  for load 
-		balancing purposes or in the event of system failure/upgrades. 
-		This reconfiguration event, referred to as <i>data migration</i>, 
-		must be completed efficiently as the system tends to perform sub-optimally 
-		during such process. The data-migration problem has been studied extensively 
-		in the literature with efficient algorithms presented for  homogeneous 
-		(all storage disks have similar capabilities)  and heterogeneous 
-		(storage disks can have different capabilities) cases. <p>
-		In this paper, we investigate adding <i>data forwarding</i> to existing 
-		algorithms for the heterogeneous data migration problem. In data forwarding, 
-		we introduce additional storage nodes (called bypass nodes) during the 
-		migration process. Our simulations show that  adding as few as 2 bypass 
-		nodes with limited capabilities can improve the performance by up to 15% 
-		and adding more bypass nodes with heterogeneous capabilities can improve 
-		the migration performance by 25%. We then present a novel algorithm that 
-		makes intrinsic use of bypass nodes and show that the algorithm can always 
-		achieve an optimal migration schedule while adding no more than 
-		 &alpha;&#215;<em>n</em>/3 bypass nodes where <em>n</em> is the numbers of disks and 
-		&alpha; is a term defined to reflect the heterogeneity factor of disks.
-</blockquote>
-
-</td>
-</tr>
-
-
-<tr valign="top">
-<td align="right" class="bibtexnumber">
-[<a name="amirmoh-phd-thesis">15</a>]
-</td>
-<td class="bibtexitem">
-Sepehr Amir-Mohammadian.
- <em>A Formal Approach to Combining Prospective and Retrospective
-  Security</em>.
- PhD thesis, The University of Vermont, July 2017.
-[&nbsp;<a href="pubs_bib.html#amirmoh-phd-thesis">bib</a>&nbsp;| 
-<a href="https://sepehram.github.io/pubs/thesis.pdf">.pdf</a>&nbsp;]
-<blockquote>
-The major goal of this dissertation is to enhance software security by 
-		provably correct enforcement of in-depth policies. In-depth security 
-		policies allude to heterogeneous specification of security strategies 
-		that are required to be followed <i>before</i> and <i>after</i> 
-		sensitive operations. Prospective security is the enforcement of 
-		security, or detection of security violations before the execution of 
-		sensitive operations, e.g., in authorization, authentication and 
-		information flow. Retrospective security refers to security checks 
-		after the execution of sensitive operations, which is accomplished 
-		through accountability and deterrence. Retrospective security frameworks 
-		are built upon <em>auditing</em> in order to provide sufficient evidence 
-		to hold users accountable for their actions and potentially support 
-		other remediation actions. Correctness and efficiency of audit logs play 
-		significant roles in reaching the accountability goals that are required 
-		by retrospective, and consequently, in-depth security policies. This 
-		dissertation addresses correct audit logging in a formal framework.<p>
-		Leveraging retrospective controls beside the existing prospective 
-		measures enhances security in numerous applications. This dissertation 
-		focuses on two major application spaces for in-depth enforcement. The 
-		first is to enhance prospective security through surveillance and 
-		accountability. For example, authorization mechanisms could be improved 
-		by guaranteed retrospective checks in environments where there is a 
-		high cost of access denial, e.g., healthcare systems. The second 
-		application space is the amelioration of potentially flawed prospective 
-		measures through retrospective checks. For instance, erroneous 
-		implementations of input sanitization methods expose vulnerabilities in 
-		taint analysis tools that enforce direct flow of data integrity policies. 
-		In this regard, we propose an in-depth enforcement framework to mitigate 
-		such problems. We also propose a general semantic notion of explicit flow 
-		of information integrity in a high-level language with sanitization. <p>
-		This dissertation studies the ways by which prospective and retrospective 
-		security could be enforced uniformly in a provably correct manner to handle 
-		security challenges in legacy systems. Provable correctness of our results 
-		relies on the formal Programming Languages-based approach that we have 
-		taken in order to provide software security assurance. Moreover, this 
-		dissertation includes the implementation of such in-depth enforcement 
-		mechanisms for a medical records web application.
-</blockquote>
-
-</td>
-</tr>
-
-
-<tr valign="top">
-<td align="right" class="bibtexnumber">
-[<a name="amirmoh-skalka-plas16">16</a>]
-</td>
-<td class="bibtexitem">
-Sepehr Amir-Mohammadian and Christian Skalka.
- In-depth enforcement of dynamic integrity taint analysis.
- In <em>Proceedings of the 2016 ACM Workshop on Programming Languages
-  and Analysis for Security (PLAS)</em>, October 2016.
-[&nbsp;<a href="pubs_bib.html#amirmoh-skalka-plas16">bib</a>&nbsp;| 
-<a href="https://sepehram.github.io/pubs/plas16.pdf">.pdf</a>&nbsp;]
-<blockquote>
-Dynamic taint analysis can be used as a defense against 
-    		low-integrity data in applications with untrusted user interfaces.  
-    		An important example is defense against XSS and injection attacks 
-    		in programs with web interfaces. Data sanitization is commonly used 
-    		in this context,  and can be treated as a precondition for endorsement 
-    		in a dynamic integrity taint analysis.  However, sanitization is often 
-    		incomplete in practice.  We develop a model of dynamic integrity taint 
-    		analysis for Java that addresses imperfect sanitization with an in-depth 
-    		approach.  To avoid false positives, results of sanitization are endorsed 
-    		for access control (aka prospective security), but are tracked and logged 
-    		for auditing and accountability (aka retrospective security). We show how 
-    		this heterogeneous prospective/retrospective mechanism can be specified 
-    		as a uniform policy, separate from code.  We then use this policy to 
-    		establish correctness conditions for a program rewriting algorithm that 
-    		instruments code for the analysis.  The rewriting itself is a model of 
-    		existing, efficient Java taint analysis tools.
-</blockquote>
-
-</td>
-</tr>
-
-
-<tr valign="top">
-<td align="right" class="bibtexnumber">
-[<a name="amirmoh-chong-skalka-post16">17</a>]
-</td>
-<td class="bibtexitem">
-Sepehr Amir-Mohammadian, Stephen Chong, and Christian Skalka.
- Correct audit logging: Theory and practice.
- In <em>International Conference on Principles of Security and Trust
-  (POST)</em>. Springer, April 2016.
-[&nbsp;<a href="pubs_bib.html#amirmoh-chong-skalka-post16">bib</a>&nbsp;| 
-<a href="https://sepehram.github.io/pubs/post16.pdf">.pdf</a>&nbsp;]
-<blockquote>
-Retrospective security has become increasingly important to the
-    		 theory and practice of cyber security, with auditing a crucial component
-    		 of it. However, in systems where auditing is used, programs are 
-    		 typically instrumented to generate audit logs using manual, ad-hoc 
-    		 strategies. This is a potential source of error even if log analysis 
-    		 techniques are formal, since the relation of the log itself to program 
-    		 execution is unclear. This paper focuses on provably correct program 
-    		 rewriting algorithms for instrumenting formal logging specifications. 
-    		 Correctness guarantees that the execution of an instrumented program 
-    		 produces sound and complete audit logs, properties defined by an 
-    		 information containment relation between logs and the program's logging 
-    		 semantics. We also propose a program rewriting approach to 
-    		 instrumentation for audit log generation, in a manner that guarantees 
-    		 correct log generation even for untrusted programs. As a case study, we 
-    		 develop such a tool for OpenMRS, a popular medical records management 
-    		 system, and consider instrumentation of break the glass policies.
-</blockquote>
-
-</td>
-</tr>
-
-
-<tr valign="top">
-<td align="right" class="bibtexnumber">
-[<a name="amirmoh-chong-skalka-law15">18</a>]
-</td>
-<td class="bibtexitem">
-Sepehr Amir-Mohammadian, Stephen Chong, and Christian Skalka.
- Foundations for auditing assurance.
- In <em>Layered Assurance Workshop (LAW)</em>, December 2015.
-[&nbsp;<a href="pubs_bib.html#amirmoh-chong-skalka-law15">bib</a>&nbsp;| 
-<a href="https://sepehram.github.io/pubs/law15.pdf">.pdf</a>&nbsp;]
-<blockquote>
-Retrospective security is an important element of layered 
-    security systems. Auditing is central to the theory and practice of 
-    retrospective security, however, in systems where auditing is used, 
-    programs are typically instrumented to generate audit logs using manual, 
-    ad-hoc strategies. This is a potential source of error even if log auditing
-    techniques are formal, since the relation of the log itself to program 
-    execution is unclear.  This paper focuses on provably correct program 
-    rewriting algorithms for instrumenting formal logging specifications. 
-    Correctness guarantees that execution of an instrumented program produces 
-    sound and complete audit logs,  properties defined by an information 
-    containment relation between logs and the program's logging semantics. As 
-    an application example, we consider auditing for break the glass policies, 
-    wherein authorization is replaced by auditing in emergency conditions.
-</blockquote>
-
-</td>
-</tr>
-
-
-<tr valign="top">
-<td align="right" class="bibtexnumber">
-[<a name="amirmoh-chong-skalka-tr15">19</a>]
-</td>
-<td class="bibtexitem">
-Sepehr Amir-Mohammadian, Stephen Chong, and Christian Skalka.
- The theory and practice of correct audit logging.
- Technical report, University of Vermont, October 2015.
-[&nbsp;<a href="pubs_bib.html#amirmoh-chong-skalka-tr15">bib</a>&nbsp;| 
-<a href="https://sepehram.github.io/pubs/tr15.pdf">.pdf</a>&nbsp;]
-<blockquote>
-Auditing has become increasingly important to the theory and 
-	    practice of cyber security. However, in systems where auditing is used, 
-	    programs are typically instrumented to generate audit logs using manual,
-	    ad-hoc strategies. This is a potential source of error even if log  
-	    auditing techniques are formal, since the relation of the log itself to 
-	    program execution is unclear. This work focuses on provably correct 
-	    program rewriting algorithms for instrumenting formal logging 
-	    specifications.  Correctness guarantees that the execution of an 
-	    instrumented program produces sound and complete audit logs, properties 
-	    defined by an information containment relation between logs and the 
-	    program's logging semantics.  Logging semantics is sufficiently general, 
-	    so that the guarantees extend to various approaches of audit logging. As a
-	    case study, we demonstrate the incorporation of the proposed techniques 
-	    and features in healthcare informatics. In particular, we consider 
-	    auditing for break the glass policies, wherein authorization is replaced 
-	    by auditing in emergency conditions.
-</blockquote>
-
-</td>
-</tr>
-
-
-<tr valign="top">
-<td align="right" class="bibtexnumber">
-[<a name="amirmoh-fallah-clss13">20</a>]
-</td>
-<td class="bibtexitem">
-Sepehr Amir-Mohammadian and Mehran&nbsp;S. Fallah.
- Noninterference in a predicative polymorphic calculus for access
-  control.
- <em>Computer Languages, Systems &amp; Structures</em>, 39(3):109--120,
-  October 2013.
-[&nbsp;<a href="pubs_bib.html#amirmoh-fallah-clss13">bib</a>&nbsp;| 
-<a href="https://sepehram.github.io/pubs/clss13.pdf">.pdf</a>&nbsp;]
-<blockquote>
-Polymorphic programming languages have been adapted for 
-    		constructing distributed access control systems, where a program represents
-	    a proof of eligibility according to a given policy.  As a security 
-    		requirement, it is typically stated that the programs of such languages 
-	    should satisfy noninterference. However, this property has not been defined 
-    		and proven semantically.  In this paper, we first propose a semantics based 
-	    on Henkin models for a predicative polymorphic access control language 
-    		based on lambda-calculus. A formal semantic definition of noninterference 
-	    is then proposed through logical relations.  We prove a type soundness 
-    		theorem which states that any well-typed program of our language meets the
-	    noninterference property defined in this paper.  In this way, it is 
-    		guaranteed that access requests from an entity do not interfere with those 
-	    from unrelated or more trusted entities.
-</blockquote>
-
-</td>
-</tr>
-</table><hr><p><em>This file was generated by
-<a href="http://www.lri.fr/~filliatr/bibtex2html/">bibtex2html</a> 1.99.</em></p>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('*').forEach(el => el.style.scrollBehavior = 'auto');
+    }
+  </script>
 </body>
 </html>

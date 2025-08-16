@@ -1,263 +1,292 @@
-<html><head>
-  <title>Sepehr Amir-Mohammadian's Homepage</title>
-  <link rel="StyleSheet" href="./css/desktop.css" type="text/css">
-<link rel="stylesheet" type="text/css" href="./css/phone.css" media="(max-width: 1400px)"> <!--764-->
-<!--<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>-->
-  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Sepehr Amir-Mohammadian's Homepage">
-  <meta name="keywords" content="programming languages, language-based security, information security, logic, mathematical logic, publications, research, denotational semantics, syntax, semantics, information flow, access control, Amir-Mohammadian, Amirmohammadian, Sepehr Amir-Mohammadian, University of Vermont, University of the Pacific, Cybersecurity, taint analysis, retrospective security, prospective security, in-depth enforcement, explicit integrity">
-  <meta name="author" content="Sepehr Amir-Mohammadian">
- 
-  <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
-  <script type="text/javascript" src="jquery.nivo.slider.js"></script>
-  <script type="text/javascript" src="external.js"></script>
-  <script type="text/javascript" src="template.js"></script>
-  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-  <meta name="google-site-verification" content="boQg_JmEnv2S_5lhZ6xPAIsaP7SWRohFH-DatGjY0Ts" />
-</head><body>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Sepehr Amir's Homepage">
+  <meta name="keywords" content="programming languages, language-based security, information security, logic, mathematical logic, publications, research, denotational semantics, syntax, semantics, information flow, access control, Amir-Mohammadian, Amirmohammadian, Amir, Sepehr Amir, Sepehr Amir-Mohammadian, University of Vermont, University of the Pacific, Cybersecurity, taint analysis, retrospective security, prospective security, in-depth enforcement, explicit integrity">
+  <meta name="author" content="Sepehr Amir">
+  <title>Sepehr Amir — Homepage</title>
+  <meta name="description" content="Professor of Computer Science. Research in programming languages, security, and AI. Teaching, publications, projects, and contact." />
+  <meta property="og:title" content="Prof. Your Name — Computer Science" />
+  <meta property="og:description" content="Research in programming languages, security, and AI. Teaching, publications, projects, and contact." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/images/portrait.jpg" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Ctext y='1em' font-size='96'%3E🎓%3C/text%3E%3C/svg%3E">
+  <style>
+:root {
+  --bg: #0b0f0c;             /* very dark green background */
+  --panel: #101a13;          /* dark green panel */
+  --text: #e5e7eb;
+  --muted: #9aa3af;
+  --brand: #198754;          /* Bootstrap green (dark, saturated) */
+  --accent: #28a745;         /* medium green */
+  --ring: rgba(40, 167, 69, 0.35); /* green highlight */
+  --card: #111827;
+  --border: #1f2937;
+}
 
-    <div class="container">
-      <div class="content">
-        <div class="contentinner">
-<div style="position:relative;height:280px;">
-    <div id="index-header">
-	<h1>Sepehr Amir-Mohammadian</h1>
-	<div class="contactinfo">
-	  <p>
-	  Associate Professor of Computer Science<br>
-	  <a href="https://engineering.pacific.edu/engineering/academics/computer-science-major">Department of Computer Science</a>
-	  <br><a href="https://engineering.pacific.edu/engineering">School of Engineering and Computer Science </a>
-          <br><a href="https://www.pacific.edu/">University of the Pacific</a>
-	  <br>
-	 </p>
-	</div>
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f8fafc;
+    --panel: #ffffff;
+    --text: #0b1220;
+    --muted: #475569;
+    --brand: #198754;
+    --accent: #28a745;
+    --ring: rgba(40, 167, 69, 0.25);
+    --card: #ffffff;
+    --border: #e5e7eb;
+  }
+}
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background: radial-gradient(1200px 800px at 80% -10%, rgba(40,167,69,0.08), transparent),
+            radial-gradient(1000px 600px at 0% 0%, rgba(72,187,120,0.1), transparent),
+            var(--bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1100px; padding: 0 1.2rem; margin: 0 auto; }
+    .chip { display:inline-block; padding:.125rem .5rem; border:1px solid var(--border); border-radius:999px; font-size:.85rem; color:var(--muted); }
 
+    /* Header / Nav */
+    header {
+      position: sticky; top: 0; z-index: 50; backdrop-filter: blur(8px);
+      background: color-mix(in oklab, var(--bg) 80%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav { display:flex; align-items:center; justify-content:space-between; height:64px; }
+    .nav a.brand { display:flex; gap:.6rem; align-items:center; font-weight:700; color:var(--text); }
+    .nav .links { display:flex; gap:1rem; align-items:center; }
+    .nav .links a { color:var(--muted); font-weight:600; padding:.4rem .6rem; border-radius:8px; }
+    .nav .links a:focus, .nav .links a:hover { color:var(--text); background:var(--panel); outline: 2px solid var(--ring); outline-offset:2px; }
 
-<hr align = "left" style="height: 0px; width: 50%;" />
-<a class="bold" href="#bio">Bio</a> 
-<!--| <a class="bold" href="#education">Education</a>  -->
-| <a class="bold" href="#research">Research Interests</a> 
-| <a class="bold" href="./pubs/pubs.html">Publications</a> 
-| <a class="bold" href="#teaching">Teaching</a> 
-| <a class="bold" href="#contact">Contact</a> 
+    /* Hero */
+    .hero { display:grid; gap:2rem; grid-template-columns: 1fr; padding:4rem 0 2rem; align-items:center; }
+    .hero .portrait { width:140px; height:140px; border-radius:50%; object-fit:cover; border:3px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+    .hero h1 { font-size: clamp(1.8rem, 2.8vw + 1rem, 3rem); margin:0 0 .25rem; }
+    .hero h2 { font-size:1.1rem; font-weight:600; color:var(--muted); margin:.1rem 0 1rem; }
+    .hero .actions { display:flex; gap:.8rem; flex-wrap: wrap; }
+    .btn { display:inline-flex; align-items:center; gap:.5rem; padding:.6rem .9rem; border-radius:10px; border:1px solid var(--border); background: var(--panel); color:var(--text); font-weight:700; }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0,0,0,.15); text-decoration:none; }
+    .btn.primary { background: linear-gradient(180deg, var(--brand), var(--accent)); color:#001019; border:0; }
 
-     </div>
-     <div id="self-photo">
-	<p style="text-align: right;">
-	<img src="face.jpg" width="200"></p>
-	<p style="text-align: right;">
-	<a href="http://www.pacific.edu"><img src="logo.png" width="200" title="University of the Pacific"></a></p>
-      </div>
-</div>
+    /* Sections */
+    section { padding: 2.5rem 0; }
+    section h3 { font-size:1.4rem; margin:0 0 1rem; }
+    .grid { display:grid; gap:1rem; }
+    .grid.cols-2 { grid-template-columns: 1fr; }
+    .grid.cols-3 { grid-template-columns: 1fr; }
+    @media (min-width: 820px) {
+      .hero { grid-template-columns: 1fr 2fr; }
+      .grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+      .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    }
+    .card { background: var(--card); border:1px solid var(--border); border-radius:16px; padding:1rem; box-shadow: 0 6px 18px rgba(0,0,0,.08); }
+    .card h4 { margin:.4rem 0 .2rem; }
+    .card p { margin:.25rem 0 0; color:var(--muted); }
+    .meta { font-size:.9rem; color:var(--muted); }
 
-<br><br><br>
+    /* Publications */
+    .pub { display:grid; gap:.25rem; border-left: 2px solid var(--border); padding-left:.8rem; }
+    .pub .title { font-weight:700; }
+    .pub .venue { color: var(--muted); font-size:.95rem; }
+    .pub .tags { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.3rem; }
 
-<div class="welcomepage">
+    /* Footer */
+    footer { padding:2rem 0; color:var(--muted); border-top:1px solid var(--border); margin-top:2rem; }
 
-
-</div>
-	      
-<div class="box">
-<a name="bio"></a>
-<h2>Bio</h2>
-<p class="firstpara" align="justify"> 
-	I am an associate professor at the <a href="https://engineering.pacific.edu/engineering/academics/computer-science-major"> 
-	Department of Computer Science</a>, <a href="https://www.pacific.edu/"> University of the Pacific</a>. My research explores the interplay between 
-	the theory of programming languages, mathematical logic, and cybersecurity. In particular, my goal is to understand how linguistic approaches help 
-	to establish the properties of interest in different applications. In 2017, I received my PhD in Computer Science with a 
-	<a href="https://sepehram.github.io/pubs/thesis.pdf">thesis</a> on runtime enforcement of in-depth security policies.
-</p>
-<p class="firstpara" align="justify">
-	I enjoy teaching undergraduate and graduate level courses on computer networking, reliable software design, programming languages, and 
-	theoretical aspects of computer science.
-</p>
-<!--<p class="firstpara" align="justify">
-	I have served as the Engineering and Computer Science Council chair in AY 2020-2021. I am currently representing the School of Engineering 
-	and Computer Science in Technology in Education Committee. 
-</p> -->	
-</div>
-
-<!--
-<div class="box">
-<a name="education"></a>
-<h2>Education</h2>
-<ul class="education">
-<li> Ph.D. in Computer Science, <a href="https://www.uvm.edu/cems/cs">Department of Computer Science</a>, <a href="http://www.uvm.edu/">University of Vermont</a>, 2013-2017</li>
-<li>M.Sc. in Information Security Engineering, <a href="http://ceit.aut.ac.ir/autcms/home.htm?depurl=computer-engineering&lang=en">Department of Computer Engineering and IT</a>, <a href="https://aut.ac.ir/en">Amirkabir University of Technology</a>, 2009-2011</li>
-<li>B.Sc. in Information Technology Engineering, <a href="http://ceit.aut.ac.ir/autcms/home.htm?depurl=computer-engineering&lang=en">Department of Computer Engineering and IT</a>, <a href="https://aut.ac.ir/en">Amirkabir University of Technology</a>, 2005-2009</li>
-</ul>
-</div>
--->
-
-<div class="box">
-<a name="research"></a>
-<h2>Research Interests</h2>
-
-<p class="firstpara" align="justify"> 
-<b>Cybersecurity</b> with focus on <b>Programming Languages</b> techniques to provide <b>Formal Software Security Assurance</b>. Here is a list of my 
-	<a href="./pubs/pubs.html">publications</a> and <a href="https://github.com/sepehram?tab=repositories"> research projects</a>.</b>
-</p>
-
-
-<!--
-The set of my research interests is somehow dichotomous. One part is concerned with variants of logical frameworks and their application in computer science, 
-the Theory of Programming Languages, and syntax, semantics and pragmatics of various calculi. Second part is about diverse aspects of Cybersecurity including 
-varied Cybersecurity models, policies and mechanisms. The intersection of these two broad areas is recognized as <b>Programming Languages-based Security</b> 
-which comprises different static and dynamic language-based techniques to design, implement and verify authorization systems, control-flow and information flow 
-analysis tools, security protocols, etc. 
--->
-
-</div>
-
-<div class="box">
-<a name="teaching"></a>
-<h2>Teaching</h2>
-<table border="1" cellpadding="5" cellspacing="0">
-  <thead>
-    <tr>
-      <th>Course Code</th>
-      <th>Course Name</th>
-      <th>Teaching Semesters</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>COMP 51</td>
-      <td>Introduction to Computer Science</td>
-      <td>
-        <a href="./teaching/comp051_s22/syllabus.html">Spring 22</a>, 
-        <a href="./teaching/comp051_sum22/syllabus.html">Summer 22</a>, 
-        <a href="./teaching/comp051_f22/syllabus.html">Fall 22</a>
-      </td>
-    </tr>
-    <tr>
-      <td>COMP 53</td>
-      <td>Data Structures</td>
-      <td>
-        <a href="./teaching/comp053_s20/syllabus.html">Spring 20</a>, 
-        <a href="./teaching/comp053_f20/syllabus.html">Fall 20</a>, 
-        <a href="./teaching/comp053_s23/syllabus.html">Spring 23</a>
-      </td>
-    </tr>
-    <tr>
-      <td>COMP 141</td>
-      <td>Programming Languages</td>
-      <td>
-        <a href="./teaching/comp141_s18/syllabus.html">Spring 18</a>, 
-        <a href="./teaching/comp141_s19/syllabus.html">Spring 19</a>, 
-        <a href="./teaching/comp141_f19/syllabus.html">Fall 19</a>, 
-        <a href="./teaching/comp141_s20/syllabus.html">Spring 20</a>, 
-        <a href="./teaching/comp141_f20/syllabus.html">Fall 20</a>, 
-        <a href="./teaching/comp141_s21/syllabus.html">Spring 21</a>, 
-        <a href="./teaching/comp141_f21/syllabus.html">Fall 21</a>, 
-        <a href="./teaching/comp141_s22/syllabus.html">Spring 22</a>, 
-        <a href="./teaching/comp141_f22/syllabus.html">Fall 22</a>, 
-        <a href="./teaching/comp141_s23/syllabus.html">Spring 23</a>, 
-        <a href="./teaching/comp141_sum23/syllabus.html">Summer 23</a>, 
-        <a href="./teaching/comp141_f23/syllabus.html">Fall 23</a>, 
-        <a href="./teaching/comp141_s24/syllabus.html">Spring 24</a>, 
-        <a href="./teaching/comp141_sum24/syllabus.html">Summer 24</a>, 
-        <a href="./teaching/comp141_s25/syllabus.html">Spring 25</a>, 
-        <a href="./teaching/comp141_sum25/syllabus.html">Summer 25</a>, 
-        <a href="./teaching/comp141_f25/syllabus.html">Fall 25</a>
-      </td>
-    </tr>
-    <tr>
-      <td>COMP 173</td>
-      <td>Operating Systems</td>
-      <td>
-        <a href="./teaching/comp173_s19/syllabus.html">Spring 19</a>, 
-        <a href="./teaching/comp173_s23/syllabus.html">Spring 23</a>, 
-        <a href="./teaching/comp173_s24/syllabus.html">Spring 24</a>
-      </td>
-    </tr>
-    <tr>
-      <td>COMP/ECPE 177</td>
-      <td>Computer Networking</td>
-      <td>
-        <a href="./teaching/comp177_f17/syllabus.html">Fall 17</a>, 
-        <a href="./teaching/comp177_f18/syllabus.html">Fall 18</a>, 
-        <a href="./teaching/comp177_f19/syllabus.html">Fall 19</a>, 
-        <a href="./teaching/comp177_f21/syllabus.html">Fall 21</a>, 
-        <a href="./teaching/comp177_f22/syllabus.html">Fall 22</a>, 
-        <a href="./teaching/comp177_f23/syllabus.html">Fall 23</a>
-      </td>
-    </tr>
-    <tr>
-      <td>COMP 193/293</td>
-      <td>Introduction to Deep Learning</td>
-      <td>
-        <a href="./teaching/comp293_sum23/syllabus.html">Summer 23</a>, 
-        <a href="./teaching/comp293A_sum24_1/syllabus.html">Summer 24</a>
-      </td>
-    </tr>
-    <tr>
-      <td>COMP 193/293</td>
-      <td>Introduction to Quantum Computing</td>
-      <td>
-        <a href="./teaching/comp293A_sum24_2/syllabus.html">Summer 24</a>
-      </td>
-    </tr>
-    <tr>
-      <td>COMP 241</td>
-      <td>Programming Language Semantics</td>
-      <td>
-        <a href="./teaching/comp241_f25/syllabus.html">Fall 25</a>
-      </td>
-    </tr>
-    <tr>
-      <td>COMP 274</td>
-      <td>Reliable Software Design</td>
-      <td>
-        <a href="./teaching/comp293_f18/syllabus.html">Fall 18</a>, 
-        <a href="./teaching/comp293_s21/syllabus.html">Spring 21</a>, 
-        <a href="./teaching/comp274_f25/syllabus.html">Fall 25</a>
-      </td>
-    </tr>
-    <tr>
-      <td>COMP 278</td>
-      <td>Cyber Defense and Offense</td>
-      <td>
-        <a href="./teaching/cybr240_s18/syllabus.html">Spring 18</a>, 
-        <a href="./teaching/comp278_sum23/syllabus.html">Summer 23</a>
-      </td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-<br/>
-<div class="box">
-<a name="contact"></a>
-<h2>Contact</h2>
-<ul>
-<li>&#9993; <font style="font-family:'Lucida Console', monospace"><img src="email.png" width="250"/></font></li>
-<li>&#9990; (209) 932-3261</li>
-<li>Office: 122 John T. Chambers Technology Center</a></li>
-</ul>
-</div>
-
-
- 
-<div>  
-      <hr style="height: 1px; width: 100%;">
-    <table width="100%" cellspacing="0" cellpadding="0" border="0">
-    <tbody>
-      <tr align="left">
-        <td align="right">
-          <p class="footer">
-          <i>Last updated in August 2025.</i>
-	  </p>
-        </td>
-      </tr>      
-    </tbody>
-    </table>
+    /* Skip link for a11y */
+    .skip { position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .skip:focus { position:static; width:auto; height:auto; padding:.4rem; background:var(--panel); border:1px solid var(--border); border-radius:8px; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Sepehr Amir",
+    "jobTitle": "Associate Professor of Computer Science",
+    "affiliation": { "@type": "CollegeOrUniversity", "name": "University of the Pacific" },
+    "url": "https://sepehram.github.io/",
+    "sameAs": [
+      "https://scholar.google.com/citations?user=",
+      "https://orcid.org/",
+      "https://github.com/sepehram",
+      "https://www.linkedin.com/in/"
+    ]
+  }
+  </script>
+</head>
+<body class="h-card">
+  <a class="skip" href="#main">Skip to content</a>
+  <header>
+    <div class="container nav" role="navigation" aria-label="Primary">
+      <a class="brand p-name u-url" href="#">
+        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Zm0 3a7 7 0 1 1-7 7a7.008 7.008 0 0 1 7-7Zm-2 6h4a1 1 0 0 1 0 2h-4a1 1 0 0 1 0-2Z"/></svg>
+        <span>Sepehr Amir</span>
+      </a>
+      <nav class="links">
+        <a href="#about">Bio</a>
+        <a href="#research">Research</a>
+        <a href="./pubs/pubs.html">Publications</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
-</div>
-</div>
-</div>
+  </header>
 
+  <main id="main" class="container">
+    <section class="hero" id="#">
+      <div>
+        <img class="" src="face.jpg" alt="Portrait of Sepehr Amir" />
+      </div>
+      <div>
+        <h1><span class="p-name">Sepehr Amir</span></h1>
+        <h2>Associate Professor of Computer Science</h2>
+        <h3><p class="meta"><a class="p-org" href="https://www.pacific.edu/">University of the Pacific</a></p></h3>
+        <h3><p class="meta"><a href="https://www.pacific.edu/engineering">School of Engineering and Computer Science</a></p></h3>
+        <h3><p class="meta"><a href="https://engineering.pacific.edu/engineering/academics/computer-science-major">Department of Computer Science</a></p></h3>
+        <div class="actions">
+          <a class="btn" href="#research">Research</a>
+          <a class="btn" href="./pubs/pubs.html">Publications</a>
+          <a class="btn" href="#teaching">Teaching</a>
+        </div>
+      </div>
+    </section>
 
-</body></html>
+    <section id="about">
+      <h3>Bio</h3>
+      <div class="card">
+        <p>
+          I am an associate professor at the <a href="https://engineering.pacific.edu/engineering/academics/computer-science-major"> 
+            Department of Computer Science</a>, <a href="https://www.pacific.edu/"> University of the Pacific</a>. My research explores the interplay between 
+            the theory of programming languages, mathematical logic, and cybersecurity. In particular, my goal is to understand how linguistic approaches help 
+            to establish the properties of interest in different applications. In 2017, I received my PhD in Computer Science with a 
+            <a href="https://sepehram.github.io/pubs/thesis.pdf">thesis</a> on runtime enforcement of in-depth security policies.
+        </p>
+        <p>
+          I enjoy teaching undergraduate and graduate level courses on computer networking, reliable software design, programming languages, and 
+          theoretical aspects of computer science.
+        </p>
+      </div>
+    </section>
+
+    <section id="research">
+      <h3>Research</h3>
+      <div class="card">
+        <h4>Research Interests</h4>
+        <p class="meta"><b>Cybersecurity</b> with focus on <b>programming languages</b> techniques to provide <b>formal software security assurance</b>.</p>
+        <!--<p>See my <a href="./pubs/pubs.html">publications</a> and <a href="https://github.com/sepehram?tab=repositories">research projects</a>.</p>-->
+        <br/>
+        <h4>Recent Publications</h4>
+      <p class="meta">For the full list, visit the <a href="./pubs/pubs.html">publications page</a>.</p>
+      <ol>
+        <li class="pub">
+          <div class="title">
+            <a href="https://sepehram.github.io/pubs/acdsa25-2.pdf">Towards quantifying information leakage of timing attacks in cyber-physical systems.</a>
+          </div>
+          <div class="venue">
+            Proceedings of the IEEE International Conference on Artificial Intelligence, Computer, Data Sciences and Applications (ACDSA), Antalya, Türkiye, August 2025
+            <!--<a class="chip" href="https://sepehram.github.io/pubs/acdsa25-2.pdf">Paper</a>-->
+          </div>
+        </li>
+        <br/>
+        <li class="pub">
+          <div class="title">
+            <a href="https://sepehram.github.io/pubs/acdsa25-1.pdf">Approximating quantified information leakage in cyber-physical systems through their digital twins.</a> 
+            </div>
+          <div class="venue">
+            Proceedings of the IEEE International Conference on Artificial Intelligence, Computer, Data Sciences and Applications (ACDSA), Antalya, Türkiye, August 2025
+            <!--<a class="chip" href="https://sepehram.github.io/pubs/acdsa25-1.pdf">Paper</a>-->
+          </div>
+        </li>
+        <br/>
+        <li class="pub">
+          <div class="title">
+            <a href="https://sepehram.github.io/pubs/aiiot25.pdf">Large language models for automated network protocol testing: A survey.</a>
+          </div>
+          <div class="venue">
+            Proceedings of the 6th IEEE Annual World AI IoT Congress (AIIoT), Seattle Convention Center, USA, May 2025
+            <!--<a class="chip" href="https://sepehram.github.io/pubs/aiiot25.pdf">Paper</a>-->
+          </div>
+        </li>
+        <br/>
+        <li class="pub">
+          <div class="title">
+            <a href="https://sepehram.github.io/pubs/didit24.pdf">An implementation model for correct audit logging in cyber-physical systems.</a>
+          </div>
+          <div class="venue">
+            Proceedings of the 1st International Workshop on Distributed Digital Twins (DiDiT 2024), as part of the 19th International Federated Conference on Distributed Computing Techniques (DisCoTec 2024), Groningen, The Netherlands, June 2024
+            <!--<a class="chip" href="https://sepehram.github.io/pubs/didit24.pdf">Paper</a>-->
+          </div>
+        </li>
+      </ol>
+      </div>
+    </section>
+
+    <section id="teaching">
+      <h3>Teaching</h3>
+      <div class="card" style="overflow:auto">
+        <table style="width:100%; border-collapse:collapse; min-width:640px">
+          <thead>
+            <tr>
+              <th style="text-align:left; padding:.5rem; border-bottom:1px solid var(--border)">Course Code</th>
+              <th style="text-align:left; padding:.5rem; border-bottom:1px solid var(--border)">Course Name</th>
+              <th style="text-align:left; padding:.5rem; border-bottom:1px solid var(--border)">Teaching Semesters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding:.5rem">COMP 51</td><td style="padding:.5rem">Introduction to Computer Science</td><td style="padding:.5rem"><a href="./teaching/comp051_s22/syllabus.html">Spring 22</a>, <a href="./teaching/comp051_sum22/syllabus.html">Summer 22</a>, <a href="./teaching/comp051_f22/syllabus.html">Fall 22</a></td></tr>
+            <tr><td style="padding:.5rem">COMP 53</td><td style="padding:.5rem">Data Structures</td><td style="padding:.5rem"><a href="./teaching/comp053_s20/syllabus.html">Spring 20</a>, <a href="./teaching/comp053_f20/syllabus.html">Fall 20</a>, <a href="./teaching/comp053_s23/syllabus.html">Spring 23</a></td></tr>
+            <tr><td style="padding:.5rem">COMP 141</td><td style="padding:.5rem">Programming Languages</td><td style="padding:.5rem"><a href="./teaching/comp141_s18/syllabus.html">Spring 18</a>, <a href="./teaching/comp141_s19/syllabus.html">Spring 19</a>, <a href="./teaching/comp141_f19/syllabus.html">Fall 19</a>, <a href="./teaching/comp141_s20/syllabus.html">Spring 20</a>, <a href="./teaching/comp141_f20/syllabus.html">Fall 20</a>, <a href="./teaching/comp141_s21/syllabus.html">Spring 21</a>, <a href="./teaching/comp141_f21/syllabus.html">Fall 21</a>, <a href="./teaching/comp141_s22/syllabus.html">Spring 22</a>, <a href="./teaching/comp141_f22/syllabus.html">Fall 22</a>, <a href="./teaching/comp141_s23/syllabus.html">Spring 23</a>, <a href="./teaching/comp141_sum23/syllabus.html">Summer 23</a>, <a href="./teaching/comp141_f23/syllabus.html">Fall 23</a>, <a href="./teaching/comp141_s24/syllabus.html">Spring 24</a>, <a href="./teaching/comp141_sum24/syllabus.html">Summer 24</a>, <a href="./teaching/comp141_s25/syllabus.html">Spring 25</a>, <a href="./teaching/comp141_sum25/syllabus.html">Summer 25</a>, <a href="./teaching/comp141_f25/syllabus.html">Fall 25</a></td></tr>
+            <tr><td style="padding:.5rem">COMP 173</td><td style="padding:.5rem">Operating Systems</td><td style="padding:.5rem"><a href="./teaching/comp173_s19/syllabus.html">Spring 19</a>, <a href="./teaching/comp173_s23/syllabus.html">Spring 23</a>, <a href="./teaching/comp173_s24/syllabus.html">Spring 24</a></td></tr>
+            <tr><td style="padding:.5rem">COMP/ECPE 177</td><td style="padding:.5rem">Computer Networking</td><td style="padding:.5rem"><a href="./teaching/comp177_f17/syllabus.html">Fall 17</a>, <a href="./teaching/comp177_f18/syllabus.html">Fall 18</a>, <a href="./teaching/comp177_f19/syllabus.html">Fall 19</a>, <a href="./teaching/comp177_f21/syllabus.html">Fall 21</a>, <a href="./teaching/comp177_f22/syllabus.html">Fall 22</a>, <a href="./teaching/comp177_f23/syllabus.html">Fall 23</a></td></tr>
+            <tr><td style="padding:.5rem">COMP 193/293</td><td style="padding:.5rem">Introduction to Deep Learning</td><td style="padding:.5rem"><a href="./teaching/comp293_sum23/syllabus.html">Summer 23</a>, <a href="./teaching/comp293A_sum24_1/syllabus.html">Summer 24</a></td></tr>
+            <tr><td style="padding:.5rem">COMP 193/293</td><td style="padding:.5rem">Introduction to Quantum Computing</td><td style="padding:.5rem"><a href="./teaching/comp293A_sum24_2/syllabus.html">Summer 24</a></td></tr>
+            <tr><td style="padding:.5rem">COMP 241</td><td style="padding:.5rem">Programming Language Semantics</td><td style="padding:.5rem"><a href="./teaching/comp241_f25/syllabus.html">Fall 25</a></td></tr>
+            <tr><td style="padding:.5rem">COMP 274</td><td style="padding:.5rem">Reliable Software Design</td><td style="padding:.5rem"><a href="./teaching/comp293_f18/syllabus.html">Fall 18</a>, <a href="./teaching/comp293_s21/syllabus.html">Spring 21</a>, <a href="./teaching/comp274_f25/syllabus.html">Fall 25</a></td></tr>
+            <tr><td style="padding:.5rem">COMP 278</td><td style="padding:.5rem">Cyber Defense and Offense</td><td style="padding:.5rem"><a href="./teaching/cybr240_s18/syllabus.html">Spring 18</a>, <a href="./teaching/comp278_sum23/syllabus.html">Summer 23</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h3>Contact</h3>
+      <div class="grid cols-2">
+        <article class="card" style="display:flex; align-items:center;  justify-content:space-between; gap:1rem">
+        <div>
+          <p>✉️ Email: <img src="email.png" width="250" alt="email address"/></p>
+          <p>📱 Phone: (209) 932-3261</p>
+          <p>🏢 Office: 122 Chambers Technology Center</p>
+        </div>
+        <a href="http://www.pacific.edu"><img src="logo.png" alt="University of the Pacific" style="max-height:56px"/></a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="y"></span> Sepehr Amir</p>
+    </div>
+  </footer>
+
+  <script>
+    // Set current year
+    document.getElementById('y').textContent = new Date().getFullYear();
+    // Reduce motion if user prefers
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('*').forEach(el => el.style.scrollBehavior = 'auto');
+    }
+  </script>
+</body>
+</html>
