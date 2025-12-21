@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>COMP 173 — Operating Systems (Spring 2026) • Syllabus</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Syllabus for COMP 141: Programming Languages (Fall 2025), University of the Pacific." />
+  <!-- Reuse your shared green theme -->
+  <link rel="stylesheet" href="/css/theme-green.css" />
+
+  <!-- Page-specific tweaks for legacy markup -->
+  <style>
+    :root {
+      --bg: #0b0f0c;             /* very dark green background */
+      --panel: #101a13;          /* dark green panel */
+      --text: #e5e7eb;
+      --muted: #9aa3af;
+      --brand: #198754;          /* Bootstrap green (dark, saturated) */
+      --accent: #28a745;         /* medium green */
+      --ring: rgba(40, 167, 69, 0.35); /* green highlight */
+      --card: #111827;
+      --border: #1f2937;
+    }
+    
+    @media (prefers-color-scheme: light) {
+      :root {
+      --bg: #f8fafc;
+      --panel: #ffffff;
+      --text: #0b1220;
+      --muted: #475569;
+      --brand: #198754;
+      --accent: #28a745;
+      --ring: rgba(40, 167, 69, 0.25);
+      --card: #ffffff;
+      --border: #e5e7eb;
+      }
+    }
+      *, *::before, *::after { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+        color: var(--text);
+        background: radial-gradient(1200px 800px at 80% -10%, rgba(40,167,69,0.08), transparent),
+          radial-gradient(1000px 600px at 0% 0%, rgba(72,187,120,0.1), transparent),
+          var(--bg);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      a { color: var(--brand); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      .container { max-width: 1100px; padding: 0 1.2rem; margin: 0 auto; }
+      .chip { display:inline-block; padding:.125rem .5rem; border:1px solid var(--border); border-radius:999px; font-size:.85rem; color:var(--muted); }
+    
+      /* Header / Nav */
+      header {
+        position: sticky; top: 0; z-index: 50; backdrop-filter: blur(8px);
+        background: color-mix(in oklab, var(--bg) 80%, transparent);
+        border-bottom: 1px solid var(--border);
+      }
+      .nav { display:flex; align-items:center; justify-content:space-between; height:64px; }
+      .nav a.brand { display:flex; gap:.6rem; align-items:center; font-weight:700; color:var(--text); }
+      .nav .links { display:flex; gap:1rem; align-items:center; }
+      .nav .links a { color:var(--muted); font-weight:600; padding:.4rem .6rem; border-radius:8px; }
+      .nav .links a:focus, .nav .links a:hover { color:var(--text); background:var(--panel); outline: 2px solid var(--ring); outline-offset:2px; }
+    
+      /* Hero */
+      .hero { display:grid; gap:2rem; grid-template-columns: 1fr; padding:4rem 0 2rem; align-items:center; }
+      .hero .portrait { width:140px; height:140px; border-radius:50%; object-fit:cover; border:3px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+      .hero h1 { font-size: clamp(1.8rem, 2.8vw + 1rem, 3rem); margin:0 0 .25rem; }
+      .hero h2 { font-size:1.1rem; font-weight:600; color:var(--muted); margin:.1rem 0 1rem; }
+      .hero .actions { display:flex; gap:.8rem; flex-wrap: wrap; }
+      .btn { display:inline-flex; align-items:center; gap:.5rem; padding:.6rem .9rem; border-radius:10px; border:1px solid var(--border); background: var(--panel); color:var(--text); font-weight:700; }
+      .btn:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0,0,0,.15); text-decoration:none; }
+      .btn.primary { background: linear-gradient(180deg, var(--brand), var(--accent)); color:#001019; border:0; }
+    
+      /* Sections */
+      section { padding: 2.5rem 0; }
+      section h3 { font-size:1.4rem; margin:0 0 1rem; }
+      .grid { display:grid; gap:1rem; }
+      .grid.cols-2 { grid-template-columns: 1fr; }
+      .grid.cols-3 { grid-template-columns: 1fr; }
+      @media (min-width: 820px) {
+        .hero { grid-template-columns: 1fr 2fr; }
+        .grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+      }
+      .card { background: var(--card); border:1px solid var(--border); border-radius:16px; padding:1rem; box-shadow: 0 6px 18px rgba(0,0,0,.08); }
+      .card h4 { margin:.4rem 0 .2rem; }
+      .card p { margin:.25rem 0 0; color:var(--muted); }
+      .meta { font-size:.9rem; color:var(--muted); }
+    
+      /* Publications */
+      .pub { display:grid; gap:.25rem; border-left: 2px solid var(--border); padding-left:.8rem; }
+      .pub .title { font-weight:700; }
+      .pub .venue { color: var(--muted); font-size:.95rem; }
+      .pub .tags { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.3rem; }
+    
+      /* Footer */
+      footer { padding:2rem 0; color:var(--muted); border-top:1px solid var(--border); margin-top:2rem; }
+    
+      /* Skip link for a11y */
+      .skip { position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden; }
+      .skip:focus { position:static; width:auto; height:auto; padding:.4rem; background:var(--panel); border:1px solid var(--border); border-radius:8px; }
+
+      .grade-table {
+        border-collapse: collapse; /* so borders don't double up */
+        margin: 0 auto; /* center the table */
+      }
+
+      .grade-table th,
+      .grade-table td {
+        border: 2px solid var(--brand); /* use your theme's CSS color variable */
+        padding: 15px; /* replaces cellpadding */
+        text-align: center;
+      }
+
+      .grade-table th {
+        background-color: var(--panel);
+        color: var(--text);
+      }
+      </style>
+
+</head>
+<body>
+  <!-- Site header to match your theme -->
+  <header>
+    <div class="container nav" role="navigation" aria-label="Primary">
+      <a class="brand" href="../../index.html"><span>Sepehr Amir</span></a>
+      <nav class="links">
+        <a href="../../index.html">Home</a>
+        <a href="../../index.html#research">Research</a>
+        <a href="../../pubs/pubs.html">Publications</a>
+        <a href="../../index.html#teaching">Teaching</a>
+        <a href="../../index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" id="main">
+    <h1 class="page-title">COMP 173: Operating Systems (Spring 2026)</h1>
+
+    <!-- In-page TOC -->
+    <nav class="toc" aria-label="Syllabus sections" align="center">
+      <a class="btn" href="#Description">Course Description</a>
+      <a class="btn" href="#Admin">Administration</a>
+      <a class="btn" href="#Objectives">Learning Objectives</a>
+      <a class="btn" href="#Materials">Materials</a>
+      <a class="btn" href="#Grading">Grading & Attendance</a>
+      <a class="btn" href="#ExamSched">Exams</a>
+      <br/>
+      <a class="btn" href="#Homework">Assignment Guidelines</a>
+      <a class="btn" href="#AcademicHonesty">Academic Honesty</a>
+      <a class="btn" href="#Disabilities">Disabilities</a>
+      <a class="btn" href="#Nondiscrimination">Nondiscrimination</a>
+    </nav>
+
+    <!-- ===== DESCRIPTION ===== -->
+    <section id="Description" class="card" aria-labelledby="desc-h">
+      <h2 id="desc-h">Course Description</h2>
+      <p class="firstpara" align="justify">
+        Students are introduced to the fundamental concepts of modern operating systems. 
+        Topics include an overview of the computer hardware that supports the operating system, 
+        process management, threads, and CPU scheduling. Students also study process 
+        synchronization that uses primitive and high-level languages, virtual memory management, 
+        file systems, system protection, and distributed systems.
+      </p>
+
+      <p class="firstpara" align="justify">
+        <b><i>Prerequisites:</i></b> Completion of all Fundamental Skills; COMP 053; 
+        COMP 175 or ECPE 170 with a "C-" or better or permission of instructor.
+        <br>
+        <i>When enrolling in this course, you should already understand the basics of binary numbers, 
+          digital electronics, and serial and parallel digital communications. Further, you should 
+          be comfortable programming in a high-level language such as C, C++, Python, or Java and 
+          understand the basics of loops, arrays, structures, pointers, and function calls.</i>
+      </p>
+
+      <p class="firstpara">
+        <b><i>Website:</i></b> <a href="./syllabus.html">Syllabus</a>, <a href="http://canvas.pacific.edu">Canvas LMS</a>
+      </p>
+      <p class="firstpara"><b><i>Credits:</i></b> 4 units</p>
+      <p class="firstpara">
+        <b><i>Course Catalog:</i></b> 
+        <a href="https://catalog.pacific.edu/search/?search=comp+173&caturl=%2F">
+          https://catalog.pacific.edu/search/?search=comp+173&caturl=%2F
+        </a>
+      </p>
+    </section>
+
+    <!-- ===== ADMIN ===== -->
+    <section id="Admin" class="card" aria-labelledby="admin-h">
+      <h2 id="admin-h">Administration</h2>
+      <p class="firstpara" align="justify">
+        <b>Instructor:</b> <a href="../../index.html">Sepehr Amir</a><br>
+        <b>Email:</b> <img src="https://sepehram.github.io/email.png" width="250" alt="email address"><br>
+        <b>Class time/location:</b> MWF 11:00 – 12:15, Chambers 114<br><br>
+        <b>Office hours:</b> MW 14:00 – 15:15, Chambers 122<br><br>
+        <b>Teaching Assistant:</b> Qazi Haad<br>
+        <b>Email:</b> q_haad@u.pacific.edu
+      </p>
+    </section>
+
+    <!-- ===== OBJECTIVES ===== -->
+    <section id="Objectives" class="card" aria-labelledby="obj-h">
+      <h2 id="obj-h">Learning Objectives</h2>
+      <p class="firstpara" align="justify">
+        The vision for this course is: <i>What do I, as a computer scientist, need to understand 
+          about the fundamental concepts of modern operating systems and what are the the 
+          strategies that the operating systems implement to manage computer hardware 
+          resources in an effective way?</i>
+      </p>
+
+      <p class="firstpara" align="justify">You will have many different opportunities to gain this knowledge through:</p>
+      <div class="box" align="justify">
+        <ul>
+          <li>Labs</li>
+          <li>Homework assignments</li>
+          <li>Course projects</li>
+          <li>Getting exposed to new operating systems</li>
+          <li>Class discussions and reading assignments</li>
+        </ul>
+      </div>
+
+      <p class="firstpara" align="justify">After taking this course, you should be able to:</p>
+      <div class="box" align="justify">
+        <ul>
+          <li>Describe and comparing modern operating system architectures.</li>
+          <li>Understand basic concepts of processes and threads</li>
+          <li>Write simulators to demonstrate your understanding of essential process management techniques, including process creation and termination, inter-process communication and synchronization, CPU scheduling, multithreaded programming, and deadlock handling.</li>
+          <li>Describe how various memory management schemes, such as paging and segmentation, work and write simulators to demonstrate your understanding of these schemes.</li>
+          <li>Understand the function of file systems, describe the interfaces to file systems, and discuss file-system design tradeoffs.</li>
+        </ul>
+      </div>
+
+      <p class="firstpara" align="justify">
+        <b>University of the Pacific Core Competencies:</b> This course reflects the following university‑wide 
+        <a href="https://catalog.pacific.edu/sanfrancisco/corecompetencies/">core competencies</a>:
+      </p>
+      <div class="box" align="justify">
+        <ul>
+          <li>Critical Thinking</li>
+          <li>Information Literacy</li>
+          <li>Quantitative Reasoning</li>
+        </ul>
+      </div>
+
+      <p class="firstpara" align="justify">
+        <b>Outcomes for COMP program:</b> Assessed outcomes per 
+        <a href="http://catalog.pacific.edu/stocktongeneral/schoolofengineeringandcomputerscience/computerscience/#objective">ABET</a>:
+      </p>
+      <div class="box" align="justify">
+        <ul>
+          <li>Outcome 1: Analyze a complex computing problem and to apply principles of computing and other relevant disciplines to identify solutions.</li>
+          <li>Outcome 2: Design, implement, and evaluate a computing-based solution to meet a given set of computing requirements in the context of the program's discipline.</li>
+          <li>Outcome 5: Function effectively as a member or leader of a team engaged in activities appropriate to the program's discipline.</li>
+          <li>Outcome 6: Apply computer science theory and software development fundamentals to produce computing-based solutions.</li>
+        </ul>
+      </div>
+
+      <!--<p class="firstpara" align="justify"><b>Collection of Work for Assessment:</b> Student work may be retained for assessment/accreditation.</p>-->
+    </section>
+
+    <!-- ===== MATERIALS ===== -->
+    <section id="Materials" class="card" aria-labelledby="mat-h">
+      <h2 id="mat-h">Course Material</h2>
+      <p class="firstpara" align="justify">
+        We will use the following zyBook along with additional resources that are referred through the semester. In order to use the zyBook follow these steps:
+      </p>
+      <div class="box" align="justify">
+        <ul>
+          <li>Sign in or create an account at <a href="https://learn.zybooks.com">learn.zybooks.com</a>.</li>
+          <li>Enter zyBook code: <b><u>PACIFICCOMP173Amir-MohammadianSpring2026</u></b>.</li>
+          <li>Subscribe.  Note that a subscription is <b>$69</b>. Students may begin subscribing on Dec 29, 2025 and 
+            the cutoff to subscribe is Apr 22, 2026. Subscriptions will last until May 20, 2026. </li>
+        </ul>
+        The zyBook is based on the following textbook:
+        <div class="box" align="justify">
+        <ul>
+          <li><u><i>Operating System Concepts</u></i>, 10th edition, by Abraham Silberschatz, Peter Baer Galvin, and Greg Gagne.
+        </ul>
+        </div>
+      </div>
+
+
+      <p class="firstpara" align="justify">
+        Slides, assignments, and supplementary material will be posted on <a href="http://canvas.pacific.edu">Canvas</a>.
+      </p>
+
+      <p class="firstpara" align="justify">Major topics include:</p>
+      <div class="box" align="justify">
+        <ul>
+          <li>OS architectures: Windows, Linux, Mac OS, Parallel and Distributed Computing</li>
+          <li>Process Management: Concepts, Threads, Scheduling, Interprocess Communication, Synchronization, and Deadlocks.</li>
+          <li>Memory Management: Basics, Paging, Segmentation</li>
+          <li>File System: Directories, Access Methods, Free Space Tracking, File Allocation, and
+          Mounting.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== GRADING ===== -->
+    <section id="Grading" class="card grades" aria-labelledby="grading-h">
+      <h2 id="grading-h">Grading and Attendance Policy</h2>
+
+      <p class="firstpara" align="justify">Grades are assigned on the scale below:</p>
+        <table class="grade-table" align="center">
+          <thead>
+            <tr>
+              <th>A</th><th>A-</th><th>B+</th><th>B</th><th>B-</th>
+              <th>C+</th><th>C</th><th>C-</th><th>D+</th><th>D</th><th>F</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="center">[93,100]</td>
+              <td align="center">[90,93)</td>
+              <td align="center">[87,90)</td>
+              <td align="center">[83,87)</td>
+              <td align="center">[80,83)</td>
+              <td align="center">[77,80)</td>
+              <td align="center">[73,77)</td>
+              <td align="center">[70,73)</td>
+              <td align="center">[67,70)</td>
+              <td align="center">[60,67)</td>
+              <td align="center">[0,60)</td>
+            </tr>
+          </tbody>
+        </table>
+
+      <p class="firstpara" align="justify">
+        Final grades are based on:
+      </p>
+      <div class="box" align="justify">
+        <ul>
+          <li>Reading assignments: 10%</li>
+          <li>Homework assignments: 20%</li>
+          <li>Course projects: 20%</li>
+          <li>Labs: 20%</li>
+          <li>Exams: 15%</li>
+          <li>OS Days: 10%</li>
+          <li>Attendance: 5%</li>
+        </ul>
+      </div>
+
+      <p class="firstpara" align="justify"><b><i>Attendance:</i></b></p>
+      <div class="box" align="justify">
+        <ul>
+          <li>Class attendance and participation is required. There will be numerous labs in class, and doing the labs in the class boosts the quality of learning.  
+            Participation requires that you are properly prepared for classroom discussions and activities, and have completed all reading assignments before each class session. </li>
+
+            
+            <li>Students are expected to arrive prepared, having completed all required work (including the assigned reading through zyBook) before class begins. 
+            Failure to do so may impact both participation and overall performance. </li>
+            
+            <li>You will only be allowed <i><u>three excused or unexcused class
+            misses</u></i> during the semester. Excuses for professional, 
+            academic or athletic activities must be
+            approved by the instructor in advance. </li>
+            
+            <li> Students missing a class are responsible for making up the material 
+            studied in that class on their own.
+            Students are responsible for being aware of any announcements made during 
+            their absence. </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== EXAMS ===== -->
+    <section id="ExamSched" class="card" aria-labelledby="exams-h">
+      <h2 id="exams-h">Exams</h2>
+      <p class="firstpara" align="justify">
+        THree exams will be conducted during the semester. 
+        The schedule will be announced in class and content and format will be 
+        discussed prior to the exams. <i><u>Make up exams will only be scheduled 
+        in emergency situations.</u></i>
+      </p>
+    </section>
+
+    <!-- ===== ASSIGNMENT GUIDELINES ===== -->
+    <section id="Homework" class="card" aria-labelledby="assign-h">
+      <h2 id="assign-h">Assignment Guidelines</h2>
+
+      <p class="firstpara" align="justify"><i><b>Release and Submission</b></i></p>
+      <div class="box" align="justify">
+        <ul>
+          <li><b>Reading Assignments</b>: Reading assignments will be released on the course Canvas page at most one or two days 
+            before each lecture session. Students must study the referred material before each class session, and accomplish all 
+            of the requested participation and challenge activities. zyBook traces your activities and numerically reports how 
+            much you have progressed in reading the (sub)sections precisely by date/time. Those evaluations will be used as your 
+            grades for reading assignments, considering the due dates which are based on PST. Each lecture session accompanies a 
+            reading assignment, which must be done until that day. There will be no due date extensions on reading assignments.
+            Reading assignments are considered as individual efforts.</li>
+          <li><b>Labs</b>: Labs will be released on the course Canvas page for each lecture session. The goal is to accomplish all 
+            class activities and submit in Canvas until end of lecture day. Late submissions <u>will not</u> be accepted.</u> 
+            Lab assignments are considered to be group-based.</li>
+          <li><b>Homework Assignments</b>: Homework assignments will be released on the course Canvas page with a clearly indicated 
+            due date. Timely submissions are accepted until 11:59PM on the due date. Homework assignments are considered as 
+            individual efforts.</li>
+          <li><b>Course Projects</b>: Course projects will be released on the course Canvas page with a clearly indicated due date.  
+            Timely submissions are accepted until 11:59PM on the due date. These assignments are considered to be group-based.</li>
+          <li>
+            <b>Operating System Day Assignment</b>: 
+            This assignment involves introducing a new operating system during a full class session. Each group (3-4 students, formed during the first week 
+            of the semester) will prepare and deliver content covering the OS's features, architecture, design goals, live/conceptutal demonstration, etc. ensuring all members 
+            actively contribute to both preparation and delivery. Detailed requirements and grading criteria will be provided in advance. This assignment 
+            is considered <b>group-based</b>. Each OS day accompanies a required graded survey, gathering feedback on the quality of that OS day. 
+            This feedback survey is required and individual.
+          </li>
+        </ul>
+      </div>
+      <table class="grade-table" align="center">
+          <thead>
+            <tr>
+              <th>Assignment Type</th><th>Score (%)</th><th>Group Sizes</th><th>Due Times</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Reading</td><td>10%</td><td>Individual</td><td>Before each session (through zyBook)</td></tr>
+            <tr><td>Labs</td><td>20%</td><td>Up to 2</td><td>11:59 PM same day (unless extended)</td></tr>
+            <tr><td>Projects</td><td>20%</td><td>Up to 2</td><td>11:59 PM on due date</td></tr>
+            <tr><td>Homework</td><td>20%</td><td>Individual</td><td>11:59 PM on due date</td></tr>
+            <tr><td>OS Day</td><td>10%</td><td>3-4</td><td>Presentation day</td></tr>
+            <tr><td>Exams</td><td>15%</td><td>Individual</td><td>Scheduled date</td></tr>
+            <tr><td>Attendance</td><td>5%</td><td>Individual</td><td>Each session</td></tr>
+          </tbody>
+        </table>
+
+      <p class="firstpara" align="justify">
+        <i><b>Solutions:</b></i> Solutions to homework assignments and labs will be submitted via Canvas.
+      </p>
+      <p class="firstpara" align="justify">
+        <i><b>Late policy:</b></i> Course project and homework deliverables accepted up to <b><i>3 days</i></b> late at <i><b>−5% per day penalty</b></i>.
+        <br><i><u>All work is individual unless otherwise specified, and subject to the <a href="#AcademicHonesty">Academic Honesty Policy</a>.</u></i>
+      </p>
+    </section>
+
+    <!-- ===== HONESTY ===== -->
+    <section id="AcademicHonesty" class="card" aria-labelledby="honesty-h">
+      <h2 id="honesty-h">Academic Honesty</h2>
+      <p class="firstpara" align="justify">
+        The Honor Code calls upon each student to exhibit maturity, responsibility, and integrity. Students are expected to:
+      </p>
+      <div class="box" align="justify">
+        <ul>
+          <li>Act honestly in all matters</li>
+          <li>Encourage academic integrity</li>
+          <li>Discourage cheating or dishonesty</li>
+          <li>Inform the instructor/administration with good‑faith evidence of violations</li>
+        </ul>
+      </div>
+      <p class="firstpara" align="justify">
+        Violations are referred to the Office of Student Conduct and Community Standards and may result in penalties up to failure/suspension/dismissal. 
+        See Tiger Lore and <a href="http://www.pacific.edu/Campus-Life/Safety-and-Conduct/Student-Conduct/Tiger-Lore-Student-Handbook-.html">online policy</a>.
+      </p>
+
+      <p class="firstpara" align="justify"><b><i>Course‑specific policy:</i></b></p>
+      <div class="box" align="justify">
+        <ul>
+          <li>Collaboration on planning/strategy/debugging is encouraged.</li>
+          <li><i><u>Do not submit someone else's work.</u></i> </li>
+        </ul>
+      </div>
+      <p class="firstpara" align="justify">
+        Marginal cases may be resolved via oral examination to assess individual understanding.
+      </p>
+    </section>
+
+    <!-- ===== DISABILITIES ===== -->
+    <section id="Disabilities" class="card" aria-labelledby="disab-h">
+      <h2 id="disab-h">Accommodations for Students with Disabilities</h2>
+      <p class="firstpara" align="justify">
+        If you require accommodations, visit 
+        <a href="https://www.pacific.edu/student-life/student-services/services-for-students-with-disabilities">pacific.edu/disabilities</a> 
+        to contact SSD and request services.
+      </p>
+      <div class="box" align="justify">
+        <ol>
+          <li>New students: apply via <a href="https://augusta.accessiblelearning.com/Pacific/ApplicationStudent.aspx">New Students Apply Here</a>.</li>
+          <li>Returning students: request letters each semester via 
+            <a href="https://augusta.accessiblelearning.com/Pacific/">Returning Students Login Here</a>.
+          </li>
+        </ol>
+      </div>
+      <p class="firstpara" align="justify">
+        SSD: McCaffrey Center (2nd Floor) • 209‑946‑3221 • 
+        <a href="mailto:ssd@pacific.edu">ssd@pacific.edu</a> • 
+        <a href="https://www.pacific.edu/student-life/student-services/services-for-students-with-disabilities">website</a>
+      </p>
+    </section>
+
+    <!-- ===== NONDISCRIMINATION ===== -->
+    <section id="Nondiscrimination" class="card" aria-labelledby="non-h">
+      <h2 id="non-h">Nondiscrimination Policy</h2>
+      <p class="firstpara" align="justify">
+        The University of the Pacific does not discriminate in the administration of its programs/activities based on race, color, national and ethnic origin, 
+        handicap, sexual orientation or preference, sex, or age.
+      </p>
+    </section>
+
+    <section class="card" aria-label="Policy note">
+      <p><i><b>The instructor reserves the right to change these policies and guidelines at any time, and students agree to abide by the most recent version of this syllabus.</b></i></p>
+    </section>
+
+    <p class="meta" align="center"><a href="#top">Back to top</a></p>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="meta">© <span id="y"></span> Sepehr Amir</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('*').forEach(el => el.style.scrollBehavior='auto');
+    }
+  </script>
+</body>
+</html>
